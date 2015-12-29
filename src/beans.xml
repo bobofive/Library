@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="jdbcUrl"
+			value="jdbc:mysql://localhost:3306/library?useUnicode=true&amp;characterEncoding=UTF-8">
+		</property>
+		<property name="user" value="root"></property>
+		<property name="password" value=""></property>
+		<!-- 指定连接数据库连接池的最大连接数 -->
+		<property name="maxPoolSize" value="50" />
+		<!-- 指定连接数据库连接池的最小连接数 -->
+		<property name="minPoolSize" value="5" />
+		<!-- 指定连接数据库连接池的初始化连接数 -->
+		<property name="initialPoolSize" value="5" />
+		<!-- 指定连接数据库连接池的连接的最大空闲时间 -->
+		<property name="maxIdleTime" value="25000" />
+		<property name="maxStatements" value="0" />
+		<!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
+		<property name="idleConnectionTestPeriod" value="60" />
+		<!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+		<property name="acquireRetryAttempts" value="30" />
+		<!--获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效 保留，并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试 
+			获取连接失败后该数据源将申明已断开并永久关闭。Default: false -->
+		<property name="breakAfterAcquireFailure" value="false" />
+		<!--因性能消耗大请只在需要的时候使用它。如果设为true那么在每个connection提交的 时候都将校验其有效性。建议使用idleConnectionTestPeriod或automaticTestTable 
+			等方法来提升连接测试的性能。Default: false -->
+		<property name="testConnectionOnCheckout" value="false" />
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/domain/Scademyinfo.hbm.xml</value>
+				<value>com/domain/Longtermapplyinfo.hbm.xml</value>
+				<value>com/domain/Seatinfo.hbm.xml</value>
+				<value>com/domain/Orderinfo.hbm.xml</value>
+				<value>com/domain/Userinfo.hbm.xml</value>
+				<value>com/domain/Admininfo.hbm.xml</value>
+				<value>com/domain/Historyinfo.hbm.xml</value>
+				<value>com/domain/Majorinfo.hbm.xml</value>
+				<value>com/domain/Noticeinfo.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- DAO相关 -->
+	<bean scope="prototype" id="baseDao" class="com.dao.BaseDaoHibImpl"
+		autowire="byName">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- Service相关 -->
+	<bean scope="prototype" id="admininfoService"
+		class="com.services.AdmininfoServiceImpl" autowire="byName">
+	</bean>
+	<bean scope="prototype" id="historyininfoService"
+		class="com.services.HistoryinfoServiceImpl" autowire="byName">
+	</bean>
+	<bean scope="prototype" id="longtermapplyinfoService"
+		class="com.services.LongtermapplyinfoServiceImpl" autowire="byName">
+	</bean>
+	<bean scope="prototype" id="majorinfoService"
+		class="com.services.MajorinfoServiceImpl" autowire="byName">
+	</bean>
+	<bean scope="prototype" id="noticeinfoService"
+		class="com.services.NoticeinfoServiceImpl" autowire="byName">
+	</bean>
+	<bean scope="prototype" id="orderinfoService"
+		class="com.services.OrderinfoServiceImpl" autowire="byName">
+	</bean>
+	<bean scope="prototype" id="scademyinfoService"
+		class="com.services.ScademyinfoServiceImpl" autowire="byName">
+	</bean>
+	<bean scope="prototype" id="seatinfoService"
+		class="com.services.SeatinfoServiceImpl" autowire="byName">
+	</bean>
+	<bean scope="prototype" id="userinfoService"
+		class="com.services.UserinfoServiceImpl" autowire="byName">
+	</bean>
+
+	<!-- Action相关 -->
+	<bean scope="prototype" autowire="byName" id="loginAction"
+		class="com.controller.LoginAction">
+	</bean>
+	<bean scope="prototype" autowire="byName" id="adminAction"
+		class="com.controller.AdminAction">
+	</bean>
+	<bean scope="prototype" autowire="byName" id="historyAction"
+		class="com.controller.HistoryAction">
+	</bean>
+	<bean scope="prototype" autowire="byName" id="longtermapplyAction"
+		class="com.controller.LongtermapplyAction">
+	</bean>
+	<bean scope="prototype" autowire="byName" id="majorAction"
+		class="com.controller.MajorAction">
+	</bean>
+	<bean scope="prototype" autowire="byName" id="noticeAction"
+		class="com.controller.NoticeAction">
+	</bean>
+	<bean scope="prototype" autowire="byName" id="orderAction"
+		class="com.controller.OrderAction">
+	</bean>
+	<bean scope="prototype" autowire="byName" id="scademyAction"
+		class="com.controller.ScademyAction">
+	</bean>
+	<bean scope="prototype" autowire="byName" id="seatAction"
+		class="com.controller.SeatAction">
+	</bean>
+	<bean scope="prototype" id="userAction" autowire="byName" 
+		class="com.controller.UserAction">
+	</bean>
+
+	<!-- 事务配置 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="update*" timeout="120" rollback-for="Exception"
+				propagation="REQUIRED" />
+			<tx:method name="add*" timeout="120" rollback-for="Exception"
+				propagation="REQUIRED" />
+			<tx:method name="create*" timeout="120" rollback-for="Exception"
+				propagation="REQUIRED" />
+			<tx:method name="del*" timeout="120" rollback-for="Exception"
+				propagation="REQUIRED" />
+			<tx:method name="save*" timeout="120" rollback-for="Exception"
+				propagation="REQUIRED" />
+			<!-- <tx:method name="show*" read-only="true"/> -->
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.service.*.*(..))" />
+	</aop:config>
+</beans>
