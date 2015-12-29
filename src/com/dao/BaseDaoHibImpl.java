@@ -30,6 +30,7 @@ public class BaseDaoHibImpl<T> implements BaseDao<T> {
 
 	// ±£¥Ê µÃÂ
 	public Serializable save(T entity) {
+		
 		return getSession().save(entity);
 	}
 

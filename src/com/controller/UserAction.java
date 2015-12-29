@@ -44,7 +44,7 @@ public class UserAction extends ActionSupport{
 	//添加用户信息
 	public String insertUser(){
 		
-		if(userinfoService.getUserinfoById(userinfo.getUserId())!=null)
+		if(userinfoService.getUserinfoById(userinfo.getUserId()).size() != 0)
 			return "error";
 		userinfo.setUserPw("123456");
 		int isInsert=userinfoService.creatUserinfo(userinfo);
