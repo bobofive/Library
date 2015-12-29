@@ -30,8 +30,12 @@ public class BaseDaoHibImpl<T> implements BaseDao<T> {
 
 	// 保存实体
 	public Serializable save(T entity) {
+		//getSession().persist(entity);
+		Session session = getSession();
+		Serializable seri = session.save(entity);
+		session.flush();
+		return seri;
 		
-		return getSession().save(entity);
 	}
 
 	// 更新实体
