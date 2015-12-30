@@ -12,4 +12,6 @@ public interface ScademyinfoService {
 	boolean deleteScademyinfo(Integer scademyCode);
 	//获取所有的学院信息
 	List getAllScademyinfo();
+	//根据学院代码获取学院信息
+	List getScademyinfoByCode(Integer scademyCode);
 }

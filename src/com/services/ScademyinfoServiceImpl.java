@@ -31,6 +31,10 @@ public class ScademyinfoServiceImpl implements ScademyinfoService {
 		return baseDao.findAll(Scademyinfo.class);
 	}
 
+	public List getScademyinfoByCode(Integer scademyCode){
+		String hql="select * from Scademyinfo s where s.scademyCode="+scademyCode;
+		return baseDao.find(hql);
+	}
 	
 	
 	public BaseDaoHibImpl<Scademyinfo> getBaseDao() {

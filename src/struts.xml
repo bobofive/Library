@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="login" namespace="/" extends="struts-default">
+		<action name="login_action" class="loginAction" method="login">
+			<result name="adm" >/admin/admin_index.jsp</result>
+			<result name="usr" >/user/user_index.jsp</result>
+			<result name="err" >err.jsp</result>
+		</action>
+		<action name="sign_out" class="loginAction" method="signout">
+			<result name="signout" type="redirect">index.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 用户信息模块 -->
+	<package name="user" namespace="/" extends="struts-default">
+		<!-- 显示所有的用户信息 -->
+		<action name="show_all_users" class="userAction" method="showAllUsersMessage">
+			<result name="showAllUsers">/admin/showAllUsers.jsp</result>
+		</action>
+		<!-- 显示用户个人信息 -->
+		<action name="show_user_message" class="userAction" method="showUserMessage">
+			<result name="showUser">/user/userMessage.jsp</result>
+		</action>
+		<!-- 查询用户信息 -->
+		<action name="show_one_user_message" class="userAction" method="showUserMessage">
+			<result name="showUser">/admin/searchUserRes.jsp</result>
+		</action>
+		<!-- 添加用户信息 -->
+		<action name="insert_user_message" class="userAction" method="insertUser">
+			<result name="success">test.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+		<!-- 删除用户信息 -->
+		<action name="delete_user_message" class="userAction" method="deleteUser">
+			<result name="success">test.jsp</result>
+			<result name="erorr">index.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 公告管理模块 -->
+	<package name="notice" namespace="/" extends="struts-default">
+	
+		<!-- 显示所有公告信息 -->
+		<action name="show_all_notices" class="noticeAction" method="showAllNotices">
+			<result name="success">/admin/showAllNotices.jsp</result>
+		</action>
+		
+		<!-- 查看某个公告 -->
+		<action name="show_notice" class="noticeAction" method="showNotice">
+			<result name="showNotice">/testweb/showNoticeMessage.jsp</result>
+		</action>
+		
+		<!-- 删除公告 -->
+		<action name="delete_notice" class="noticeAction" method="deleteNotice">
+			<result name="success">/testweb/deleteClientRes.jsp</result>
+			<result name="error">/testweb/deleteClientRes.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 座位信息模块 -->
+	<package name="seat" namespace="/" extends="struts-default">
+	
+		<!-- 座位信息查询 -->
+		<action name="show_all_seats" class="seatAction" method="showAllSeats">
+			<result name="showAllSeats">/admin/showAllSeats.jsp</result>
+		</action>
+		
+		<!-- 添加座位信息 -->
+		<action name="insert_seat_message" class="seatAction" method="insertSeat">
+			<result name="success">test.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 座位预约模块 -->
+	<package name="order" namespace="/" extends="struts-default">
+		
+		<!-- 空座位查询 -->
+		<action name="show_empty_seat" class="seatAction" method="showEmptySeat">
+			<result name="showEmptySeat">/user/emptySeat.jsp</result>
+		</action>
+		<!-- 预约信息查询 -->
+		<action name="show_order" class="orderAction" method="showOrderByUserId">
+			<result name="showOrderMessage">/user/myOrdermessage.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 长期座位申请模块 -->
+	<package name="longtermapply" namespace="/" extends="struts-default">
+		<!-- 长期座位申请 -->
+		<action name="insert_longtermapply" class="longtermapplyAction" method="insertLongtermapplyinfo">
+			<result name="success">test.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+		
+		<!-- 长期座位申请信息查询 -->
+		<action name="show_longtermapply_message" class="longtermapplyAction" method="showLongtermapplyinfoByUserId">
+			<result name="showLongtermapply">/user/myLongtermapplyMessage.jsp</result>
+		</action>
+		
+		<!-- 查看全部长期座位申请信息 -->
+		<action name="show_all_longtermapplyinfo" class="longtermapplyAction" method="showAllLongtermapplyinfo">
+			<result name="showAllLongtermapply">/admin/showAllLongtermapplys.jsp</result>
+		</action>
+	
+	</package>
+	
+	<!-- 专业信息管理 -->
+	<package name="major" namespace="/" extends="struts-default">
+		<!-- 查看所有专业信息 -->
+		<action name="show_all_majorinfo" class="majorAction" method="showAllMajor">
+			<result name="showAllMajor">/admin/showAllMajors.jsp</result>
+		</action>
+	</package>
+
+	<!-- 学院信息管理 -->
+	<package name="scademy" namespace="/" extends="struts-default">
+		<!-- 查看所有学院信息 -->
+		<action name="show_all_scademyinfo" class="scademyAction" method="showAllScademy">
+			<result name="showAllScademy">/admin/showAllScademys.jsp</result>
+		</action>
+		<action name="insert_cademy_message" class="scademyAction" method="insertScademy">
+			<result name="success">test.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+	</package>
+</struts>   

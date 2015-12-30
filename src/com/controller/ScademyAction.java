@@ -18,6 +18,18 @@ public class ScademyAction extends ActionSupport{
 		return SUCCESS;
 	}
 
+	//添加学院信息
+	public String insertScademy(){
+		if(scademyinfoService.getScademyinfoByCode(scademyinfo.getScademyCode()).size()!=0)
+			return "error";
+		int isInsert=scademyinfoService.creatScademyinfo(scademyinfo);
+		if(isInsert==0)
+			return "success";
+		else
+			return "error";
+	}
+	
+	//显示所有的学院信息
 	public String showAllScademy(){
 		
 		scademyinfoList=scademyinfoService.getAllScademyinfo();

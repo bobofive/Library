@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<li class="nav-header">Menu</li>
 	<li class="nav-divider"></li>
 	<li class=""><a href="dashboard.html"> <i
-			class="fa fa-dashboard"></i><span class="link-title">&nbsp;Dashboard</span>
+			class="fa fa-dashboard"></i><span class="link-title">&nbsp;首页</span>
 	</a>
 	</li>
 	<li class=""><a href="javascript:;"> <i
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="show_all_seats" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
 					查看座位信息 </a>
 			</li>
-			<li><a href="#" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
+			<li><a href="admin/insertSeat.jsp" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
 					添加座位信息 </a>
 			</li>
 			<li><a href="#" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
@@ -92,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="show_all_scademyinfo" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 查看学院信息 </a>
 			</li>
-			<li><a href="#" target="content"> <i
+			<li><a href="admin/insertScademy.jsp" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 添加学院信息 </a>
 			</li>
 			<li><a href="show_all_majorinfo" target="content"> <i

@@ -47,6 +47,20 @@ public class SeatAction extends ActionSupport{
 		}
 	}
 	
+	//添加座位信息
+	public String insertSeat(){
+		
+		if(seatinfoService.getSeatinfoById(seatinfo.getSeatId())!=null)
+			return "error";
+		seatinfo.setIsOrder("yes");
+		seatinfo.setIsUsed("yes");
+		int isInsert=seatinfoService.creatSeatinfo(seatinfo);
+		if(isInsert==0)
+			return "success";
+		else
+			return "error";
+	}
+	
 	public Seatinfo getSeatinfo() {
 		return seatinfo;
 	}
