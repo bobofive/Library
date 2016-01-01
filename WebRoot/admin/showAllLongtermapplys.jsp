@@ -31,6 +31,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h3 class="text-center">长期座位申请信息列表</h3>
+    <div>
+    	<p>输入要查询的申请者学号：</p>
+    	<form action="search_longtermapplyinfo" method="post">
+    		<input type="text" name="userId" class="form-control top">
+    		<button class="btn btn-lg btn-primary btn-block" type="submit">查询</button>
+    	</form>
+    </div>
     <table class="table table-hover table-bordered table-striped">
     	<thead>
     		<th>编号</th>
@@ -40,10 +47,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	</thead>
     	<tbody>
     		<s:iterator value="longtermapplyList" var="longtermapply" status="st">
+    		<tr>
     			<td><s:property value="#longtermapply.id"/></td>
     			<td><s:property value="#longtermapply.userId"/></td>
     			<td><s:property value="#longtermapply.seatId"/></td>
     			<td><s:property value="#longtermapply.time"/></td>
+    			<form action="delete_longtermapply?id=<s:property value="#longtermapply.id"/>" method="post">
+    				<td><input type="submit" value="删除"></td>
+    			</form>
+    			</tr>
     		</s:iterator>
     	</tbody>
     </table>

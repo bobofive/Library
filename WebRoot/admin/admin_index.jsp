@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="css/style-switcher.css">
 <link rel="stylesheet" type="text/css" href="css/theme.css">
 
-<script src="../js/modernizr.min.js"></script>
+<script src="js/modernizr.min.js"></script>
 </head>
 
 <body>
@@ -57,21 +57,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 	<!--jQuery -->
-	<script src="../js/jquery.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 
 	<!--Bootstrap -->
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 
 	<!-- MetisMenu -->
-	<script src="../js/metisMenu.min.js"></script>
+	<script src="js/metisMenu.min.js"></script>
 
 	<!-- Screenfull -->
-	<script src="../js/screenfull.min.js"></script>
+	<script src="js/screenfull.min.js"></script>
 
 	<!-- Metis core scripts -->
-	<script src="../js/core.min.js"></script>
+	<script src="js/core.min.js"></script>
 
 	<!-- Metis demo scripts -->
-	<script src="../js/app.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>

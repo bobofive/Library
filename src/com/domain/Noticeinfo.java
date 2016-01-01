@@ -23,9 +23,7 @@ public class Noticeinfo implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Noticeinfo(Integer id, String title, String contents, String date,
-			String author) {
-		this.id = id;
+	public Noticeinfo(String title, String contents, String date, String author) {
 		this.title = title;
 		this.contents = contents;
 		this.date = date;
@@ -33,9 +31,8 @@ public class Noticeinfo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Noticeinfo(Integer id, String title, String amallTitle,
-			String contents, String accessory, String date, String author) {
-		this.id = id;
+	public Noticeinfo(String title, String amallTitle, String contents,
+			String accessory, String date, String author) {
 		this.title = title;
 		this.amallTitle = amallTitle;
 		this.contents = contents;

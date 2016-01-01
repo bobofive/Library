@@ -18,7 +18,7 @@ public class OrderinfoServiceImpl implements OrderinfoService {
 	public boolean deleteOrderinfo(String id) {
 		// TODO Auto-generated method stub
 		try {
-			baseDao.delete(Orderinfo.class, id);
+			baseDao.delete(Orderinfo.class, id,"id");
 		} catch (Exception e) {
 			// TODO: handle exception
 			return false;
@@ -33,8 +33,14 @@ public class OrderinfoServiceImpl implements OrderinfoService {
 
 	public List getOrderinfoByUserId(Integer userId) {
 		// TODO Auto-generated method stub
-		String hql="select s from Seatinfo s,Orderinfo o where o.userId="
+		String hql="select new map(s.seatId as seatId,s.location as location,s.isOrder as isOrder,s.isUsed as isUsed,o.id as id) from Seatinfo s,Orderinfo o where o.userId="
 				+ userId +" and o.seatId=s.seatId";
+		return baseDao.find(hql);
+	}
+	
+	public List getOrderinfoBySeatId(Integer seatId){
+		String hql="select new map(u.userId as userId,u.userName as userName,u.userSex as userSex,u.phoneNum as phoneNum,u.email as email,m.majorName as majorName,s.scademyName as scademyName) from Orderinfo o,Userinfo u,Scademyinfo s,Majorinfo m " +
+				"where u.majorCode=m.majorCode and m.scademyCode=s.scademyCode and o.userId=u.userId and o.seatId="+seatId;
 		return baseDao.find(hql);
 	}
 

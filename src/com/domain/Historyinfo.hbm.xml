@@ -15,35 +15,11 @@
                 <comment>用户名</comment>
             </column>
         </property>
-        <property name="history1" type="java.lang.String">
-            <column name="history1" length="60">
-                <comment>历史记录1</comment>
-            </column>
+        <property name="select" type="java.lang.String">
+            <column name="select" length="60" not-null="true" />
         </property>
-        <property name="history2" type="java.lang.String">
-            <column name="history2" length="60">
-                <comment>历史记录2</comment>
-            </column>
-        </property>
-        <property name="history3" type="java.lang.String">
-            <column name="history3" length="60">
-                <comment>历史记录3</comment>
-            </column>
-        </property>
-        <property name="history4" type="java.lang.String">
-            <column name="history4" length="60">
-                <comment>历史记录4</comment>
-            </column>
-        </property>
-        <property name="history5" type="java.lang.String">
-            <column name="history5" length="60">
-                <comment>历史记录5</comment>
-            </column>
-        </property>
-        <property name="history6" type="java.lang.String">
-            <column name="history6" length="60">
-                <comment>历史记录6</comment>
-            </column>
+        <property name="date" type="java.lang.String">
+            <column name="date" length="60" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

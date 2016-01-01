@@ -18,7 +18,7 @@ public class SeatinfoServiceImpl implements SeatinfoService {
 	public boolean deleteSeatinfo(Integer id) {
 		// TODO Auto-generated method stub
 		try {
-			baseDao.delete(Seatinfo.class,id);
+			baseDao.delete(Seatinfo.class,id,"id");
 		} catch (Exception e) {
 			// TODO: handle exception
 			return false;
@@ -42,14 +42,15 @@ public class SeatinfoServiceImpl implements SeatinfoService {
 		return baseDao.findAll(Seatinfo.class);
 	}
 
-	public Seatinfo getSeatinfoById(Integer seatId) {
+	public List getSeatinfoById(Integer seatId) {
 		// TODO Auto-generated method stub
-		return baseDao.get(Seatinfo.class, seatId);
+		String hql="select s from Seatinfo s where s.seatId="+seatId;
+		return baseDao.find(hql);
 	}
 
 	public List getOrderinfoById(Integer seatId){
 		
-		String hql="select new map(s.seatId as seatId,s.location as location,u.userName as userName,u.phoneNum as phoneNum u.majorName as majorName) from Seatinfo s,Orderinfo o,Userinfo u,Majorinfo m where s.seatId="
+		String hql="select new map(s.seatId as seatId,s.location as location,s.isOrder as isOrder,u.userName as userName,u.phoneNum as phoneNum,m.majorName as majorName) from Seatinfo s,Orderinfo o,Userinfo u,Majorinfo m where s.seatId="
 				+ seatId +" and s.seatId=o.seatId and o.userId=u.userId and u.majorCode=m.majorCode";
 		return baseDao.find(hql);
 	}

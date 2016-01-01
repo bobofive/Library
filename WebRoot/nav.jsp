@@ -25,7 +25,7 @@
 					href="#helpModal"> <i class="fa fa-question"></i> </a>
 			</div>
 			<div class="btn-group">
-				<a href="login.html" data-toggle="tooltip"
+				<a href="sign_out" data-toggle="tooltip"
 					data-original-title="Logout" data-placement="bottom"
 					class="btn btn-metis-1 btn-sm"> <i class="fa fa-power-off"></i>
 				</a>

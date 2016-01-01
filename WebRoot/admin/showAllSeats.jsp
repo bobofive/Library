@@ -35,12 +35,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <h3 class="text-center">
 				座位详情列表
 			</h3>
+			<div>
+				<p>输入要查询的座位编号</p>
+				<form action="show_seat" method="post">
+					<input type="text" name="seatId" class="form-control top">
+					<button class="btn btn-lg btn-primary btn-block" type="submit">查询</button>
+				</form>
+			</div>
 			<table class="table table-hover table-bordered table-striped">
 				<thead>
 					<tr>
 						<th>座位编号</th>
 						<th>位置</th>
 						<th>是否可预约</th>
+						<th>是否可用</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -49,7 +57,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<td><s:property value="#seat.seatId"/></td>
 						<td><s:property value="#seat.location"/></td>
-						<td><s:property value="#seat.isOrder"/></td>			
+						<td>
+						<s:if test="#seat.isOrder == 'no'">
+							不可预约
+						</s:if>
+						<s:elseif test="#seat.isOrder == 'yes'">
+							可预约
+						</s:elseif>
+						</td>
+						<td>
+						<s:if test="#seat.isUsed == 'no'">
+							不可用
+						</s:if>
+						<s:elseif test="#seat.isUsed == 'yes'">
+							可用
+						</s:elseif>
+						</td>
+						<form action="delete_seat?seatId=<s:property value="#seat.seatId"/>" method="post">
+							<td><input type="submit" value="删除"></td>
+						</form>	
+						<form action="#" method="post">
+							<td><input type="submit" value="修改"></td>
+						</form>		
 					</tr>
 					</s:iterator>
 				</tbody>

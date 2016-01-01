@@ -20,9 +20,7 @@ public class Longtermapplyinfo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Longtermapplyinfo(Integer id, Integer userId, Integer seatId,
-			Integer time) {
-		this.id = id;
+	public Longtermapplyinfo(Integer userId, Integer seatId, Integer time) {
 		this.userId = userId;
 		this.seatId = seatId;
 		this.time = time;

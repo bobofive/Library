@@ -14,7 +14,7 @@ public interface SeatinfoService {
     //获取所有座位的信息
     List getAllSeatinfo();
     //根据座位编号查询座位信息
-    Seatinfo getSeatinfoById(Integer seatId);
+    List getSeatinfoById(Integer seatId);
     //根据座位编号查看预约后的座位信息
     List getOrderinfoById(Integer seatId);
     //获取空座位信息

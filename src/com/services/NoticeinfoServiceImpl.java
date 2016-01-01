@@ -29,7 +29,7 @@ public class NoticeinfoServiceImpl implements NoticeinfoService {
 	public boolean deleteNoticeinfo(Integer id) {
 		// TODO Auto-generated method stub
 		try {
-			baseDao.delete(Noticeinfo.class,id);
+			baseDao.delete(Noticeinfo.class,id,"id");
 		} catch (Exception e) {
 			// TODO: handle exception
 			return false;

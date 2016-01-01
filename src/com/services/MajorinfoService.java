@@ -12,5 +12,7 @@ public interface MajorinfoService {
 	boolean deleteMajorinfo(Integer MajorCode);
 	//获取所有的专业信息
 	List getAllMajorinfo();
+	//根据专业代码获取专业信息
+	List getMajorinfoByCode(Integer majorCode);
 
 }

@@ -19,8 +19,7 @@ public class Orderinfo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Orderinfo(Integer id, Integer userId, Integer seatId) {
-		this.id = id;
+	public Orderinfo(Integer userId, Integer seatId) {
 		this.userId = userId;
 		this.seatId = seatId;
 	}

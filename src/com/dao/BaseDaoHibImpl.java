@@ -39,7 +39,9 @@ public class BaseDaoHibImpl<T> implements BaseDao<T> {
 
 	// 更新实体
 	public void update(T entity) {
-		getSession().saveOrUpdate(entity);
+		Session session = getSession();
+		session.saveOrUpdate(entity);
+		session.flush();
 	}
 
 	// 删除实体
@@ -48,12 +50,12 @@ public class BaseDaoHibImpl<T> implements BaseDao<T> {
 	}
 
 	// 根据ID删除实体
-	public void delete(Class<T> entityClazz, Serializable id) {
+	public void delete(Class<T> entityClazz, Serializable id,String idkey) {
 		getSession()
-				.createQuery(
-						"delete " + entityClazz.getSimpleName()
-								+ " en where en.id = ?0").setParameter("0", id)
-				.executeUpdate();
+		.createQuery(
+				"delete " + entityClazz.getSimpleName()
+						+ " en where en."+idkey+" = "+id)
+		.executeUpdate();
 	}
 
 	// 获取所有实体

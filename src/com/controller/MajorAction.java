@@ -18,11 +18,34 @@ public class MajorAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
+	//添加专业信息
+	public String insertMajor(){
+		
+		if(majorinfoService.getMajorinfoByCode(majorinfo.getMajorCode()).size()!=0)
+			return "error";
+		int isInsert=majorinfoService.creatMajorinfo(majorinfo);
+		if(isInsert==0)
+			return "success";
+		else
+			return "error";
+	}
+	
+	//显示所有的专业信息
 	public String showAllMajor(){
 		majorinfoList=majorinfoService.getAllMajorinfo();
 		return "showAllMajor";
 	}
 
+	//删除专业信息
+	public String deleteMajorinfo(){
+		System.out.println(majorCode);
+		boolean isDeleteMajorinfo=majorinfoService.deleteMajorinfo(Integer.parseInt(majorCode));
+		if(isDeleteMajorinfo)
+			return "success";
+		else
+			return "error";
+	}
+	
 	
 	
 	public Majorinfo getMajorinfo() {

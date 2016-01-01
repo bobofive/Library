@@ -23,6 +23,14 @@ public class Userinfo implements java.io.Serializable {
 	public Userinfo() {
 	}
 
+	@Override
+	public String toString() {
+		return "Userinfo [userId=" + userId + ", userPw=" + userPw
+				+ ", userName=" + userName + ", userSex=" + userSex
+				+ ", majorCode=" + majorCode + ", phoneNum=" + phoneNum
+				+ ", email=" + email + ", friendId=" + friendId + "]";
+	}
+
 	/** minimal constructor */
 	public Userinfo(Integer userId, String userPw, String userName,
 			String userSex, Integer majorCode) {

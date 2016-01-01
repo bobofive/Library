@@ -12,6 +12,7 @@ public class SeatAction extends ActionSupport{
 	private SeatinfoService seatinfoService;
 	private List<Seatinfo> seatList;
 	private List<Seatinfo> emptySeatList;
+	private List seatMessage;
 	private Integer seatId;
 	
 	public String execute() {
@@ -25,9 +26,15 @@ public class SeatAction extends ActionSupport{
 		return "showAllSeats";
 	}
 	
-	//根据座位编号查询座位信息
+	//管理员根据座位编号查询座位信息
+	public String showSeat(){
+		seatList=seatinfoService.getSeatinfoById(seatId);
+		return "showSeat";
+	}
+	
+	//用户根据座位编号查询座位信息
 	public String showSeatMessage(){
-		seatinfo=seatinfoService.getSeatinfoById(seatId);
+		seatMessage=seatinfoService.getOrderinfoById(seatId);
 		return "showSeat";
 	}
 	
@@ -99,5 +106,14 @@ public class SeatAction extends ActionSupport{
 
 	public void setSeatId(Integer seatId) {
 		this.seatId = seatId;
+	}
+
+	public List getSeatMessage() {
+		return seatMessage;
+	}
+
+	public void setSeatMessage(List seatMessage) {
+		this.seatMessage = seatMessage;
 	}	
+	
 }
