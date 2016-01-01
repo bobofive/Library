@@ -34,25 +34,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="userId">学号: </label>
-				<s:textfield name="userinfo.userId" maxlength="30" id="userId" />
+				<s:textfield name="userinfo.userId" maxlength="30" id="userId" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="userName">姓名: </label>
-				<s:textfield name="userinfo.userName" maxlength="30" id="userName" />
+				<s:textfield name="userinfo.userName" maxlength="30" id="userName" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="userSex">性别: </label>
-				<s:textfield name="userinfo.userSex" maxlength="30" id="userSex" />
+				<s:textfield name="userinfo.userSex" maxlength="30" id="userSex" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="majorCode">专业代码: </label>
-				<s:textfield name="userinfo.majorCode" maxlength="30" id="majorCode" />
+				<s:textfield name="userinfo.majorCode" maxlength="30" id="majorCode" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div id="submiter" class="control-group">

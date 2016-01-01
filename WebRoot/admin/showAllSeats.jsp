@@ -30,18 +30,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <div class="container">
-  <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="row" style="margin-bottom:15px;">
     <h3 class="text-center">
 				座位详情列表
 			</h3>
 			<div>
-				<p>输入要查询的座位编号</p>
-				<form action="show_seat" method="post">
+				<form action="show_seat" method="post" class="form-horizontal" role="form">
+				<label class="col-sm-4 control-label">输入要查询的座位编号：</label>
+				<div class="col-sm-6">
 					<input type="text" name="seatId" class="form-control top">
-					<button class="btn btn-lg btn-primary btn-block" type="submit">查询</button>
+				</div>
+				<div class="col-sm-2">
+					<button class="btn btn-primary btn-block" type="submit">查询</button>
+				</div>
 				</form>
 			</div>
+			</div>
+			<div class="row">
 			<table class="table table-hover table-bordered table-striped">
 				<thead>
 					<tr>
@@ -74,10 +79,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</s:elseif>
 						</td>
 						<form action="delete_seat?seatId=<s:property value="#seat.seatId"/>" method="post">
-							<td><input type="submit" value="删除"></td>
+							<td><input type="submit" class="btn btn-danger btn-sm" value="删除" onclick="return confirm_delete();"></td>
 						</form>	
 						<form action="#" method="post">
-							<td><input type="submit" value="修改"></td>
+							<td><input type="submit" class="btn btn-primary btn-sm" value="修改"></td>
 						</form>		
 					</tr>
 					</s:iterator>
@@ -87,5 +92,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	</div>
 	</div>
+	<script type="text/javascript" src="js/common.js"></script>
   </body>
 </html>

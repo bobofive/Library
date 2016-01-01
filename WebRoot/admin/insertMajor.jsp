@@ -18,7 +18,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
@@ -34,19 +33,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="majorCode">专业代码: </label>
-				<s:textfield name="majorinfo.majorCode" maxlength="30" id="majorCode" />
+				<s:textfield name="majorinfo.majorCode" maxlength="30" id="majorCode" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="majorName">专业名称: </label>
-				<s:textfield name="majorinfo.majorName" maxlength="30" id="majorName" />
+				<s:textfield name="majorinfo.majorName" maxlength="30" id="majorName" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="scademyCode">所属学院代码: </label>
-				<s:textfield name="majorinfo.scademyCode" maxlength="30" id="scademyCode" />
+				<s:textfield name="majorinfo.scademyCode" maxlength="30" id="scademyCode" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div id="submiter" class="control-group">

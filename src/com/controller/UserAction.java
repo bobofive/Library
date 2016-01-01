@@ -5,6 +5,7 @@ import java.util.List;
 import com.domain.Userinfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.services.UserinfoService;
+import com.utils.BaseTools;
 
 public class UserAction extends ActionSupport{
 	
@@ -46,8 +47,10 @@ public class UserAction extends ActionSupport{
 		System.out.println(userId);
 		boolean isDeleteUser=userinfoService.deleteUserinfo(Integer.parseInt(userId));
 		if(isDeleteUser){
+			BaseTools.success("删除成功", null, null);
 			return "success";
 		}else{
+			BaseTools.error("删除失败", null, null);
 			return "error";
 		}
 	}
@@ -59,10 +62,14 @@ public class UserAction extends ActionSupport{
 			return "error";
 		userinfo.setUserPw("123456");
 		int isInsert=userinfoService.creatUserinfo(userinfo);
-		if(isInsert==0)
+		if(isInsert==0){
+			BaseTools.success("添加成功", null, null);
 			return "success";
-		else
+		}
+		else {
+			BaseTools.error("添加失败", null, null);
 			return "error";
+		}
 	}
 	
 	//修改用户信息

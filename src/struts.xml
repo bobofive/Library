@@ -5,7 +5,7 @@
 		<action name="login_action" class="loginAction" method="login">
 			<result name="adm" >/admin/admin_index.jsp</result>
 			<result name="usr" >/user/user_index.jsp</result>
-			<result name="err" >err.jsp</result>
+			<result name="err" >jump.jsp</result>
 		</action>
 		<action name="sign_out" class="loginAction" method="signout">
 			<result name="signout" type="redirect">login.jsp</result>
@@ -32,14 +32,14 @@
 		
 		<!-- 添加用户信息 -->
 		<action name="insert_user_message" class="userAction" method="insertUser">
-			<result name="success">admin/userInsertClientRes.jsp?rid=0</result>
-			<result name="error">admin/userInsertClientRes.jsp?rid=1</result>
+			<result name="success">/jump.jsp</result>
+			<result name="error">/jump.jsp</result>
 		</action>
 		
 		<!-- 删除用户信息 -->
 		<action name="delete_user_message" class="userAction" method="deleteUser">
-			<result name="success">/admin/deleteUserRes.jsp?rid=0</result>
-			<result name="erorr">/admin/deleteUserRes.jsp?rid=1</result>
+			<result name="success">/jump.jsp</result>
+			<result name="erorr">/jump.jsp</result>
 		</action>
 		
 		<!-- 修改之前显示用户信息 -->
@@ -112,14 +112,14 @@
 		
 		<!-- 添加座位信息 -->
 		<action name="insert_seat_message" class="seatAction" method="insertSeat">
-			<result name="success">admin/seatInsertClientRes.jsp?rid=0</result>
-			<result name="error">admin/seatInsertClientRes.jsp?rid=1</result>
+			<result name="success">/jump.jsp</result>
+			<result name="error">/jump.jsp</result>
 		</action>
 		
 		<!-- 删除座位信息 -->
 		<action name="delete_seat" class="seatAction" method="deleteSeat">
-			<result name="success">/admin/deleteSeatRes.jsp?rid=0</result>
-			<result name="error">/admin/deleteSeatRes.jsp?rid=1</result>
+			<result name="success">/jump.jsp</result>
+			<result name="error">/jump.jsp</result>
 		</action>
 	</package>
 	

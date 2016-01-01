@@ -18,7 +18,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
@@ -34,25 +33,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="title">标题: </label>
-				<s:textfield name="noticeinfo.title" maxlength="30" id="title" />
+				<s:textfield name="noticeinfo.title" maxlength="30" id="title" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="amallTitle">副标题: </label>
-				<s:textfield name="noticeinfo.amallTitle" maxlength="30" id="amallTitle" />
+				<s:textfield name="noticeinfo.amallTitle" maxlength="30" id="amallTitle" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="contents">内容: </label>
-				<s:textfield name="noticeinfo.contents" maxlength="30" id="contents" />
+				<s:textfield name="noticeinfo.contents" maxlength="30" id="contents" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="author">作者: </label>
-				<s:textfield name="noticeinfo.author" maxlength="30" id="author" />
+				<s:textfield name="noticeinfo.author" maxlength="30" id="author" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div id="submiter" class="control-group">

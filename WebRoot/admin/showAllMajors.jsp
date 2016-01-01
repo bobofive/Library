@@ -20,7 +20,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
@@ -31,7 +30,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <div class="container">
   <div class="row">
-  <div class="col-md-6 col-md-offset-3">
     <h3 class="text-center">
 				专业详情列表
 			</h3>
@@ -53,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><s:property value="#major.scademyCode"/></td>
 						<td><s:property value="#major.scademyName"/></td>
 						<form action="delete_major?majorCode=<s:property value="#major.majorCode"/>" method="post">
-						<td><input type="submit" value="删除"></td>	
+						<td><input type="submit" class="btn btn-danger btn-sm" value="删除" onclick="return confirm_delete();"></td>	
 						</form>		
 					</tr>
 					</s:iterator>
@@ -62,6 +60,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 	</div>
 	</div>
-	</div>
+	<script type="text/javascript" src="js/common.js"></script>
   </body>
 </html>

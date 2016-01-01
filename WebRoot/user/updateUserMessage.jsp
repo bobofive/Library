@@ -43,13 +43,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<input type="text" name="userinfo.userId" value="<s:property value="#user.userId"/>"
-								readonly="readonly" maxlength="18" id="userId" />
+								readonly="readonly" maxlength="18" id="userId" class="form-control" />
 						</div>
 					</div>
 					<div class="control-group">
 						<div class="controls">
 							<input type="hidden" name="userinfo.userPw" value="<s:property value="#user.userId"/>"
-								readonly="readonly" maxlength="18" id="userPw" />
+								readonly="readonly" maxlength="18" id="userPw" class="form-control" />
 						</div>
 					</div>  
 					<div class="control-group">
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<input type="text" name="userinfo.userName" value="<s:property value="#user.userName"/>"
-								readonly="readonly" maxlength="18" id="userName" />
+								readonly="readonly" maxlength="18" id="userName" class="form-control" />
 						</div>
 					</div> 
 					<div class="control-group">
@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<input type="text" name="userinfo.userSex" value="<s:property value="#user.userSex"/>"
-								readonly="readonly" maxlength="18" id="userSex" />
+								readonly="readonly" maxlength="18" id="userSex" class="form-control" />
 						</div>
 					</div> 
 					<div class="control-group">
@@ -76,13 +76,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<input type="text"  value="<s:property value="#user.scademyName"/>"
-								readonly="readonly" maxlength="18" id="scademyName" />
+								readonly="readonly" maxlength="18" id="scademyName"  class="form-control" />
 						</div>
 					</div>
 					<div class="control-group">
 						<div class="controls">
 							<input type="hidden" name="userinfo.majorCode" value="<s:property value="#user.majorCode"/>"
-								readonly="readonly" maxlength="18" id="majorCode" />
+								readonly="readonly" maxlength="18" id="majorCode" class="form-control" />
 						</div>
 					</div>
 					<div class="control-group">
@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<input type="text"  value="<s:property value="#user.majorName"/>"
-								readonly="readonly" maxlength="18" id="majorName" />
+								readonly="readonly" maxlength="18" id="majorName" class="form-control" />
 						</div>
 					</div>
 					<div class="control-group">
@@ -100,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<input type="text" name="userinfo.friendId" value="<s:property value="#user.friendId"/>"
-								readonly="readonly" maxlength="18" id="friendId" />
+								readonly="readonly" maxlength="18" id="friendId" class="form-control" />
 						</div>
 					</div>
 					<div class="control-group">
@@ -109,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<s:textfield name="userinfo.phoneNum" maxlength="30"
-									id="phoneNum" />
+									id="phoneNum" cssClass="form-control" />
 						</div>
 					</div>
 					<div class="control-group">
@@ -118,10 +118,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<s:textfield name="userinfo.email" maxlength="30"
-									id="email" />
+									id="email" cssClass="form-control" />
 						</div>
 					</div>
-					<div><input type="submit" value="修改"></div>
+					<div><input type="submit" class="btn btn-primary" value="修改"></div>
 				</s:iterator>
 			</form>
 			</div>

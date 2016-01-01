@@ -12,6 +12,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.services.AdmininfoService;
 import com.services.UserinfoService;
+import com.utils.BaseTools;
 
 public class LoginAction extends ActionSupport{
 	
@@ -47,6 +48,7 @@ public class LoginAction extends ActionSupport{
 				return "adm";
 			}
 		}
+		BaseTools.error("登录失败，用户名或密码错误", null, null);
 		return "err";
 	}
 	

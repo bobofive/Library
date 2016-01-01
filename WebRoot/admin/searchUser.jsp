@@ -11,11 +11,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <title>查询与删除</title>
     
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/animate.min.css">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -23,10 +21,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <form action="show_one_user_message" method="post" >
-    	<p>输入要查询的学号</p>
-    	<input type="text" name="userId" class="form-control top">
-    	<button type="submit">查询</button>
+  <div class="container">
+  	<div class="row">
+  	<h3 class="text-center">删除用户信息</h3>
+    <form class="form-horizontal" role="form" action="show_one_user_message" method="post" >
+    	<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-3 control-label">输入要查询的学号：</label>
+    		<div class="col-sm-7">
+    			<input type="text" name="userId" class="form-control top">
+    		</div>
+    		<div class="col-sm-2">
+    			<button type="submit" class="btn btn-primary">查询</button>
+    		</div>
+    	</div>
+    	
     </form>
+    </div>
+   </div>
   </body>
 </html>

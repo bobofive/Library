@@ -18,7 +18,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
@@ -34,13 +33,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="seatId">座位编号: </label>
-				<s:textfield name="seatinfo.seatId" maxlength="30" id="seatId" />
+				<s:textfield name="seatinfo.seatId" maxlength="30" id="seatId" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="location">位置: </label>
-				<s:textfield name="seatinfo.location" maxlength="30" id="location" />
+				<s:textfield name="seatinfo.location" maxlength="30" id="location" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div id="submiter" class="control-group">
