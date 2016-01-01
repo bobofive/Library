@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import com.domain.Noticeinfo;
@@ -45,6 +47,16 @@ public class NoticeAction extends ActionSupport{
 		return "";
 	}
 	
+	//添加公告信息
+	public String insertNotice(){
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		noticeinfo.setDate(sdf.format(new Date()));
+		int isInsert=noticeinfoService.creatNoticeinfo(noticeinfo);
+		if(isInsert==0)
+			return "success";
+		else
+			return "error";
+	}
 	
 	public Noticeinfo getNoticeinfo() {
 		return noticeinfo;

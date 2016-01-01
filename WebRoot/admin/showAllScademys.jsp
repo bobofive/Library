@@ -47,7 +47,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    
 					<tr>
 						<td><s:property value="#scademy.scademyCode"/></td>
-						<td><s:property value="#scademy.scademyName"/></td>			
+						<td><s:property value="#scademy.scademyName"/></td>	
+						<form action="delete_scademy?scademyCode=<s:property value="#scademy.scademyCode"/>" method="post" id="scademyForm">
+						<td><input type="submit" value="删除"></td>
+						</form>		
 					</tr>
 					</s:iterator>
 				</tbody>

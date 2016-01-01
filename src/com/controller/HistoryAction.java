@@ -8,14 +8,22 @@ import com.services.HistoryinfoService;
 
 public class HistoryAction extends ActionSupport{
 	
-	private List historyinfo;
+	private Historyinfo historyinfo;
 	private HistoryinfoService historyinfoService;
 	private Integer userId;
 	private Integer id;
+	private List historyList;
+	
+	public String execute() {
+		// TODO Auto-generated method stub
+		return SUCCESS;
+	}
 	
 	//根据用户名获取历史记录
 	public String showHistory(){
-		historyinfo=historyinfoService.getHistoryinfoByUserId(userId);
+		System.out.println(userId);
+		System.out.println(historyinfoService);
+		historyList=historyinfoService.getHistoryinfoByUserId(userId);
 		return "showHistory";
 	}
 	
@@ -29,9 +37,57 @@ public class HistoryAction extends ActionSupport{
 		}	
 	}
 	
-	public String execute() {
-		// TODO Auto-generated method stub
-		return SUCCESS;
+	//删除用户所有的历史记录
+	public String deleteAllHistorys(){
+		
+		boolean isDeleteHistory=historyinfoService.deleteAllHistorys(userId);
+		if(isDeleteHistory){
+			return "success";
+		}else
+			return "error";
+	}
+
+	
+	
+	
+	public Historyinfo getHistoryinfo() {
+		return historyinfo;
+	}
+
+	public void setHistoryinfo(Historyinfo historyinfo) {
+		this.historyinfo = historyinfo;
+	}
+
+	public HistoryinfoService getHistoryinfoService() {
+		return historyinfoService;
+	}
+
+	public void setHistoryinfoService(HistoryinfoService historyinfoService) {
+		this.historyinfoService = historyinfoService;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public List getHistoryList() {
+		return historyList;
+	}
+
+	public void setHistoryList(List historyList) {
+		this.historyList = historyList;
 	}
 
 }

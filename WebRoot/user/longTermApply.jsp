@@ -33,12 +33,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form action="insert_longtermapply" method="post" id="form" onsubmit="validata()">
 		<div class="control-group">			
 			<div class="controls">
-				<label class="control-label" for="id">编号: </label>
-				<s:textfield name="longtermapplyinfo.id" maxlength="30" id="id" />
-			</div>
-		</div><br/>
-		<div class="control-group">			
-			<div class="controls">
 				<label class="control-label" for="userId">申请人学号: </label>
 				<s:textfield name="longtermapplyinfo.userId" maxlength="30" id="userId" />
 			</div>

@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <ul id="menu" class="bg-blue dker">
 	<li class="nav-header">Menu</li>
 	<li class="nav-divider"></li>
-	<li class=""><a href="dashboard.html"> <i
+	<li class=""><a href="admin/iframeDefault.jsp" target="content"> <i
 			class="fa fa-dashboard"></i><span class="link-title">&nbsp;首页</span>
 	</a>
 	</li>
@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="show_all_notices" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
 					查看公告 </a>
 			</li>
-			<li><a href="#" target="content"> <i
+			<li><a href="admin/insertNotice.jsp" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 发布公告 </a>
 			</li>
 			<li><a href="#" target="content"> <i
@@ -98,7 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="show_all_majorinfo" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 查看专业信息 </a>
 			</li>
-			<li><a href="#" target="content"> <i
+			<li><a href="admin/insertMajor.jsp" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 添加专业信息 </a>
 			</li>
 			<li><a href="show_all_longtermapplyinfo" target="content"> <i

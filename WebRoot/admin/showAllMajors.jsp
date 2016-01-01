@@ -51,7 +51,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><s:property value="#major.majorCode"/></td>
 						<td><s:property value="#major.majorName"/></td>
 						<td><s:property value="#major.scademyCode"/></td>
-						<td><s:property value="#major.scademyName"/></td>			
+						<td><s:property value="#major.scademyName"/></td>
+						<form action="delete_major?majorCode=<s:property value="#major.majorCode"/>" method="post">
+						<td><input type="submit" value="删除"></td>	
+						</form>		
 					</tr>
 					</s:iterator>
 				</tbody>

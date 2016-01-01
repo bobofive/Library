@@ -8,33 +8,61 @@
 			<result name="err" >err.jsp</result>
 		</action>
 		<action name="sign_out" class="loginAction" method="signout">
-			<result name="signout" type="redirect">index.jsp</result>
+			<result name="signout" type="redirect">login.jsp</result>
 		</action>
 	</package>
 	
 	<!-- 用户信息模块 -->
 	<package name="user" namespace="/" extends="struts-default">
+	
 		<!-- 显示所有的用户信息 -->
 		<action name="show_all_users" class="userAction" method="showAllUsersMessage">
 			<result name="showAllUsers">/admin/showAllUsers.jsp</result>
 		</action>
+		
 		<!-- 显示用户个人信息 -->
 		<action name="show_user_message" class="userAction" method="showUserMessage">
 			<result name="showUser">/user/userMessage.jsp</result>
 		</action>
+		
 		<!-- 查询用户信息 -->
-		<action name="show_one_user_message" class="userAction" method="showUserMessage">
-			<result name="showUser">/admin/searchUserRes.jsp</result>
+		<action name="search_user_message" class="userAction" method="searchUserMessage">
+			<result name="searchUserRe">/admin/showAllUsers.jsp</result>
 		</action>
+		
 		<!-- 添加用户信息 -->
 		<action name="insert_user_message" class="userAction" method="insertUser">
-			<result name="success">test.jsp</result>
-			<result name="error">index.jsp</result>
+			<result name="success">admin/userInsertClientRes.jsp?rid=0</result>
+			<result name="error">admin/userInsertClientRes.jsp?rid=1</result>
 		</action>
+		
 		<!-- 删除用户信息 -->
 		<action name="delete_user_message" class="userAction" method="deleteUser">
-			<result name="success">test.jsp</result>
-			<result name="erorr">index.jsp</result>
+			<result name="success">/admin/deleteUserRes.jsp?rid=0</result>
+			<result name="erorr">/admin/deleteUserRes.jsp?rid=1</result>
+		</action>
+		
+		<!-- 修改之前显示用户信息 -->
+		<action name="show_user_message_before_delete" class="userAction" method="showUserMessage">
+			<result name="showUser">/user/updateUserMessage.jsp</result>
+		</action>
+		
+		<!-- 修改用户信息 -->
+		<action name="update_user" class="userAction" method="updateUserinfo">
+			<result name="success">/user/updateUserRes.jsp?rid=0</result>
+			<result name="error">/user/updateUserRes.jsp?rid=1</result>
+		</action>
+		
+		<!-- 修改用户密码 -->
+		<action name="update_userPw" class="userAction" method="updatePassword">
+			<result name="success">/user/updateUserRes.jsp?rid=0</result>
+			<result name="error">/user/updateUserRes.jsp?rid=1</result>
+		</action>
+		
+		<!-- 设置抢座好友 -->
+		<action name="set_friend" class="userAction" method="setFriend">
+			<result name="success">/user/setFriendRes.jsp?rid=0</result>
+			<result name="error">/user/setFriendRes.jsp?rid=1</result>
 		</action>
 	</package>
 	
@@ -43,7 +71,7 @@
 	
 		<!-- 显示所有公告信息 -->
 		<action name="show_all_notices" class="noticeAction" method="showAllNotices">
-			<result name="success">/admin/showAllNotices.jsp</result>
+			<result name="showAllNotices">/admin/showAllNotices.jsp</result>
 		</action>
 		
 		<!-- 查看某个公告 -->
@@ -56,20 +84,42 @@
 			<result name="success">/testweb/deleteClientRes.jsp</result>
 			<result name="error">/testweb/deleteClientRes.jsp</result>
 		</action>
+		
+		<!-- 添加公告 -->
+		<action name="insert_notice_message" class="noticeAction" method="insertNotice">
+			<result name="success">/admin/noticeInsertClientRes.jsp?rid=0</result>
+			<result name="error">/admin/noticeInsertClientRes.jsp?rid=1</result>
+		</action>
 	</package>
 	
 	<!-- 座位信息模块 -->
 	<package name="seat" namespace="/" extends="struts-default">
 	
-		<!-- 座位信息查询 -->
+		<!-- 查看所有座位信息 -->
 		<action name="show_all_seats" class="seatAction" method="showAllSeats">
 			<result name="showAllSeats">/admin/showAllSeats.jsp</result>
 		</action>
 		
+		<!-- 管理员查询座位信息 -->
+		<action name="show_seat" class="seatAction" method="showSeat">
+			<result name="showSeat">/admin/showAllSeats.jsp</result>
+		</action>
+		
+		<!-- 用户查询座位信息 -->
+		<action name="show_seat_message" class="seatAction" method="showSeatMessage">
+			<result name="showSeat">/user/showSeatMessage.jsp</result>
+		</action>
+		
 		<!-- 添加座位信息 -->
 		<action name="insert_seat_message" class="seatAction" method="insertSeat">
-			<result name="success">test.jsp</result>
-			<result name="error">index.jsp</result>
+			<result name="success">admin/seatInsertClientRes.jsp?rid=0</result>
+			<result name="error">admin/seatInsertClientRes.jsp?rid=1</result>
+		</action>
+		
+		<!-- 删除座位信息 -->
+		<action name="delete_seat" class="seatAction" method="deleteSeat">
+			<result name="success">/admin/deleteSeatRes.jsp?rid=0</result>
+			<result name="error">/admin/deleteSeatRes.jsp?rid=1</result>
 		</action>
 	</package>
 	
@@ -80,9 +130,34 @@
 		<action name="show_empty_seat" class="seatAction" method="showEmptySeat">
 			<result name="showEmptySeat">/user/emptySeat.jsp</result>
 		</action>
+		
 		<!-- 预约信息查询 -->
 		<action name="show_order" class="orderAction" method="showOrderByUserId">
 			<result name="showOrderMessage">/user/myOrdermessage.jsp</result>
+		</action>
+		
+		<!-- 座位预约 -->
+		<action name="order_seat" class="orderAction" method="SeatOrder">
+			<result name="success">/user/seatOrderClientRes.jsp?rid=0</result>
+			<result name="error">/user/seatOrderClientRes.jsp?rid=1</result>
+		</action>
+		
+		<!-- 在空座位列表中预约座位 -->
+		<action name="order_seat_from_empty" class="orderAction" method="seatOrderFromEmpty">
+			<result name="success">/user/seatOrderClientRes.jsp?rid=0</result>
+			<result name="error">/user/seatOrderClientRes.jsp?rid=1</result>
+		</action>
+		
+		<!-- 一键预约座位 -->
+		<action name="order_by_one_button" class="orderAction" method="orderByOneButton">
+			<result name="success">/user/seatOrderClientRes.jsp?rid=0</result>
+			<result name="error">/user/seatOrderClientRes.jsp?rid=1</result>
+		</action>
+		
+		<!-- 取消预约 -->
+		<action name="delete_order" class="orderAction" method="deleteOrderinfo">
+			<result name="success">/admin/deleteOrderRes.jsp?rid=0</result>
+			<result name="error">/admin/deleteOrderRes.jsp?rid=1</result>
 		</action>
 	</package>
 	
@@ -90,13 +165,18 @@
 	<package name="longtermapply" namespace="/" extends="struts-default">
 		<!-- 长期座位申请 -->
 		<action name="insert_longtermapply" class="longtermapplyAction" method="insertLongtermapplyinfo">
-			<result name="success">test.jsp</result>
-			<result name="error">index.jsp</result>
+			<result name="success">/user/longtermapplyClientRes.jsp?rid=0</result>
+			<result name="error">/user/longtermapplyClientRes.jsp?rid=1</result>
 		</action>
 		
-		<!-- 长期座位申请信息查询 -->
+		<!-- 查看个人长期座位信息 -->
 		<action name="show_longtermapply_message" class="longtermapplyAction" method="showLongtermapplyinfoByUserId">
 			<result name="showLongtermapply">/user/myLongtermapplyMessage.jsp</result>
+		</action>
+		
+		<!-- 查询长期座位申请信息 -->
+		<action name="search_longtermapplyinfo" class="longtermapplyAction" method="searchLongtermapplyinfo">
+			<result name="searchLongtermapplyRe">/admin/showAllLongtermapplys.jsp</result>
 		</action>
 		
 		<!-- 查看全部长期座位申请信息 -->
@@ -104,25 +184,74 @@
 			<result name="showAllLongtermapply">/admin/showAllLongtermapplys.jsp</result>
 		</action>
 	
+		<!-- 删除长期座位申请信息 -->
+		<action name="delete_longtermapply" class="longtermapplyAction" method="deleteLongtermapply">
+			<result name="success">/admin/deleteLongtermapplyRes.jsp?rid=0</result>
+			<result name="error">/admin/deleteLongtermapplyRes.jsp?rid=1</result>
+		</action>
 	</package>
 	
 	<!-- 专业信息管理 -->
 	<package name="major" namespace="/" extends="struts-default">
+	
 		<!-- 查看所有专业信息 -->
 		<action name="show_all_majorinfo" class="majorAction" method="showAllMajor">
 			<result name="showAllMajor">/admin/showAllMajors.jsp</result>
+		</action>
+		
+		<!-- 添加专业信息 -->
+		<action name="insert_major_message" class="majorAction" method="insertMajor">
+			<result name="success">/admin/majorInsertClientRes.jsp?rid=0</result>
+			<result name="error">/admin/majorInsertClientRes.jsp?rid=1</result>
+		</action>
+		
+		<!-- 删除专业信息 -->
+		<action name="delete_major" class="majorAction" method="deleteMajorinfo">
+			<result name="success">/admin/deleteMajorRes.jsp?rid=0</result>
+			<result name="error">/admin/deleteMajorRes.jsp?rid=1</result>
 		</action>
 	</package>
 
 	<!-- 学院信息管理 -->
 	<package name="scademy" namespace="/" extends="struts-default">
+	
 		<!-- 查看所有学院信息 -->
 		<action name="show_all_scademyinfo" class="scademyAction" method="showAllScademy">
 			<result name="showAllScademy">/admin/showAllScademys.jsp</result>
 		</action>
-		<action name="insert_cademy_message" class="scademyAction" method="insertScademy">
-			<result name="success">test.jsp</result>
-			<result name="error">index.jsp</result>
+		
+		<!-- 添加学院信息 -->
+		<action name="insert_scademy_message" class="scademyAction" method="insertScademy">
+			<result name="success">admin/scademyInsertClientRes.jsp?rid=0</result>
+			<result name="error">admin/scademyInsertClientRes.jsp?rid=1</result>
 		</action>
+		
+		<!-- 删除学院信息 -->
+		<action name="delete_scademy" class="scademyAction" method="deleteScademyinfo">
+			<result name="success">/admin/deleteScademyRes.jsp?rid=0</result>
+			<result name="error">/admin/deleteScademyRes.jsp?rid=1</result>
+		</action>
+	</package>
+	
+	<!-- 历史记录管理 -->
+	<package name="history" namespace="/" extends="struts-default">
+		
+		<!-- 查看历史记录 -->
+		<action name="show_history" class="historyAction" method="showHistory">
+			<result name="showHistory">/user/showHistorys.jsp</result>
+		</action>
+		
+		<!-- 删除历史记录 -->
+		<action name="delete_history" class="historyAction" method="deleteHistory">
+			<result name="success">/user/deleteHistoryRes.jsp?rid=0</result>
+			<result name="error">/user/deleteHistoryRes.jsp?rid=1</result>
+		</action>
+		
+		<!-- 删除用户所有历史记录 -->
+		<action name="delete_all_historys" class="historyAction" method="deleteAllHistorys">
+			<result name="success">/user/deleteHistoryRes.jsp?rid=0</result>
+			<result name="error">/user/deleteHistoryRes.jsp?rid=1</result>
+		</action>
+		
 	</package>
 </struts>   

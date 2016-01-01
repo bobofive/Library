@@ -34,6 +34,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <h3 class="text-center">
 				用户详情列表
 			</h3>
+			<div>
+				<p>输入要查询的用户名：</p>
+				<form action="search_user_message" method="post">
+					<input type="text" name="userId" class="form-control top">
+					<button class="btn btn-lg btn-primary btn-block" type="submit">查询</button>
+				</form>
+			</div>
 			<table class="table table-hover table-bordered table-striped">
 				<thead>
 					<tr>
@@ -58,7 +65,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><s:property value="#user.email"/></td>
 						<td><s:property value="#user.scademyName"/></td>
 						<td><s:property value="#user.majorName"/></td>
-						<td><s:property value="#user.friendId"/></td>				
+						<td><s:property value="#user.friendId"/></td>
+						<form action="delete_user_message?userId=<s:property value="#user.userId"/>" method="post">
+							<td><input type="submit" value="删除"></td>
+						</form>				
 					</tr>
 					</s:iterator>
 				</tbody>

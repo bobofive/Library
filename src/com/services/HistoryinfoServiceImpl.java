@@ -18,7 +18,7 @@ public class HistoryinfoServiceImpl implements HistoryinfoService {
 	public boolean deleteHistoryinfo(Integer id) {
 		// TODO Auto-generated method stub
 		try {
-			baseDao.delete(Historyinfo.class,id);
+			baseDao.delete(Historyinfo.class,id,"id");
 		} catch (Exception e) {
 			return false;
 			// TODO: handle exception
@@ -32,10 +32,28 @@ public class HistoryinfoServiceImpl implements HistoryinfoService {
 	}
 	
 	public List getHistoryinfoByUserId(Integer userId){
-		String hql="select h from Historyinfo h where h.userId="+ userId;
+		System.out.println(userId);
+		System.out.println("111");
+		String hql="select new map(h.id as id,h.userId as userId,h.select as select,h.date as date,s.location as location) from Historyinfo h,Seatinfo s where h.userId="
+				+ userId+" and h.select=s.seatId";
 		return baseDao.find(hql);
 	}
+	
+	public boolean deleteAllHistorys(Integer userId){
+		
+		try {
+			baseDao.delete(Historyinfo.class, userId, "userId");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 
+	
+	
+	
 	public BaseDaoHibImpl<Historyinfo> getBaseDao() {
 		return baseDao;
 	}

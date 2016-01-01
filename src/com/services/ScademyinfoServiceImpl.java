@@ -18,7 +18,7 @@ public class ScademyinfoServiceImpl implements ScademyinfoService {
 	public boolean deleteScademyinfo(Integer scademyCode) {
 		// TODO Auto-generated method stub
 		try {
-			baseDao.delete(Scademyinfo.class, scademyCode);
+			baseDao.delete(Scademyinfo.class, scademyCode,"scademyCode");
 		} catch (Exception e) {
 			// TODO: handle exception
 			return false;
@@ -32,7 +32,8 @@ public class ScademyinfoServiceImpl implements ScademyinfoService {
 	}
 
 	public List getScademyinfoByCode(Integer scademyCode){
-		String hql="select * from Scademyinfo s where s.scademyCode="+scademyCode;
+		String hql="select s from Scademyinfo s where s.scademyCode="+scademyCode;
+		System.out.println(hql);
 		return baseDao.find(hql);
 	}
 	

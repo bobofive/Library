@@ -13,5 +13,7 @@ public interface OrderinfoService {
 	boolean deleteAllOrderinfo();
 	//根据用户名查询预约信息
 	List getOrderinfoByUserId(Integer userId);
+	//根据座位编号查询预约信息
+	List getOrderinfoBySeatId(Integer seatId);
 
 }

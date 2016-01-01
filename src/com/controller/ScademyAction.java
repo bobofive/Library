@@ -20,6 +20,7 @@ public class ScademyAction extends ActionSupport{
 
 	//添加学院信息
 	public String insertScademy(){
+		System.out.println(scademyinfo.getScademyCode());
 		if(scademyinfoService.getScademyinfoByCode(scademyinfo.getScademyCode()).size()!=0)
 			return "error";
 		int isInsert=scademyinfoService.creatScademyinfo(scademyinfo);
@@ -36,6 +37,14 @@ public class ScademyAction extends ActionSupport{
 		return "showAllScademy";
 	}
 	
+	//删除学院信息
+	public String deleteScademyinfo(){
+		boolean isDeleteScademy=scademyinfoService.deleteScademyinfo(Integer.parseInt(scademyCode));
+		if(isDeleteScademy)
+			return "success";
+		else
+			return "error";
+	}
 	
 
 	public Scademyinfo getScademyinfo() {

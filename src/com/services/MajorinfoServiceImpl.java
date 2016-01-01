@@ -18,7 +18,7 @@ public class MajorinfoServiceImpl implements MajorinfoService {
 	public boolean deleteMajorinfo(Integer MajorCode) {
 		// TODO Auto-generated method stub
 		try {
-			baseDao.delete(Majorinfo.class, MajorCode);
+			baseDao.delete(Majorinfo.class, MajorCode,"majorCode");
 		} catch (Exception e) {
 			// TODO: handle exception
 			return false;
@@ -33,6 +33,11 @@ public class MajorinfoServiceImpl implements MajorinfoService {
 		return baseDao.find(hql);
 	}
 
+	public List getMajorinfoByCode(Integer majorCode){
+		String hql="select m from Majorinfo m where m.majorCode="+majorCode;
+		return baseDao.find(hql);
+	}
+	
 	
 	
 	public BaseDaoHibImpl<Majorinfo> getBaseDao() {

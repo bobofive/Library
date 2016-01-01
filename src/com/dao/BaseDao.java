@@ -14,7 +14,7 @@ public interface BaseDao<T>
 	// 删除实体
 	void delete(T entity);
 	// 根据ID删除实体
-	void delete(Class<T> entityClazz , Serializable id);
+	void delete(Class<T> entityClazz , Serializable id,String idkey);
 	// 获取所有实体
 	List<T> findAll(Class<T> entityClazz);
 	// 获取实体总数

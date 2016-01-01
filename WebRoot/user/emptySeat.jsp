@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<td><s:property value="#seat.seatId"/></td>
 						<td><s:property value="#seat.location"/></td>
-						<td><a href="#" class="btn btn-primary">预约</a></td>			
+						<td><a href="order_seat_from_empty?seatId=<s:property value="#seat.seatId"/>" class="btn btn-primary">预约</a></td>			
 					</tr>
 					</s:iterator>
 				</tbody>

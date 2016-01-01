@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h3 class="text-center">
-				公告详情列表
+				公告列表
 			</h3>
 			<table class="table table-hover table-bordered table-striped">
 				<thead>
@@ -45,6 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<th>附件</th>
 						<th>发布日期</th>
 						<th>作者</th>
+						<th>查看详情</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -57,7 +58,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><s:property value="#notice.contents"/></td>
 						<td><s:property value="#notice.accessory"/></td>
 						<td><s:property value="#notice.date"/></td>
-						<td><s:property value="#notice.author"/></td>				
+						<td><s:property value="#notice.author"/></td>
+						<form action="#" method="post">
+							<td><input type="submit" value="查看"></td>
+						</form>				
 					</tr>
 					</s:iterator>
 				</tbody>

@@ -26,10 +26,9 @@ public class LongtermapplyAction extends ActionSupport{
 //		System.out.println(longtermapplyinfo.getSeatId());
 //		System.out.println(longtermapplyinfo.getTime());
 //		System.out.println(longtermapplyinfo.getUserId());
-//		if(longtermapplyinfoService.getLongtermapplyinfoByUserId(longtermapplyinfo.getUserId())!=null)
-//			return "error";
+		if(longtermapplyinfoService.getLongtermapplyinfoByUserId(longtermapplyinfo.getUserId()).size()!=0)
+			return "error";
 		int isInsert=longtermapplyinfoService.creatLongtermapplyinfo(longtermapplyinfo);
-		System.out.println(isInsert);
 		if(isInsert==0)
 			return "success";
 		else
@@ -43,7 +42,14 @@ public class LongtermapplyAction extends ActionSupport{
 		return "showAllLongtermapply";
 	}
 	
-	//根据用户信息查询长期申请
+	//根据用户名查询长期申请信息
+	public String searchLongtermapplyinfo(){
+		
+		longtermapplyList=longtermapplyinfoService.getLongtermapplyinfoByUserId(userId);
+		return "searchLongtermapplyRe";
+	}
+	
+	//用户查询个人长期申请信息
 	public String showLongtermapplyinfoByUserId(){
 		
 		myLongtermapplyinfo=longtermapplyinfoService.getLongtermapplyinfoByUserId(userId);

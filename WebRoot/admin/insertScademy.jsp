@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="row">
   <div class="col-md-6 col-md-offset-3">
   	<h3 class="text-center">添加学院信息</h3>
-    <form action="insert_cademy_message" method="post" id="form" onsubmit="validata()">
+    <form action="insert_scademy_message" method="post" id="form" onsubmit="validata()">
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="scademyCode">学院编号: </label>

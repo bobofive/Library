@@ -11,10 +11,6 @@ public class LongtermapplyinfoServiceImpl implements LongtermapplyinfoService {
 
 	public int creatLongtermapplyinfo(Longtermapplyinfo longtermapplyinfo) {
 		// TODO Auto-generated method stub
-		System.out.println(longtermapplyinfo.getId());
-		System.out.println(longtermapplyinfo.getSeatId());
-		System.out.println(longtermapplyinfo.getTime());
-		System.out.println(longtermapplyinfo.getUserId());
 		baseDao.save(longtermapplyinfo);
 		return 0;
 	}
@@ -22,7 +18,7 @@ public class LongtermapplyinfoServiceImpl implements LongtermapplyinfoService {
 	public boolean deleteLongtermapplyinfo(Integer id) {
 		// TODO Auto-generated method stub
 		try {
-			baseDao.delete(Longtermapplyinfo.class, id);
+			baseDao.delete(Longtermapplyinfo.class, id,"id");
 		} catch (Exception e) {
 			// TODO: handle exception
 			return false;

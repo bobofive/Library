@@ -72,8 +72,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tbody>
 				
 			</table>
-			<a href="#" class="btn btn-primary">修改信息</a>
-				<a href="#" class="btn btn-default">设置好友</a>
+				<a href="show_user_message_before_delete?userId=<s:property value="#user.userId"/>" class="btn btn-primary">修改信息</a>
+				<a href="user/setFriend.jsp" class="btn btn-default">设置好友</a>
+				<a href="updatePassword.jsp" class="btn btn-default">修改密码</a>
 			</div>
 			</div>
 			</div>

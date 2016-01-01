@@ -13,5 +13,7 @@ public interface HistoryinfoService {
 	List getAllHistoryinfo();
 	//根据用户帐号获取历史记录信息
 	List getHistoryinfoByUserId(Integer userId);
+	//删除用户所有的历史记录
+	boolean deleteAllHistorys(Integer userId);
 
 }

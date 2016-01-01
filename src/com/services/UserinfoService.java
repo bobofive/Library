@@ -17,5 +17,7 @@ public interface UserinfoService {
 	List getAllUserinfo();
 	//根据用户名查询用户信息
 	List getUserinfoById(Integer userId);
+	//根据用户名查询用户表信息
+	List getUserinfoByIdOnly(Integer userId);
 
 }
