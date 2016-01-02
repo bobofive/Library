@@ -5,6 +5,7 @@ import java.util.List;
 import com.domain.Historyinfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.services.HistoryinfoService;
+import com.utils.BaseTools;
 
 public class HistoryAction extends ActionSupport{
 	
@@ -31,10 +32,12 @@ public class HistoryAction extends ActionSupport{
 	public String deleteHistory() {
 		boolean isDeleteHistory=historyinfoService.deleteHistoryinfo(id);
 		if(isDeleteHistory){
-			return "success";
+			BaseTools.success("删除成功", null, null);
+			
 		}else{
-			return "error";
+			BaseTools.error("删除失败", null, null);
 		}	
+		return "jump";
 	}
 	
 	//删除用户所有的历史记录
@@ -42,9 +45,10 @@ public class HistoryAction extends ActionSupport{
 		
 		boolean isDeleteHistory=historyinfoService.deleteAllHistorys(userId);
 		if(isDeleteHistory){
-			return "success";
+			BaseTools.success("删除成功", null, null);
 		}else
-			return "error";
+			BaseTools.error("删除失败", null, null);
+		return "jump";
 	}
 
 	

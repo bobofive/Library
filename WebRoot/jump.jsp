@@ -29,7 +29,7 @@ body{ background: #fff; font-family: '微软雅黑'; color: #333; font-size: 16p
 	if(iscuccess == null){
 		iscuccess = request.getParameter("rid");
 	}
-	if(iscuccess.equals("1")){
+	if("1".equals(iscuccess)){
 		if(jumpURL == null) {
 			jumpURL = request.getHeader("Referer");
 		}

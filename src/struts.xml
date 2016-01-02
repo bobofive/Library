@@ -32,14 +32,12 @@
 		
 		<!-- 添加用户信息 -->
 		<action name="insert_user_message" class="userAction" method="insertUser">
-			<result name="success">/jump.jsp</result>
-			<result name="error">/jump.jsp</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 删除用户信息 -->
 		<action name="delete_user_message" class="userAction" method="deleteUser">
-			<result name="success">/jump.jsp</result>
-			<result name="erorr">/jump.jsp</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 修改之前显示用户信息 -->
@@ -49,20 +47,17 @@
 		
 		<!-- 修改用户信息 -->
 		<action name="update_user" class="userAction" method="updateUserinfo">
-			<result name="success">/user/updateUserRes.jsp?rid=0</result>
-			<result name="error">/user/updateUserRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 修改用户密码 -->
 		<action name="update_userPw" class="userAction" method="updatePassword">
-			<result name="success">/user/updateUserRes.jsp?rid=0</result>
-			<result name="error">/user/updateUserRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 设置抢座好友 -->
 		<action name="set_friend" class="userAction" method="setFriend">
-			<result name="success">/user/setFriendRes.jsp?rid=0</result>
-			<result name="error">/user/setFriendRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 	</package>
 	
@@ -81,14 +76,12 @@
 		
 		<!-- 删除公告 -->
 		<action name="delete_notice" class="noticeAction" method="deleteNotice">
-			<result name="success">/testweb/deleteClientRes.jsp</result>
-			<result name="error">/testweb/deleteClientRes.jsp</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 添加公告 -->
 		<action name="insert_notice_message" class="noticeAction" method="insertNotice">
-			<result name="success">/admin/noticeInsertClientRes.jsp?rid=0</result>
-			<result name="error">/admin/noticeInsertClientRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 	</package>
 	
@@ -112,14 +105,12 @@
 		
 		<!-- 添加座位信息 -->
 		<action name="insert_seat_message" class="seatAction" method="insertSeat">
-			<result name="success">/jump.jsp</result>
-			<result name="error">/jump.jsp</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 删除座位信息 -->
 		<action name="delete_seat" class="seatAction" method="deleteSeat">
-			<result name="success">/jump.jsp</result>
-			<result name="error">/jump.jsp</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 	</package>
 	
@@ -138,26 +129,22 @@
 		
 		<!-- 座位预约 -->
 		<action name="order_seat" class="orderAction" method="SeatOrder">
-			<result name="success">/user/seatOrderClientRes.jsp?rid=0</result>
-			<result name="error">/user/seatOrderClientRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 在空座位列表中预约座位 -->
 		<action name="order_seat_from_empty" class="orderAction" method="seatOrderFromEmpty">
-			<result name="success">/user/seatOrderClientRes.jsp?rid=0</result>
-			<result name="error">/user/seatOrderClientRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 一键预约座位 -->
 		<action name="order_by_one_button" class="orderAction" method="orderByOneButton">
-			<result name="success">/user/seatOrderClientRes.jsp?rid=0</result>
-			<result name="error">/user/seatOrderClientRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 取消预约 -->
 		<action name="delete_order" class="orderAction" method="deleteOrderinfo">
-			<result name="success">/admin/deleteOrderRes.jsp?rid=0</result>
-			<result name="error">/admin/deleteOrderRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 	</package>
 	
@@ -165,8 +152,7 @@
 	<package name="longtermapply" namespace="/" extends="struts-default">
 		<!-- 长期座位申请 -->
 		<action name="insert_longtermapply" class="longtermapplyAction" method="insertLongtermapplyinfo">
-			<result name="success">/user/longtermapplyClientRes.jsp?rid=0</result>
-			<result name="error">/user/longtermapplyClientRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 查看个人长期座位信息 -->
@@ -186,8 +172,7 @@
 	
 		<!-- 删除长期座位申请信息 -->
 		<action name="delete_longtermapply" class="longtermapplyAction" method="deleteLongtermapply">
-			<result name="success">/admin/deleteLongtermapplyRes.jsp?rid=0</result>
-			<result name="error">/admin/deleteLongtermapplyRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 	</package>
 	
@@ -201,14 +186,12 @@
 		
 		<!-- 添加专业信息 -->
 		<action name="insert_major_message" class="majorAction" method="insertMajor">
-			<result name="success">/admin/majorInsertClientRes.jsp?rid=0</result>
-			<result name="error">/admin/majorInsertClientRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 删除专业信息 -->
 		<action name="delete_major" class="majorAction" method="deleteMajorinfo">
-			<result name="success">/admin/deleteMajorRes.jsp?rid=0</result>
-			<result name="error">/admin/deleteMajorRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 	</package>
 
@@ -222,14 +205,12 @@
 		
 		<!-- 添加学院信息 -->
 		<action name="insert_scademy_message" class="scademyAction" method="insertScademy">
-			<result name="success">admin/scademyInsertClientRes.jsp?rid=0</result>
-			<result name="error">admin/scademyInsertClientRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 删除学院信息 -->
 		<action name="delete_scademy" class="scademyAction" method="deleteScademyinfo">
-			<result name="success">/admin/deleteScademyRes.jsp?rid=0</result>
-			<result name="error">/admin/deleteScademyRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 	</package>
 	
@@ -243,14 +224,12 @@
 		
 		<!-- 删除历史记录 -->
 		<action name="delete_history" class="historyAction" method="deleteHistory">
-			<result name="success">/user/deleteHistoryRes.jsp?rid=0</result>
-			<result name="error">/user/deleteHistoryRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 删除用户所有历史记录 -->
 		<action name="delete_all_historys" class="historyAction" method="deleteAllHistorys">
-			<result name="success">/user/deleteHistoryRes.jsp?rid=0</result>
-			<result name="error">/user/deleteHistoryRes.jsp?rid=1</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 	</package>

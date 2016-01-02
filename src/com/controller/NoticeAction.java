@@ -7,6 +7,7 @@ import java.util.List;
 import com.domain.Noticeinfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.services.NoticeinfoService;
+import com.utils.BaseTools;
 
 public class NoticeAction extends ActionSupport{
 	
@@ -35,10 +36,11 @@ public class NoticeAction extends ActionSupport{
 	public String deleteNotice(){
 		boolean isDeleteNotice=noticeinfoService.deleteNoticeinfo(id);
 		if(isDeleteNotice){
-			return "success";
+			BaseTools.success("删除成功", null, null);
 		}else{
-			return "error";
+			BaseTools.error("删除失败", null, null);
 		}
+		return "jump";
 	}
 
 	//删除所有公告信息
@@ -53,9 +55,10 @@ public class NoticeAction extends ActionSupport{
 		noticeinfo.setDate(sdf.format(new Date()));
 		int isInsert=noticeinfoService.creatNoticeinfo(noticeinfo);
 		if(isInsert==0)
-			return "success";
+			BaseTools.success("发布成功", null, null);
 		else
-			return "error";
+			BaseTools.error("发布失败", null, null);
+		return "jump";
 	}
 	
 	public Noticeinfo getNoticeinfo() {

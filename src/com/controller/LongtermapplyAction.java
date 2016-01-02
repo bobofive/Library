@@ -5,6 +5,7 @@ import java.util.List;
 import com.domain.Longtermapplyinfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.services.LongtermapplyinfoService;
+import com.utils.BaseTools;
 
 public class LongtermapplyAction extends ActionSupport{
 	
@@ -26,13 +27,17 @@ public class LongtermapplyAction extends ActionSupport{
 //		System.out.println(longtermapplyinfo.getSeatId());
 //		System.out.println(longtermapplyinfo.getTime());
 //		System.out.println(longtermapplyinfo.getUserId());
-		if(longtermapplyinfoService.getLongtermapplyinfoByUserId(longtermapplyinfo.getUserId()).size()!=0)
-			return "error";
+		//判断用户是否已经进行过长期座位申请
+		if(longtermapplyinfoService.getLongtermapplyinfoByUserId(longtermapplyinfo.getUserId()).size()!=0){
+			BaseTools.error("您已经申请过了", null, null);
+			return "jump";
+		}
 		int isInsert=longtermapplyinfoService.creatLongtermapplyinfo(longtermapplyinfo);
 		if(isInsert==0)
-			return "success";
+			BaseTools.success("申请成功", null, "show_longtermapply_message?userId="+longtermapplyinfo.getUserId());
 		else
-			return "error";
+			BaseTools.error("申请失败", null, null);
+		return "jump";
 	}
 	
 	//显示所有的长期申请信息
@@ -60,10 +65,11 @@ public class LongtermapplyAction extends ActionSupport{
 	public String deleteLongtermapply(){
 		boolean isDeleteLongtermapply=longtermapplyinfoService.deleteLongtermapplyinfo(id);
 		if(isDeleteLongtermapply){
-			return "success";
+			BaseTools.success("删除成功", null, null);
 		}else{
-			return "error";
+			BaseTools.error("删除失败", null, null);
 		}
+		return "jump";
 	}
 
 	

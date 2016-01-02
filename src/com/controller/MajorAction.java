@@ -5,6 +5,7 @@ import java.util.List;
 import com.domain.Majorinfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.services.MajorinfoService;
+import com.utils.BaseTools;
 
 public class MajorAction extends ActionSupport{
 	
@@ -21,13 +22,16 @@ public class MajorAction extends ActionSupport{
 	//添加专业信息
 	public String insertMajor(){
 		
-		if(majorinfoService.getMajorinfoByCode(majorinfo.getMajorCode()).size()!=0)
-			return "error";
+		if(majorinfoService.getMajorinfoByCode(majorinfo.getMajorCode()).size()!=0){
+			BaseTools.error("专业已存在", null, null);
+			return "jump";
+		}
 		int isInsert=majorinfoService.creatMajorinfo(majorinfo);
 		if(isInsert==0)
-			return "success";
+			BaseTools.success("添加成功", null, null);
 		else
-			return "error";
+			BaseTools.error("添加失败", null, null);
+		return "jump";
 	}
 	
 	//显示所有的专业信息
@@ -41,9 +45,10 @@ public class MajorAction extends ActionSupport{
 		System.out.println(majorCode);
 		boolean isDeleteMajorinfo=majorinfoService.deleteMajorinfo(Integer.parseInt(majorCode));
 		if(isDeleteMajorinfo)
-			return "success";
+			BaseTools.success("删除成功", null, null);
 		else
-			return "error";
+			BaseTools.error("山粗失败", null, null);
+		return "jump";
 	}
 	
 	

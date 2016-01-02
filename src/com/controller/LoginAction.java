@@ -30,17 +30,28 @@ public class LoginAction extends ActionSupport{
 		if(identity.equals("user"))
 		{
 			
-			if(userinfoService.getPwd(usr).equals(pwd))
-			{
+//			if(userinfo==null){
+//				BaseTools.error("用户名不存在", null, null);
+//				return "err";
+//			}
+			if(userinfoService.getUserinfoById(Integer.parseInt(usr)).size() == 0){
+				BaseTools.error("用户名不存在", null, null);
+				return "err";
+			}
+			if(userinfoService.getPwd(usr).equals(pwd)){
+				
 				HttpSession session=ServletActionContext.getRequest().getSession();	
 				userinfo=(Userinfo) session.getAttribute("userinfo");
-				//System.out.println(userinfo.getUserName());
 				return "usr";
 			}
 		}
 		//管理员身份验证
 		else if(identity.equals("admin"))
 		{
+			if(admininfoService.getAdmininfoById(usr)==null){
+				BaseTools.error("用户名不存在", null, null);
+				return "err";
+			}
 			if(admininfoService.getPwd(usr).equals(pwd))
 			{
 				HttpSession session=ServletActionContext.getRequest().getSession();	

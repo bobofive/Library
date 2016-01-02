@@ -50,31 +50,33 @@ public class SeatAction extends ActionSupport{
 		boolean isDeleteSeat=seatinfoService.deleteSeatinfo(seatId);
 		if(isDeleteSeat){
 			BaseTools.success("删除成功", null, null);
-			return "success";
+			
 		}else{
 			BaseTools.error("删除失败", null, null);
-			return "error";
+			
 		}
+		return "jump";
 	}
 	
 	//添加座位信息
 	public String insertSeat(){
 		
-		if(seatinfoService.getSeatinfoById(seatinfo.getSeatId())!=null){
+		if((seatinfoService.getSeatinfoById(seatinfo.getSeatId())).size()!=0){
 			BaseTools.error("座位编号重复，添加失败！", null, null);
-			return "error";
+			return "jump";
 		}
 		seatinfo.setIsOrder("yes");
 		seatinfo.setIsUsed("yes");
 		int isInsert=seatinfoService.creatSeatinfo(seatinfo);
 		if(isInsert==0){
 			BaseTools.success("添加成功", null, null);
-			return "success";
+			
 		}
 		else {
 			BaseTools.error("座位编号重复，添加失败！", null, null);
-			return "error";
+			
 		}
+		return "jump";
 	}
 	
 	public Seatinfo getSeatinfo() {

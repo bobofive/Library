@@ -48,38 +48,47 @@ public class UserAction extends ActionSupport{
 		boolean isDeleteUser=userinfoService.deleteUserinfo(Integer.parseInt(userId));
 		if(isDeleteUser){
 			BaseTools.success("删除成功", null, null);
-			return "success";
+			
 		}else{
 			BaseTools.error("删除失败", null, null);
-			return "error";
+			
 		}
+		return "jump";
 	}
 
 	//添加用户信息
 	public String insertUser(){
 		
-		if(userinfoService.getUserinfoById(userinfo.getUserId()).size() != 0)
-			return "error";
+		if(userinfoService.getUserinfoById(userinfo.getUserId()).size() != 0){
+			BaseTools.error("添加失败", null, null);
+			return "jump";
+		}
 		userinfo.setUserPw("123456");
 		int isInsert=userinfoService.creatUserinfo(userinfo);
 		if(isInsert==0){
 			BaseTools.success("添加成功", null, null);
-			return "success";
+			
 		}
 		else {
 			BaseTools.error("添加失败", null, null);
-			return "error";
+			
 		}
+		return "jump";
 	}
 	
 	//修改用户信息
 	public String updateUserinfo(){
 		System.out.println(userinfo.getUserName());
 		boolean isSave=userinfoService.updateUserinfo(userinfo);
-		if(isSave)
-			return "success";
-		else
-			return "error";
+		if(isSave){
+			BaseTools.success("修改成功", null, "show_user_message?userId="+userinfo.getUserId());
+			
+		}
+		else{
+			BaseTools.error("修改失败", null, null);
+			
+		}
+		return "jump";
 	}
 	
 	//修改用户密码
@@ -89,28 +98,33 @@ public class UserAction extends ActionSupport{
 			if(userPwNew.equals(userPwNewConfirm)){
 				userinfo.setUserPw(userPwNew);
 				userinfoService.updateUserinfo(userinfo);
-				return "success";
+				BaseTools.success("修改成功", null, "show_user_message?userId="+userinfo.getUserId());
+				
 			}
 			else
-				return "error";
+				BaseTools.error("修改失败", null, null);
 		}
 		else
-			return "error";
+			BaseTools.error("密码不正确", null, null);
+		return "jump";
 	}
 	
 	//设置抢座好友
 	public String setFriend(){
-		if(userId.equals(friendId))
-			return "error";
+		if(userId.equals(friendId)){
+			BaseTools.error("不能设置自己为好友", null, null);
+			return "jump";
+		}
 		userinfo=(Userinfo)(userinfoService.getUserinfoByIdOnly(Integer.parseInt(friendId)).get(0));
 		if(friendPw.equals(userinfo.getUserPw())){
 			userinfo=(Userinfo)(userinfoService.getUserinfoByIdOnly(Integer.parseInt(userId)).get(0));
 			userinfo.setFriendId(Integer.parseInt(friendId));
 			userinfoService.updateUserinfo(userinfo);
-			return "success";
+			BaseTools.success("设置成功", null, "show_user_message?userId="+userinfo.getUserId());
 		}
 		else
-			return "error";
+			BaseTools.error("设置失败", null, null);
+		return "jump";
 	}
 
 	
