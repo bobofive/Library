@@ -12,13 +12,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <title>长期座位申请</title>
     
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
@@ -34,19 +27,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="userId">申请人学号: </label>
-				<s:textfield name="longtermapplyinfo.userId" maxlength="30" id="userId" />
+				<s:textfield name="longtermapplyinfo.userId" maxlength="30" id="userId" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="seatId">申请座位编号: </label>
-				<s:textfield name="longtermapplyinfo.seatId" maxlength="30" id="seatId" />
+				<s:textfield name="longtermapplyinfo.seatId" maxlength="30" id="seatId" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="time">申请时长: </label>
-				<s:textfield name="longtermapplyinfo.time" maxlength="30" id="time" />
+				<s:textfield name="longtermapplyinfo.time" maxlength="30" id="time" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div id="submiter" class="control-group">
