@@ -20,6 +20,9 @@
                 <comment>座位编号</comment>
             </column>
         </property>
+        <property name="isAgree" type="java.lang.String">
+            <column name="isAgree" length="10" />
+        </property>
         <property name="time" type="java.lang.Integer">
             <column name="time" not-null="true">
                 <comment>申请时长</comment>

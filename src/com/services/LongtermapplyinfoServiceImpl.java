@@ -38,6 +38,7 @@ public class LongtermapplyinfoServiceImpl implements LongtermapplyinfoService {
 
 	
 	
+	
 	public BaseDaoHibImpl<Longtermapplyinfo> getBaseDao() {
 		return baseDao;
 	}

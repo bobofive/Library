@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50627
 File Encoding         : 65001
 
-Date: 2016-01-01 21:31:10
+Date: 2016-01-02 16:17:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,6 +54,7 @@ CREATE TABLE `longtermapplyinfo` (
   `id` int(3) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `userId` int(20) NOT NULL COMMENT '用户名',
   `seatId` int(3) NOT NULL COMMENT '座位编号',
+  `isAgree` varchar(10) DEFAULT NULL,
   `time` int(3) NOT NULL COMMENT '申请时长',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`),
@@ -63,8 +64,8 @@ CREATE TABLE `longtermapplyinfo` (
 -- ----------------------------
 -- Records of longtermapplyinfo
 -- ----------------------------
-INSERT INTO `longtermapplyinfo` VALUES ('1', '221200001', '1', '180');
-INSERT INTO `longtermapplyinfo` VALUES ('2', '221200002', '2', '100');
+INSERT INTO `longtermapplyinfo` VALUES ('1', '221200001', '1', null, '180');
+INSERT INTO `longtermapplyinfo` VALUES ('2', '221200002', '2', null, '100');
 
 -- ----------------------------
 -- Table structure for `majorinfo`
@@ -97,7 +98,7 @@ CREATE TABLE `noticeinfo` (
   `date` varchar(20) NOT NULL COMMENT '发布日期',
   `author` varchar(20) NOT NULL COMMENT '作者',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of noticeinfo
@@ -118,14 +119,14 @@ CREATE TABLE `orderinfo` (
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`),
   KEY `seatId` (`seatId`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orderinfo
 -- ----------------------------
 INSERT INTO `orderinfo` VALUES ('1', '221200002', '1');
-INSERT INTO `orderinfo` VALUES ('6', '221200001', '3');
 INSERT INTO `orderinfo` VALUES ('8', '221200003', '10');
+INSERT INTO `orderinfo` VALUES ('10', '221200001', '6');
 
 -- ----------------------------
 -- Table structure for `scademyinfo`
@@ -180,7 +181,7 @@ CREATE TABLE `seatinfo` (
 -- ----------------------------
 INSERT INTO `seatinfo` VALUES ('1', '一楼', 'no', 'yes');
 INSERT INTO `seatinfo` VALUES ('2', '一楼', 'no', 'yes');
-INSERT INTO `seatinfo` VALUES ('3', '一楼', 'yes', 'yes');
+INSERT INTO `seatinfo` VALUES ('3', '二楼', 'yes', 'yes');
 
 -- ----------------------------
 -- Table structure for `userinfo`
@@ -201,6 +202,9 @@ CREATE TABLE `userinfo` (
 -- ----------------------------
 -- Records of userinfo
 -- ----------------------------
-INSERT INTO `userinfo` VALUES ('221200001', '123456', '张三', '男', '22', '333', '444', '221200003');
+INSERT INTO `userinfo` VALUES ('1111', '123456', '2', '男', '22', null, null, null);
+INSERT INTO `userinfo` VALUES ('221200001', '221200001', '张三', '男', '22', '1383838438', '1234@qq.com', '221200003');
 INSERT INTO `userinfo` VALUES ('221200002', '123456', '李四', '男', '22', null, null, null);
 INSERT INTO `userinfo` VALUES ('221200003', '123456', '王五', '男', '23', null, null, null);
+INSERT INTO `userinfo` VALUES ('221200004', '123456', '赵六', '男', '22', '', '', null);
+INSERT INTO `userinfo` VALUES ('221200006', '123456', '哒哒哒', '男', '22', null, null, null);

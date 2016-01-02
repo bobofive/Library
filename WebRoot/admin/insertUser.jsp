@@ -46,7 +46,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="userSex">性别: </label>
-				<s:textfield name="userinfo.userSex" maxlength="30" id="userSex" cssClass="form-control" />
+				<div class="controls">
+					<select name="userinfo.userSex" id="userSex" class="form-control">
+						<option value="">
+							==请选择==
+						</option>
+						<option value="男">
+							男
+						</option>
+						<option value="女">
+							女
+						</option>
+					</select>
+				</div>
 			</div>
 		</div><br/>
 		<div class="control-group">

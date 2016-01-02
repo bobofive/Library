@@ -40,13 +40,23 @@
 			<result name="jump">/jump.jsp</result>
 		</action>
 		
-		<!-- 修改之前显示用户信息 -->
+		<!-- 用户修改之前显示的信息 -->
 		<action name="show_user_message_before_delete" class="userAction" method="showUserMessage">
 			<result name="showUser">/user/updateUserMessage.jsp</result>
 		</action>
 		
-		<!-- 修改用户信息 -->
+		<!-- 用户修改自己的信息 -->
 		<action name="update_user" class="userAction" method="updateUserinfo">
+			<result name="jump">/jump.jsp</result>
+		</action>
+		
+		<!-- 管理员修改之前显示的信息 -->
+		<action name="show_before_update" class="userAction" method="showBeforeUpdate">
+			<result name="showBeforeUpdate">/admin/updateUserMessage.jsp</result>
+		</action>
+		
+		<!-- 管理员修改用户信息 -->
+		<action name="update_user" class="userAction" method="updateUser">
 			<result name="jump">/jump.jsp</result>
 		</action>
 		
@@ -112,6 +122,17 @@
 		<action name="delete_seat" class="seatAction" method="deleteSeat">
 			<result name="jump">/jump.jsp</result>
 		</action>
+		
+		<!-- 管理员修改座位信息之前的显示 -->
+		<action name="show_seat_before_update" class="seatAction" method="showBeforeUpdate">
+			<result name="showBeforeUpdate">/admin/updateSeatMessage.jsp</result>
+		</action>
+		
+		<!-- 修改座位信息 -->
+		<action name="update_seat" class="seatAction" method="updateSeat">
+			<result name="jump">/jump.jsp</result>
+		</action>
+		
 	</package>
 	
 	<!-- 座位预约模块 -->

@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>个人信息</title>
+    <title>修改用户信息</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -32,23 +32,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h3 class="text-center">
-				个人信息
+				修改用户信息
 			</h3>
 			<form action="update_user" method="post" id="userForm"
 			 class="form-horizontal">
-				<s:iterator value="userinfoList" var="user" status="st">
+				
 					<div class="control-group">
 						<label class="control-label" for="userId">
 							学号：
 						</label>
 						<div class="controls">
-							<input type="text" name="userinfo.userId" value="<s:property value="#user.userId"/>"
-								readonly="readonly" maxlength="18" id="userId" class="form-control" />
+							<input type="text" name="userinfo.userId" value="<s:property value="userinfo.userId"/>"
+								 readonly="readonly" maxlength="18" id="userId" class="form-control" />
 						</div>
 					</div>
 					<div class="control-group">
 						<div class="controls">
-							<input type="hidden" name="userinfo.userPw" value="<s:property value="#user.userId"/>"
+							<input type="hidden" name="userinfo.userPw" value="<s:property value="userinfo.userPw"/>"
 								readonly="readonly" maxlength="18" id="userPw" class="form-control" />
 						</div>
 					</div>  
@@ -57,8 +57,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							姓名：
 						</label>
 						<div class="controls">
-							<input type="text" name="userinfo.userName" value="<s:property value="#user.userName"/>"
-								readonly="readonly" maxlength="18" id="userName" class="form-control" />
+							<input type="text" name="userinfo.userName" value="<s:property value="userinfo.userName"/>"
+								maxlength="18" id="userName" class="form-control" />
 						</div>
 					</div> 
 					<div class="control-group">
@@ -66,32 +66,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							性别：
 						</label>
 						<div class="controls">
-							<input type="text" name="userinfo.userSex" value="<s:property value="#user.userSex"/>"
-								readonly="readonly" maxlength="18" id="userSex" class="form-control" />
+							<select name="userinfo.userSex" id="userSex" class="form-control">
+								<option value="">
+									==请选择==
+								</option>
+								<option value="男">
+									男
+								</option>
+								<option value="女">
+									女
+								</option>
+							</select>
 						</div>
 					</div> 
 					<div class="control-group">
-						<label class="control-label" for="scademyName">
-							学院：
+						<label class="control-label" for="majorCode">
+							专业代码：
 						</label>
 						<div class="controls">
-							<input type="text"  value="<s:property value="#user.scademyName"/>"
-								readonly="readonly" maxlength="18" id="scademyName"  class="form-control" />
-						</div>
-					</div>
-					<div class="control-group">
-						<div class="controls">
-							<input type="hidden" name="userinfo.majorCode" value="<s:property value="#user.majorCode"/>"
-								readonly="readonly" maxlength="18" id="majorCode" class="form-control" />
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="majorName">
-							专业：
-						</label>
-						<div class="controls">
-							<input type="text"  value="<s:property value="#user.majorName"/>"
-								readonly="readonly" maxlength="18" id="majorName" class="form-control" />
+							<input type="text" name="userinfo.majorCode" value="<s:property value="userinfo.majorCode"/>" 
+								maxlength="18" id="majorCode" class="form-control" />
 						</div>
 					</div>
 					<div class="control-group">
@@ -99,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							好友帐号：
 						</label>
 						<div class="controls">
-							<input type="text" name="userinfo.friendId" value="<s:property value="#user.friendId"/>"
+							<input type="text" name="userinfo.friendId" value="<s:property value="userinfo.friendId"/>"
 								readonly="readonly" maxlength="18" id="friendId" class="form-control" />
 						</div>
 					</div>
@@ -108,8 +102,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							联系方式：
 						</label>
 						<div class="controls">
-							<s:textfield name="userinfo.phoneNum" maxlength="30" value="<s:property value="#user.phoneNum"/>"
-									id="phoneNum" cssClass="form-control" />
+							<input type="text" name="userinfo.phoneNum" value="<s:property value="userinfo.phoneNum"/>" 
+								readonly="readonly" maxlength="18" id="phoneNum" Class="form-control" />
 						</div>
 					</div>
 					<div class="control-group">
@@ -117,12 +111,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							电子邮箱：
 						</label>
 						<div class="controls">
-							<s:textfield name="userinfo.email" maxlength="30" value="<s:property value="#user.email"/>"
-									id="email" cssClass="form-control" />
+							<input type="text" name="userinfo.email" value="<s:property value="userinfo.email"/>" 
+								readonly="readonly" maxlength="18" id="email" Class="form-control" />
 						</div>
 					</div>
 					<div><input type="submit" class="btn btn-primary" value="修改"></div>
-				</s:iterator>
+			
 			</form>
 			</div>
 			</div>

@@ -11,6 +11,7 @@ public class Longtermapplyinfo implements java.io.Serializable {
 	private Integer id;
 	private Integer userId;
 	private Integer seatId;
+	private String isAgree;
 	private Integer time;
 
 	// Constructors
@@ -19,10 +20,19 @@ public class Longtermapplyinfo implements java.io.Serializable {
 	public Longtermapplyinfo() {
 	}
 
-	/** full constructor */
+	/** minimal constructor */
 	public Longtermapplyinfo(Integer userId, Integer seatId, Integer time) {
 		this.userId = userId;
 		this.seatId = seatId;
+		this.time = time;
+	}
+
+	/** full constructor */
+	public Longtermapplyinfo(Integer userId, Integer seatId, String isAgree,
+			Integer time) {
+		this.userId = userId;
+		this.seatId = seatId;
+		this.isAgree = isAgree;
 		this.time = time;
 	}
 
@@ -50,6 +60,14 @@ public class Longtermapplyinfo implements java.io.Serializable {
 
 	public void setSeatId(Integer seatId) {
 		this.seatId = seatId;
+	}
+
+	public String getIsAgree() {
+		return this.isAgree;
+	}
+
+	public void setIsAgree(String isAgree) {
+		this.isAgree = isAgree;
 	}
 
 	public Integer getTime() {

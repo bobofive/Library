@@ -79,6 +79,27 @@ public class SeatAction extends ActionSupport{
 		return "jump";
 	}
 	
+	//管理员修改座位信息之前的显示
+	public String showBeforeUpdate(){
+		
+		seatinfo=(Seatinfo)(seatinfoService.getSeatinfoByIdOnly(seatId).get(0));
+		return "showBeforeUpdate";
+	}
+	
+	//修改座位信息
+	public String updateSeat(){
+		System.out.println(seatinfo.getIsOrder()+" "+seatinfo.getIsUsed()+" "+seatinfo.getLocation());
+		boolean isUpdate=seatinfoService.updateSeatinfo(seatinfo);
+		if(isUpdate){
+			
+			BaseTools.success("修改成功", null, "show_all_seats");
+		}
+		else
+			BaseTools.error("修改失败", null, null);
+		return "jump";
+	}
+	
+	
 	public Seatinfo getSeatinfo() {
 		return seatinfo;
 	}

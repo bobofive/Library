@@ -61,6 +61,11 @@ public class SeatinfoServiceImpl implements SeatinfoService {
 		return baseDao.find(hql);
 	}
 	
+	public List getSeatinfoByIdOnly(Integer seatId){
+		
+		String hql="select s from Seatinfo s where s.seatId="+seatId;
+		return baseDao.find(hql);
+	}
 
 	
 	

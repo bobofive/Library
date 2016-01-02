@@ -19,5 +19,7 @@ public interface SeatinfoService {
     List getOrderinfoById(Integer seatId);
     //获取空座位信息
     List getEmptySeatinfo();
+    //根据座位编号获取座位表信息
+    List getSeatinfoByIdOnly(Integer seatId);
 
 }

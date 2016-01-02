@@ -43,6 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<th>发布日期</th>
 						<th>作者</th>
 						<th>查看详情</th>
+						<th>删除</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -58,6 +59,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><s:property value="#notice.author"/></td>
 						<form action="#" method="post">
 							<td><input type="submit" class="btn btn-success" value="查看"></td>
+						</form>	
+						<form action="delete_notice?id=<s:property value="#notice.id"/>" method="post">
+							<td><input type="submit" class="btn btn-success" value="删除"></td>
 						</form>				
 					</tr>
 					</s:iterator>

@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<form action="delete_seat?seatId=<s:property value="#seat.seatId"/>" method="post">
 							<td><input type="submit" class="btn btn-danger btn-sm" value="删除" onclick="return confirm_delete();"></td>
 						</form>	
-						<form action="#" method="post">
+						<form action="show_seat_before_update?seatId=<s:property value="#seat.seatId"/>" method="post">
 							<td><input type="submit" class="btn btn-primary btn-sm" value="修改"></td>
 						</form>		
 					</tr>

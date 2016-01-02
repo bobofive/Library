@@ -76,12 +76,32 @@ public class UserAction extends ActionSupport{
 		return "jump";
 	}
 	
-	//修改用户信息
+	//用户修改自己的信息
 	public String updateUserinfo(){
 		System.out.println(userinfo.getUserName());
-		boolean isSave=userinfoService.updateUserinfo(userinfo);
-		if(isSave){
+		boolean isUpdate=userinfoService.updateUserinfo(userinfo);
+		if(isUpdate){
 			BaseTools.success("修改成功", null, "show_user_message?userId="+userinfo.getUserId());
+			
+		}
+		else{
+			BaseTools.error("修改失败", null, null);
+			
+		}
+		return "jump";
+	}
+	
+	//管理员修改用户信息之前的显示
+	public String showBeforeUpdate(){
+		userinfo=(Userinfo)(userinfoService.getUserinfoByIdOnly(Integer.parseInt(userId)).get(0));
+		return "showBeforeUpdate";
+	}
+	
+	//管理员修改用户信息
+	public String updateUser(){
+		boolean isUpdate=userinfoService.updateUserinfo(userinfo);
+		if(isUpdate){
+			BaseTools.success("修改成功", null, "show_all_users");
 			
 		}
 		else{

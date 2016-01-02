@@ -43,12 +43,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="admin/insertUser.jsp" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 添加用户信息 </a>
 			</li>
-			<li><a href="#" target="content"> <i
-					class="fa fa-angle-right"></i>&nbsp; 修改用户信息 </a>
-			</li>
-			<li><a href="admin/searchUser.jsp" target="content"> <i
-					class="fa fa-angle-right"></i>&nbsp; 删除用户信息 </a>
-			</li>
 		</ul>
 	</li>
 	<li class=""><a href="javascript:;"> <i class="fa fa-tasks"></i>
@@ -61,13 +55,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="admin/insertSeat.jsp" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
 					添加座位信息 </a>
 			</li>
-			<li><a href="#" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
-					修改座位信息 </a>
-			</li>
-			<li><a href="#" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
-					删除座位信息 </a>
-			</li>
-
 		</ul>
 	</li>
 	<li class=""><a href="javascript:;"> <i class="fa fa-pencil"></i>
@@ -79,14 +66,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</li>
 			<li><a href="admin/insertNotice.jsp" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 发布公告 </a>
-			</li>
-			<li><a href="#" target="content"> <i
-					class="fa fa-angle-right"></i>&nbsp; 删除公告 </a>
 			</li>			
 		</ul>
 	</li>
 	<li class=""><a href="javascript:;"> <i class="fa fa-pencil"></i>
-			<span class="link-title"> 其他管理 </span> <span class="fa arrow"></span>
+			<span class="link-title"> 学院信息管理 </span> <span class="fa arrow"></span>
 	</a>
 		<ul>
 			<li><a href="show_all_scademyinfo" target="content"> <i
@@ -95,16 +79,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="admin/insertScademy.jsp" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 添加学院信息 </a>
 			</li>
+		</ul>
+	</li>
+	<li class=""><a href="javascript:;"> <i class="fa fa-pencil"></i>
+			<span class="link-title"> 专业信息管理 </span> <span class="fa arrow"></span>
+	</a>
+		<ul>
 			<li><a href="show_all_majorinfo" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 查看专业信息 </a>
 			</li>
 			<li><a href="admin/insertMajor.jsp" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 添加专业信息 </a>
 			</li>
+		</ul>
+	</li>
+	<li class=""><a href="javascript:;"> <i class="fa fa-pencil"></i>
+			<span class="link-title"> 其他管理 </span> <span class="fa arrow"></span>
+	</a>
+		<ul>
 			<li><a href="show_all_longtermapplyinfo" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 查看长期座位申请信息 </a>
 			</li>
-			<li><a href="show_all_longtermapplyinfo" target="content"> <i
+			<li><a href="#" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 一键清空预约信息 </a>
 			</li>
 		</ul>
