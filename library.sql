@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50627
 File Encoding         : 65001
 
-Date: 2016-01-02 17:19:27
+Date: 2016-01-02 21:31:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,17 +34,20 @@ INSERT INTO `admininfo` VALUES ('0001', '0001');
 -- ----------------------------
 DROP TABLE IF EXISTS `historyinfo`;
 CREATE TABLE `historyinfo` (
-  `id` int(2) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `userId` int(20) NOT NULL COMMENT '用户名',
-  `select` varchar(60) NOT NULL,
+  `seatId` varchar(60) NOT NULL,
   `date` varchar(60) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of historyinfo
 -- ----------------------------
+INSERT INTO `historyinfo` VALUES ('3', '3', '3', '3');
+INSERT INTO `historyinfo` VALUES ('4', '221200001', '1', '2016-01-02');
+INSERT INTO `historyinfo` VALUES ('5', '221200001', '1', '2016-01-02');
 
 -- ----------------------------
 -- Table structure for `longtermapplyinfo`
@@ -118,14 +121,12 @@ CREATE TABLE `orderinfo` (
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`),
   KEY `seatId` (`seatId`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orderinfo
 -- ----------------------------
-INSERT INTO `orderinfo` VALUES ('1', '221200002', '1');
-INSERT INTO `orderinfo` VALUES ('8', '221200003', '10');
-INSERT INTO `orderinfo` VALUES ('10', '221200001', '6');
+INSERT INTO `orderinfo` VALUES ('11', '221200001', '1');
 
 -- ----------------------------
 -- Table structure for `scademyinfo`
@@ -179,7 +180,7 @@ CREATE TABLE `seatinfo` (
 -- Records of seatinfo
 -- ----------------------------
 INSERT INTO `seatinfo` VALUES ('1', '一楼', 'no', 'yes');
-INSERT INTO `seatinfo` VALUES ('2', '一楼', 'no', 'no');
+INSERT INTO `seatinfo` VALUES ('2', '一楼', 'yes', 'no');
 INSERT INTO `seatinfo` VALUES ('3', '二楼', 'yes', 'yes');
 
 -- ----------------------------
