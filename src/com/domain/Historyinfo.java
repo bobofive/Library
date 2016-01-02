@@ -10,7 +10,7 @@ public class Historyinfo implements java.io.Serializable {
 
 	private Integer id;
 	private Integer userId;
-	private String select;
+	private String seatId;
 	private String date;
 
 	// Constructors
@@ -20,9 +20,9 @@ public class Historyinfo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Historyinfo(Integer userId, String select, String date) {
+	public Historyinfo(Integer userId, String seatId, String date) {
 		this.userId = userId;
-		this.select = select;
+		this.seatId = seatId;
 		this.date = date;
 	}
 
@@ -44,12 +44,12 @@ public class Historyinfo implements java.io.Serializable {
 		this.userId = userId;
 	}
 
-	public String getSelect() {
-		return this.select;
+	public String getSeatId() {
+		return this.seatId;
 	}
 
-	public void setSelect(String select) {
-		this.select = select;
+	public void setSeatId(String seatId) {
+		this.seatId = seatId;
 	}
 
 	public String getDate() {

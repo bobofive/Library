@@ -137,6 +137,8 @@ public class BaseDaoHibImpl<T> implements BaseDao<T> {
 		return query.setFirstResult((pageNo - 1) * pageSize)
 				.setMaxResults(pageSize).list();
 	}
+	
+	//删除表中的所有数据
 	public void deleteAll(String tablename) {
 		Session session = getSession();
 		String sql = "truncate table " + tablename;
@@ -144,6 +146,7 @@ public class BaseDaoHibImpl<T> implements BaseDao<T> {
 		query.executeUpdate();
 	}
 	
+	//将表中的某个属性设置为相同的值
 	public void setFieldValue(String tablename, String field, Object value) {
 		String value_str = "";
 		if(value instanceof String) {

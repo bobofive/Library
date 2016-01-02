@@ -15,8 +15,8 @@
                 <comment>用户名</comment>
             </column>
         </property>
-        <property name="select" type="java.lang.String">
-            <column name="select" length="60" not-null="true" />
+        <property name="seatId" type="java.lang.String">
+            <column name="seatId" length="60" not-null="true" />
         </property>
         <property name="date" type="java.lang.String">
             <column name="date" length="60" not-null="true" />

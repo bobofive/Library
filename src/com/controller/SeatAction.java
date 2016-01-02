@@ -99,7 +99,7 @@ public class SeatAction extends ActionSupport{
 		return "jump";
 	}
 	
-	//恢复座位可预约状态
+	//一键恢复座位可预约状态
 	public String recoverySeat(){
 		boolean isRecovery=seatinfoService.recoveryIsOrder();
 		if(isRecovery)

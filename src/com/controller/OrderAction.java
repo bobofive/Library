@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -7,16 +9,24 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.domain.Historyinfo;
 import com.domain.Orderinfo;
+import com.domain.Seatinfo;
 import com.domain.Userinfo;
 import com.opensymphony.xwork2.ActionSupport;
+import com.services.HistoryinfoService;
 import com.services.OrderinfoService;
+import com.services.SeatinfoService;
 import com.utils.BaseTools;
 
 public class OrderAction extends ActionSupport{
 	
 	private Orderinfo orderinfo;
 	private OrderinfoService orderinfoService;
+	private Seatinfo seatinfo;
+	private SeatinfoService seatinfoService;
+	private Historyinfo historyinfo;
+	private HistoryinfoService historyinfoService;
 	private List myOrderinfo;
 	private String id;
 	private String userId;
@@ -48,8 +58,10 @@ public class OrderAction extends ActionSupport{
 		}
 		orderinfo.setUserId(Integer.parseInt(userId));
 		int isOrder=orderinfoService.creatOrderinfo(orderinfo);
-		if(isOrder==0)
+		if(isOrder==0){
+			this.creatHistory(Integer.parseInt(userId),seatId);
 			BaseTools.success("预约成功", null, "show_order?userId="+userId);
+		}
 		else
 			BaseTools.error("预约失败", null, null);
 		return "jump";
@@ -73,8 +85,11 @@ public class OrderAction extends ActionSupport{
 		orderinfo.setSeatId(Integer.parseInt(seatId));
 		orderinfo.setUserId(userId);
 		int isOrder=orderinfoService.creatOrderinfo(orderinfo);
-		if(isOrder==0)
+		if(isOrder==0){
+			this.creatHistory(userId,seatId);
+			this.setSeatNotOrder(Integer.parseInt(seatId));
 			BaseTools.success("预约成功", null, "show_order?userId="+userId);
+		}
 		else
 			BaseTools.error("预约失败", null, null);
 		return "jump";
@@ -100,8 +115,10 @@ public class OrderAction extends ActionSupport{
 		orderinfo.setUserId(Integer.parseInt(userId));
 		orderinfo.setSeatId(seatId);
 		int isOrder=orderinfoService.creatOrderinfo(orderinfo);
-		if(isOrder==0)
+		if(isOrder==0){
+			this.creatHistory(Integer.parseInt(userId),seatId.toString());
 			BaseTools.success("预约成功", null, "show_order?userId="+userId);
+		}
 		else
 			BaseTools.error("预约失败", null, null);
 		return "jump";
@@ -111,13 +128,13 @@ public class OrderAction extends ActionSupport{
 	public String deleteOrderinfo(){
 		boolean isDeleteOrder=orderinfoService.deleteOrderinfo(id);
 		if(isDeleteOrder)
-			BaseTools.success("预约成功", null, "user/seatOrder.jsp");
+			BaseTools.success("取消成功", null, "user/seatOrder.jsp");
 		else
-			BaseTools.error("预约失败", null, null);
+			BaseTools.error("取消失败", null, null);
 		return "jump";
 	}
 	
-	//一键删除预约信息
+	//一键删除所有预约信息
 	public String deleteByOneButton(){
 		boolean isDelete=orderinfoService.deleteAll();
 		if(isDelete)
@@ -125,6 +142,31 @@ public class OrderAction extends ActionSupport{
 		else
 			BaseTools.error("删除失败", null, null);
 		return "jump";
+	}
+	
+	
+	
+	//预约时创建历史记录
+	public void creatHistory(Integer userId,String seatId){
+		System.out.println("11111");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		Historyinfo historyinfo =new Historyinfo();
+		historyinfo.setUserId(userId);
+		historyinfo.setSeatId(seatId);
+		historyinfo.setDate(sdf.format(new Date()));
+		System.out.println(historyinfo);
+		int isInsert=historyinfoService.creatHistoryinfo(historyinfo);
+		/*if(isInsert==0)
+			return true;
+		else
+			return false;*/
+	}
+	
+	//设置座位为不可预约
+	public void setSeatNotOrder(Integer seatId){
+		seatinfo=(Seatinfo)(seatinfoService.getSeatinfoByIdOnly(seatId).get(0));
+		seatinfo.setIsOrder("no");
+		boolean isUpdate=seatinfoService.updateSeatinfo(seatinfo);
 	}
 
 	
@@ -175,6 +217,38 @@ public class OrderAction extends ActionSupport{
 
 	public void setSeatId(String seatId) {
 		this.seatId = seatId;
+	}
+
+	public Seatinfo getSeatinfo() {
+		return seatinfo;
+	}
+
+	public void setSeatinfo(Seatinfo seatinfo) {
+		this.seatinfo = seatinfo;
+	}
+
+	public SeatinfoService getSeatinfoService() {
+		return seatinfoService;
+	}
+
+	public void setSeatinfoService(SeatinfoService seatinfoService) {
+		this.seatinfoService = seatinfoService;
+	}
+
+	public Historyinfo getHistoryinfo() {
+		return historyinfo;
+	}
+
+	public void setHistoryinfo(Historyinfo historyinfo) {
+		this.historyinfo = historyinfo;
+	}
+
+	public HistoryinfoService getHistoryinfoService() {
+		return historyinfoService;
+	}
+
+	public void setHistoryinfoService(HistoryinfoService historyinfoService) {
+		this.historyinfoService = historyinfoService;
 	}
 	
 }
