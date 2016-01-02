@@ -48,13 +48,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<label class="control-label" for="userSex">性别: </label>
 				<div class="controls">
 					<select name="userinfo.userSex" id="userSex" class="form-control">
-						<option value="">
-							==请选择==
-						</option>
-						<option value="男">
+						<option value="male">
 							男
 						</option>
-						<option value="女">
+						<option value="female">
 							女
 						</option>
 					</select>

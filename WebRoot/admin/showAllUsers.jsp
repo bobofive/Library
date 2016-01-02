@@ -66,7 +66,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<td><s:property value="#user.userId"/></td>
 						<td><s:property value="#user.userName"/></td>
-						<td><s:property value="#user.userSex"/></td>
+						<td>
+							<s:if test="#user.userSex == 'male'">
+								男
+							</s:if>
+							<s:else>
+								女
+							</s:else>
+						</td>
 						<td><s:property value="#user.phoneNum"/></td>
 						<td><s:property value="#user.email"/></td>
 						<td><s:property value="#user.scademyName"/></td>
@@ -76,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td><input class="btn btn-danger btn-sm" type="submit" value="删除" onclick="return confirm_delete();"></td>
 						</form>	
 						<form action="show_before_update?userId=<s:property value="#user.userId"/>" method="post">
-							<td><input class="btn btn-danger btn-sm" type="submit" value="修改"></td>
+							<td><input class="btn btn-primary btn-sm" type="submit" value="修改"></td>
 						</form>			
 					</tr>
 					</s:iterator>

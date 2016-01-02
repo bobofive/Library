@@ -21,7 +21,7 @@
             </column>
         </property>
         <property name="userSex" type="java.lang.String">
-            <column name="userSex" length="2" not-null="true">
+            <column name="userSex" length="10" not-null="true">
                 <comment>性别</comment>
             </column>
         </property>

@@ -5,6 +5,8 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String select_yes = "";
+String select_no = "";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -13,7 +15,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>修改用户信息</title>
-    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -67,13 +68,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<select name="userinfo.userSex" id="userSex" class="form-control">
-								<option value="">
-									==请选择==
-								</option>
-								<option value="男">
+								<s:if test="userinfo.userSex =='male'">
+									<% 
+									select_yes = "selected=\"selected\"";
+									select_no = "";
+									%>
+								</s:if>
+								<s:else>
+								<% 
+									select_yes = "";
+									select_no = "selected=\"selected\"";
+								%>
+								</s:else>
+								<option value="male" <%=select_yes %>>
 									男
 								</option>
-								<option value="女">
+								<option value="female" <%=select_no %>>
 									女
 								</option>
 							</select>

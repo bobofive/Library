@@ -5,6 +5,8 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String select_yes = "";
+String select_no = "";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -61,10 +63,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<select name="seatinfo.isOrder" id="isOrder" class="form-control">
-								<option value="yes">
+								<s:if test="seatinfo.isOrder =='yes'">
+									<% 
+									select_yes = "selected=\"selected\"";
+									select_no = "";
+									%>
+								</s:if>
+								<s:else>
+								<% 
+									select_yes = "";
+									select_no = "selected=\"selected\"";
+								%>
+								</s:else>
+								
+								<option value="yes" <%=select_yes %>>
 									是
 								</option>
-								<option value="no">
+								<option value="no" <%=select_no %>>
 									否
 								</option>
 							</select>
@@ -76,10 +91,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<select name="seatinfo.isUsed" id="isUsed" class="form-control">
-								<option value="yes">
+							<s:if test="seatinfo.isUsed =='yes'">
+									<% 
+									select_yes = "selected=\"selected\"";
+									select_no = "";
+									%>
+								</s:if>
+								<s:else>
+								<% 
+									select_yes = "";
+									select_no = "selected=\"selected\"";
+								%>
+								</s:else>
+								<option value="yes" <%=select_yes %>>
 									是
 								</option>
-								<option value="no">
+								<option value="no" <%=select_no %>>
 									否
 								</option>
 							</select>

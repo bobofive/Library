@@ -44,12 +44,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     </div>
     <div class="row">
-    <table class="table table-hover table-bordered table-striped">
+    <table class="table table-hover table-bordered table-striped text-center">
     	<thead>
-    		<th>编号</th>
-    		<th>申请者学号</th>
-    		<th>申请座位</th>
-    		<th>申请时长</th>
+    		<th width="10%" class="text-center">编号</th>
+    		<th width="15%" class="text-center">申请者学号</th>
+    		<th width="25%" class="text-center">申请座位</th>
+    		<th width="30%" class="text-center">申请时长</th>
+    		<th></th>
     	</thead>
     	<tbody>
     		<s:iterator value="longtermapplyList" var="longtermapply" status="st">
@@ -58,9 +59,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<td><s:property value="#longtermapply.userId"/></td>
     			<td><s:property value="#longtermapply.seatId"/></td>
     			<td><s:property value="#longtermapply.time"/></td>
-    			<form action="delete_longtermapply?id=<s:property value="#longtermapply.id"/>" method="post">
-    				<td><input type="submit" class="btn btn-danger" value="删除" onclick="return confirm_delete();"></td>
-    			</form>
+    			<td>
+    				<s:if test="#longtermapply.isAgree == 'yes'">
+    					<button class="btn btn-primary" disabled="disabled" type="button">已同意</button>
+    				</s:if>
+    				<s:else>
+    					<a href="#" class="btn btn-primary">同意</a>
+    				</s:else>
+    				
+    				<a href="delete_longtermapply?id=<s:property value="#longtermapply.id"/>" class="btn btn-danger" onclick="return confirm_delete();">删除</a>
+    			</td>
     			</tr>
     		</s:iterator>
     	</tbody>

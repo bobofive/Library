@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50627
 File Encoding         : 65001
 
-Date: 2016-01-02 16:17:46
+Date: 2016-01-02 17:19:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,7 +54,7 @@ CREATE TABLE `longtermapplyinfo` (
   `id` int(3) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `userId` int(20) NOT NULL COMMENT '用户名',
   `seatId` int(3) NOT NULL COMMENT '座位编号',
-  `isAgree` varchar(10) DEFAULT NULL,
+  `isAgree` varchar(10) NOT NULL,
   `time` int(3) NOT NULL COMMENT '申请时长',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`),
@@ -64,8 +64,7 @@ CREATE TABLE `longtermapplyinfo` (
 -- ----------------------------
 -- Records of longtermapplyinfo
 -- ----------------------------
-INSERT INTO `longtermapplyinfo` VALUES ('1', '221200001', '1', null, '180');
-INSERT INTO `longtermapplyinfo` VALUES ('2', '221200002', '2', null, '100');
+INSERT INTO `longtermapplyinfo` VALUES ('2', '221200002', '2', 'yes', '100');
 
 -- ----------------------------
 -- Table structure for `majorinfo`
@@ -180,7 +179,7 @@ CREATE TABLE `seatinfo` (
 -- Records of seatinfo
 -- ----------------------------
 INSERT INTO `seatinfo` VALUES ('1', '一楼', 'no', 'yes');
-INSERT INTO `seatinfo` VALUES ('2', '一楼', 'no', 'yes');
+INSERT INTO `seatinfo` VALUES ('2', '一楼', 'no', 'no');
 INSERT INTO `seatinfo` VALUES ('3', '二楼', 'yes', 'yes');
 
 -- ----------------------------
@@ -191,7 +190,7 @@ CREATE TABLE `userinfo` (
   `userId` int(20) NOT NULL COMMENT '用户名',
   `userPw` varchar(20) NOT NULL COMMENT '密码',
   `userName` varchar(20) NOT NULL COMMENT '用户姓名',
-  `userSex` char(2) NOT NULL COMMENT '性别',
+  `userSex` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '性别',
   `majorCode` int(2) NOT NULL COMMENT '专业代码',
   `phoneNum` varchar(20) DEFAULT NULL COMMENT '联系方式',
   `email` varchar(30) DEFAULT NULL COMMENT '电子邮件',
@@ -202,9 +201,11 @@ CREATE TABLE `userinfo` (
 -- ----------------------------
 -- Records of userinfo
 -- ----------------------------
-INSERT INTO `userinfo` VALUES ('1111', '123456', '2', '男', '22', null, null, null);
-INSERT INTO `userinfo` VALUES ('221200001', '221200001', '张三', '男', '22', '1383838438', '1234@qq.com', '221200003');
-INSERT INTO `userinfo` VALUES ('221200002', '123456', '李四', '男', '22', null, null, null);
-INSERT INTO `userinfo` VALUES ('221200003', '123456', '王五', '男', '23', null, null, null);
-INSERT INTO `userinfo` VALUES ('221200004', '123456', '赵六', '男', '22', '', '', null);
-INSERT INTO `userinfo` VALUES ('221200006', '123456', '哒哒哒', '男', '22', null, null, null);
+INSERT INTO `userinfo` VALUES ('66', '123456', '66', 'male', '22', null, null, null);
+INSERT INTO `userinfo` VALUES ('1111', '123456', '2', 'male', '22', null, null, null);
+INSERT INTO `userinfo` VALUES ('4444', '123456', '4444', 'female', '22', '', '', null);
+INSERT INTO `userinfo` VALUES ('221200001', '221200001', '张三', 'male', '22', '1383838438', '1234@qq.com', '221200003');
+INSERT INTO `userinfo` VALUES ('221200002', '123456', '李四', 'male', '22', null, null, null);
+INSERT INTO `userinfo` VALUES ('221200003', '123456', '王五', 'male', '23', null, null, null);
+INSERT INTO `userinfo` VALUES ('221200004', '123456', '赵六', 'male', '22', '', '', null);
+INSERT INTO `userinfo` VALUES ('221200006', '123456', '哒哒哒', 'male', '22', null, null, null);

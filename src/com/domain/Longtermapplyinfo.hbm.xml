@@ -21,7 +21,7 @@
             </column>
         </property>
         <property name="isAgree" type="java.lang.String">
-            <column name="isAgree" length="10" />
+            <column name="isAgree" length="10" not-null="true" />
         </property>
         <property name="time" type="java.lang.Integer">
             <column name="time" not-null="true">
