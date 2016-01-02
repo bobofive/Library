@@ -85,7 +85,7 @@ public class OrderAction extends ActionSupport{
 		//判断用户是否已经预约过了
 		if(orderinfoService.getOrderinfoByUserId(Integer.parseInt(userId)).size()!=0){
 			BaseTools.error("您已经预约过了", null, null);
-			return "error";
+			return "jump";
 		}
 		//随机产生座位号
 		Random random = new Random();

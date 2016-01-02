@@ -74,7 +74,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><s:property value="#user.friendId"/></td>
 						<form action="delete_user_message?userId=<s:property value="#user.userId"/>" method="post">
 							<td><input class="btn btn-danger btn-sm" type="submit" value="删除" onclick="return confirm_delete();"></td>
-						</form>				
+						</form>	
+						<form action="#" method="post">
+							<td><input class="btn btn-danger btn-sm" type="submit" value="修改" onclick="return confirm_delete();"></td>
+						</form>			
 					</tr>
 					</s:iterator>
 				</tbody>
