@@ -116,6 +116,16 @@ public class OrderAction extends ActionSupport{
 			BaseTools.error("预约失败", null, null);
 		return "jump";
 	}
+	
+	//一键删除预约信息
+	public String deleteByOneButton(){
+		boolean isDelete=orderinfoService.deleteAll();
+		if(isDelete)
+			BaseTools.success("删除成功", null, "admin/iframeDefault.jsp");
+		else
+			BaseTools.error("删除失败", null, null);
+		return "jump";
+	}
 
 	
 	

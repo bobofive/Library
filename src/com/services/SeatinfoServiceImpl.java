@@ -67,6 +67,15 @@ public class SeatinfoServiceImpl implements SeatinfoService {
 		return baseDao.find(hql);
 	}
 
+	public boolean recoveryIsOrder(){
+		try {
+			baseDao.setFieldValue("seatinfo", "isOrder", "yes");
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+		return true;
+	}
 	
 	
 	public BaseDaoHibImpl<Seatinfo> getBaseDao() {

@@ -44,6 +44,15 @@ public class OrderinfoServiceImpl implements OrderinfoService {
 		return baseDao.find(hql);
 	}
 
+	public boolean deleteAll(){
+		try {
+			baseDao.deleteAll("orderinfo");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 	
 	
 	public BaseDaoHibImpl<Orderinfo> getBaseDao() {

@@ -13,5 +13,10 @@ public interface LongtermapplyinfoService {
 	List getLongtermapplyinfoByUserId(Integer UserId);
 	//查看所有的长期座位申请
 	List getAllLongtermapplyinfo();
+	//根据id获取长期座位申请信息
+	List getLongtermapplyinfoById(Integer id);
+	//更新长期申请信息
+	boolean updateLongtermapplyinfo(Longtermapplyinfo longtermapplyinfo);
+	
 
 }

@@ -137,4 +137,22 @@ public class BaseDaoHibImpl<T> implements BaseDao<T> {
 		return query.setFirstResult((pageNo - 1) * pageSize)
 				.setMaxResults(pageSize).list();
 	}
+	public void deleteAll(String tablename) {
+		Session session = getSession();
+		String sql = "truncate table " + tablename;
+		Query query = session.createSQLQuery(sql);
+		query.executeUpdate();
+	}
+	
+	public void setFieldValue(String tablename, String field, Object value) {
+		String value_str = "";
+		if(value instanceof String) {
+			value_str = "\""+value+"\"";
+		}else {
+			value_str = value.toString();
+		}
+		String sql = "update "+tablename +" set "+field +"="+value_str;
+		Query query = getSession().createSQLQuery(sql);
+		query.executeUpdate();
+	}
 }

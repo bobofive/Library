@@ -32,11 +32,24 @@ public class LongtermapplyinfoServiceImpl implements LongtermapplyinfoService {
 		return baseDao.find(hql);
 	}
 	
+	public List getLongtermapplyinfoById(Integer id){
+		String hql="select l from Longtermapplyinfo l where l.id="+id;
+		return baseDao.find(hql);
+	}
+	
 	public List getAllLongtermapplyinfo(){
 		return baseDao.findAll(Longtermapplyinfo.class);
 	}
 
-	
+	public boolean updateLongtermapplyinfo(Longtermapplyinfo longtermapplyinfo){
+		try {
+			baseDao.update(longtermapplyinfo);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+		return true;
+	}
 	
 	
 	public BaseDaoHibImpl<Longtermapplyinfo> getBaseDao() {

@@ -32,6 +32,7 @@ public class LongtermapplyAction extends ActionSupport{
 			BaseTools.error("您已经申请过了", null, null);
 			return "jump";
 		}
+		longtermapplyinfo.setIsAgree("no");
 		int isInsert=longtermapplyinfoService.creatLongtermapplyinfo(longtermapplyinfo);
 		if(isInsert==0)
 			BaseTools.success("申请成功", null, "show_longtermapply_message?userId="+longtermapplyinfo.getUserId());
@@ -69,6 +70,18 @@ public class LongtermapplyAction extends ActionSupport{
 		}else{
 			BaseTools.error("删除失败", null, null);
 		}
+		return "jump";
+	}
+	
+	//审核用户长期座位申请
+	public String checkLongtermapply(){
+		longtermapplyinfo=(Longtermapplyinfo)(longtermapplyinfoService.getLongtermapplyinfoById(id).get(0));
+		longtermapplyinfo.setIsAgree("yes");
+		boolean isCheck=longtermapplyinfoService.updateLongtermapplyinfo(longtermapplyinfo);
+		if(isCheck)
+			BaseTools.success("已同意", null, null);
+		else
+			BaseTools.error("失败，未知原因", null, null);
 		return "jump";
 	}
 

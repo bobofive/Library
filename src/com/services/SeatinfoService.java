@@ -21,5 +21,7 @@ public interface SeatinfoService {
     List getEmptySeatinfo();
     //根据座位编号获取座位表信息
     List getSeatinfoByIdOnly(Integer seatId);
+    //设置所有座位为可预约
+    boolean recoveryIsOrder();
 
 }

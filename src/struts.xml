@@ -133,6 +133,11 @@
 			<result name="jump">/jump.jsp</result>
 		</action>
 		
+		<!-- 设置所有座位为可预约 -->
+		<action name="recovery_seat" class="seatAction" method="recoverySeat">
+			<result name="jump">/jump.jsp</result>
+		</action>
+		
 	</package>
 	
 	<!-- 座位预约模块 -->
@@ -167,6 +172,11 @@
 		<action name="delete_order" class="orderAction" method="deleteOrderinfo">
 			<result name="jump">/jump.jsp</result>
 		</action>
+		
+		<!-- 一键删除预约信息 -->
+		<action name="delete_all" class="orderAction" method="deleteByOneButton">
+			<result name="jump">/jump.jsp</result>
+		</action>
 	</package>
 	
 	<!-- 长期座位申请模块 -->
@@ -193,6 +203,11 @@
 	
 		<!-- 删除长期座位申请信息 -->
 		<action name="delete_longtermapply" class="longtermapplyAction" method="deleteLongtermapply">
+			<result name="jump">/jump.jsp</result>
+		</action>
+		
+		<!-- 审核长期座位申请信息 -->
+		<action name="check_longtermapply" class="longtermapplyAction" method="checkLongtermapply">
 			<result name="jump">/jump.jsp</result>
 		</action>
 	</package>

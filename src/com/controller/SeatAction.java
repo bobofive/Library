@@ -99,6 +99,18 @@ public class SeatAction extends ActionSupport{
 		return "jump";
 	}
 	
+	//恢复座位可预约状态
+	public String recoverySeat(){
+		boolean isRecovery=seatinfoService.recoveryIsOrder();
+		if(isRecovery)
+			BaseTools.success("设置成功", null, "admin/iframeDefault.jsp");
+		else
+			BaseTools.error("设置失败", null, null);
+		
+		return "jump";
+	}
+	
+	
 	
 	public Seatinfo getSeatinfo() {
 		return seatinfo;

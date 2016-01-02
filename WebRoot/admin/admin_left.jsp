@@ -100,8 +100,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="show_all_longtermapplyinfo" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 查看长期座位申请信息 </a>
 			</li>
-			<li><a href="#" target="content"> <i
+			<li><a href="delete_all" target="content"> <i
 					class="fa fa-angle-right"></i>&nbsp; 一键清空预约信息 </a>
+			</li>
+			<li><a href="recovery_seat" target="content"> <i
+					class="fa fa-angle-right"></i>&nbsp; 一键恢复座位可预约状态 </a>
 			</li>
 		</ul>
 	</li>
