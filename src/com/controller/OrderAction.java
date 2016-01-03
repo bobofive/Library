@@ -143,9 +143,9 @@ public class OrderAction extends ActionSupport{
 	public String deleteByOneButton(){
 		boolean isDelete=orderinfoService.deleteAll();
 		if(isDelete)
-			BaseTools.success("删除成功", null, "admin/iframeDefault.jsp");
+			BaseTools.success("清空成功", null, "admin/iframeDefault.jsp");
 		else
-			BaseTools.error("删除失败", null, null);
+			BaseTools.error("清空失败", null, null);
 		return "jump";
 	}
 	

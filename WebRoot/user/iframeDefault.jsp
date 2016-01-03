@@ -7,10 +7,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-
+	<style type="text/css">
+		body ｛
+			background-image:url(images/indexBackground.jpg);
+		｝
+	</style>
   </head>
   
   <body>
-    <img src="" />
+    
   </body>
 </html>

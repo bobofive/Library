@@ -58,6 +58,7 @@ public class NoticeAction extends ActionSupport{
 	
 	//添加公告信息
 	public String insertNotice(){
+		System.out.println(noticeinfo.getContents());
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		noticeinfo.setDate(sdf.format(new Date()));
 		int isInsert=noticeinfoService.creatNoticeinfo(noticeinfo);

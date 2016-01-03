@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/background.css">
 
 
   </head>
@@ -33,13 +34,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <h3 class="text-center">
 				专业详情列表
 			</h3>
-			<table class="table table-hover table-bordered table-striped">
+			<table class="table table-hover table-bordered table-striped text-center">
 				<thead>
 					<tr>
-						<th>专业代号</th>
-						<th>专业名称</th>
-						<th>所属学院代号</th>
-						<th>所属学院名称</th>
+						<th class="text-center">专业代号</th>
+						<th class="text-center">专业名称</th>
+						<th class="text-center">所属学院代号</th>
+						<th class="text-center">所属学院名称</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>

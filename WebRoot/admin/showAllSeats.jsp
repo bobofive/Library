@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/background.css">
 
 
   </head>
@@ -47,13 +48,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			</div>
 			<div class="row">
-			<table class="table table-hover table-bordered table-striped">
+			<table class="table table-hover table-bordered table-striped text-center">
 				<thead>
 					<tr>
-						<th>座位编号</th>
-						<th>位置</th>
-						<th>是否可预约</th>
-						<th>是否可用</th>
+						<th width="15%" class="text-center">座位编号</th>
+						<th width="35%" class="text-center">位置</th>
+						<th width="15%" class="text-center">是否可预约</th>
+						<th width="15%" class="text-center">是否可用</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -78,12 +80,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							可用
 						</s:elseif>
 						</td>
-						<form action="delete_seat?seatId=<s:property value="#seat.seatId"/>" method="post">
-							<td><input type="submit" class="btn btn-danger btn-sm" value="删除" onclick="return confirm_delete();"></td>
-						</form>	
-						<form action="show_seat_before_update?seatId=<s:property value="#seat.seatId"/>" method="post">
-							<td><input type="submit" class="btn btn-primary btn-sm" value="修改"></td>
-						</form>		
+						<td>
+							<a href="show_seat_before_update?seatId=<s:property value="#seat.seatId"/>" 
+								class="btn btn-primary btn-sm" type="submit" >修改</a>
+							<a href="delete_seat?seatId=<s:property value="#seat.seatId"/>" 
+								class="btn btn-danger btn-sm" type="submit" onclick="return confirm_delete();">删除</a>
+						</td>	
 					</tr>
 					</s:iterator>
 				</tbody>

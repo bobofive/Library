@@ -21,7 +21,7 @@
             </column>
         </property>
         <property name="contents" type="java.lang.String">
-            <column name="contents" not-null="true">
+            <column name="contents" length="65535" not-null="true">
                 <comment>内容</comment>
             </column>
         </property>

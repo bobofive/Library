@@ -21,13 +21,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/summernote.css">
+	<link rel="stylesheet" href="css/background.css">
 
   </head>
   
   <body>
   <div class="container">
   <div class="row">
-  <div class="col-md-6 col-md-offset-3">
   	<h3 class="text-center">添加公告信息</h3>
     <form action="insert_notice_message" method="post" id="form" onsubmit="validata()">
 		<div class="control-group">			
@@ -35,25 +36,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<label class="control-label" for="title">标题: </label>
 				<s:textfield name="noticeinfo.title" maxlength="30" id="title" cssClass="form-control" />
 			</div>
-		</div><br/>
+		</div>
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="amallTitle">副标题: </label>
 				<s:textfield name="noticeinfo.amallTitle" maxlength="30" id="amallTitle" cssClass="form-control" />
 			</div>
-		</div><br/>
-		<div class="control-group">
-			<div class="controls">
-				<label class="control-label" for="contents">内容: </label>
-				<s:textfield name="noticeinfo.contents" maxlength="30" id="contents" cssClass="form-control" />
-			</div>
-		</div><br/>
+		</div>
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="author">作者: </label>
 				<s:textfield name="noticeinfo.author" maxlength="30" id="author" cssClass="form-control" />
 			</div>
-		</div><br/>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<label class="control-label" for="contents">内容: </label>
+				<s:textarea name="noticeinfo.contents" maxlength="30" id="contents" cssClass="form-control" />
+			</div>
+		</div>
+		
 		<div id="submiter" class="control-group">
 			<div class="controls">
 				<input type="submit" value="添加 " class="btn btn-primary" />
@@ -62,6 +64,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </form>
   </div>
   </div>
-  </div>
+  
+  
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/summernote.min.js"></script>
+   <script src="js/summernote-zh-CN.js"></script>
+   <script type="text/javascript">
+   $(document).ready(function() {
+        $('#contents').summernote({
+          lang: 'zh-CN',
+		  height: 300,                 // set editor height 
+		  minHeight: null,             // set minimum height of editor
+		  maxHeight: null,             // set maximum height of editor
+		  toolbar:[
+		  	['style', ['style']],
+	        ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+	        ['fontname', ['fontname']],
+	        ['fontsize', ['fontsize']], // Still buggy
+	        ['color', ['color']],
+	        ['para', ['ul', 'ol', 'paragraph']],
+	        ['height', ['height']],
+	        ['table', ['table']],
+	        ['insert', ['link', 'hr']],
+	        ['view', ['fullscreen', 'codeview']],
+	        ['help', ['help']]
+		  ]
+		  });
+    });
+   </script>
+   
+   
+   
+   
   </body>
 </html>

@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/background.css">
 
 
   </head>
@@ -79,12 +80,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><s:property value="#user.scademyName"/></td>
 						<td><s:property value="#user.majorName"/></td>
 						<td><s:property value="#user.friendId"/></td>
-						<form action="delete_user_message?userId=<s:property value="#user.userId"/>" method="post">
-							<td><input class="btn btn-danger btn-sm" type="submit" value="删除" onclick="return confirm_delete();"></td>
-						</form>	
-						<form action="show_before_update?userId=<s:property value="#user.userId"/>" method="post">
-							<td><input class="btn btn-primary btn-sm" type="submit" value="修改"></td>
-						</form>			
+						<td>
+							<a href="show_before_update?userId=<s:property value="#user.userId"/>" 
+								class="btn btn-primary btn-sm" type="submit">修改</a>
+						</td>						
+						<td><a href="delete_user_message?userId=<s:property value="#user.userId"/>" 
+								class="btn btn-danger btn-sm" type="submit" onclick="return confirm_delete();">删除</a>
+						</td>	
 					</tr>
 					</s:iterator>
 				</tbody>

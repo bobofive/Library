@@ -22,10 +22,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/background.css">
 
 
   </head>
@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</h3>
 	<form action="delete_all_historys" method="post">
 		<input name="userId" value="<%=userName %>" type="hidden">
-		<button class="btn btn-lg btn-primary btn-block" type="submit">删除所有记录</button>
+		<button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return confirm_delete();">删除所有记录</button>
 	</form>
 			<table class="table table-hover table-bordered table-striped">
 				<thead>
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><s:property value="#history.location"/></td>
 						<td><s:property value="#history.date"/></td>
 						<form action="delete_history?id=<s:property value="#history.id"/>" method="post">
-							<td><input type="submit" value="删除"></td>
+							<td><input class="btn btn-danger btn-sm" type="submit" value="删除" onclick="return confirm_delete();"></td>
 						</form>				
 					</tr>
 					</s:iterator>
@@ -67,5 +67,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 	</div>
 	</div>
+	<script type="text/javascript" src="js/common.js"></script>
   </body>
 </html>

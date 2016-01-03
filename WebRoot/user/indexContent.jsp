@@ -13,19 +13,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/background.css">
+	<style type="text/css">
+		.opacity {
+			opacity: 0.5;
+		}
+		.list-group-item {
+			background:rgba(255, 255, 255, 0.05) none repeat scroll 0 0;
+		}
+		.panel {
+		background:rgba(0, 0, 0, 0);
+		}
+	</style>
   </head>
   
   <body>
-    <div class="container" style="margin-top:15px;">
+    <div class="container" style="margin-top:15px;width:100%;">
     	<div class="row">
-    		<div class="col-md-8">
-    			<img src="" />
+    		<div class="col-md-9">
     		</div>
-    		<div class="col-md-4">
+    		<div class="col-md-3">
     			<div class="panel panel-primary">
 				    <div class="panel-heading">公告</div>
 				    <s:iterator value="noticeList" var="item" status="st">
-						<li class="list-group-item"><a href="#"><s:property value="#item.title"/></a></li>
+						<li class="list-group-item"><a href="show_notice?id=<s:property value="#item.id"/>" class="short_content" data-toggle="tooltip" title="<s:property value="#item.title"/>">
+							<s:property value="#item.title"/>
+						</a></li>
 					</s:iterator>
 				</div>
     		</div>
@@ -37,5 +50,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="js/jquery.min.js"></script>
     <!--Bootstrap -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+    short_content(14);
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+    </script>
   </body>
 </html>

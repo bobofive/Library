@@ -32,7 +32,7 @@ public class HistoryinfoServiceImpl implements HistoryinfoService {
 	}
 	
 	public List getHistoryinfoByUserId(Integer userId){
-		String hql="select new map(h.id as id,h.userId as userId,h.select as select,h.date as date,s.location as location) from Historyinfo h,Seatinfo s where h.userId="
+		String hql="select new map(h.id as id,h.userId as userId,h.seatId as seatId,h.date as date,s.location as location) from Historyinfo h,Seatinfo s where h.userId="
 				+ userId+" and h.seatId=s.seatId";
 		return baseDao.find(hql);
 	}

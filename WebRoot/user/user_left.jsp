@@ -13,10 +13,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="user-wrapper bg-dark">
 		<a class="user-link" href=""> <img
 			class="media-object img-thumbnail user-img" alt="User Picture"
-			src="images/user.gif"> <span
+			src="images/userPortrait.jpg"> <span
 			class="label label-danger user-label">16</span> </a>
 		<div class="media-body">
-			<h5 class="media-heading"><s:property value="userinfo.userName"/>&nbsp;&nbsp;<s:property value="userinfo.userSex"/></h5>
+			<h5 class="media-heading"><s:property value="userinfo.userName"/>&nbsp;&nbsp;
+				<s:if test="userinfo.userSex == 'male'">男</s:if>
+				<s:else>女</s:else>
+			</h5>
 			<ul class="list-unstyled user-info">
 				<li><h5></h5><s:property value="userinfo.userId"/></a>
 				</li>
@@ -55,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</ul>
 	</li>
 	<li class=""><a href="javascript:;"> <i class="fa fa-tasks"></i>
-			<span class="link-title">申请与预约</span> <span class="fa arrow"></span>
+			<span class="link-title">座位预约</span> <span class="fa arrow"></span>
 	</a>
 		<ul>
 			<li><a href="user/seatOrder.jsp" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
@@ -67,13 +70,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="user/friendSeatOrder.jsp" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
 					好友座位预约 </a>
 			</li>
-			<li><a href="user/longTermApply.jsp" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
-					长期座位申请 </a>
-			</li>
 			<li><a href="show_order?userId=<%=userName %>" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
 					查看预约情况 </a>
 			</li>
-			<li><a href="show_longtermapply_message?userId=<%=userName %>" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
+			
+		</ul>
+	</li>
+	<li class=""><a href="javascript:;"> <i class="fa fa-tasks"></i>
+			<span class="link-title">长期座位预约</span> <span class="fa arrow"></span>
+	</a>
+		<ul>
+		<li><a href="user/longTermApply.jsp" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
+					长期座位申请 </a>
+			</li>
+		<li><a href="show_longtermapply_message?userId=<%=userName %>" target="content"> <i class="fa fa-angle-right"></i>&nbsp;
 					查看长期座位申请信息 </a>
 			</li>
 		</ul>

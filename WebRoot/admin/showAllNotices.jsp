@@ -22,6 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/background.css">
 
 
   </head>
@@ -35,34 +36,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table class="table table-hover table-bordered table-striped">
 				<thead>
 					<tr>
-						<th>编号</th>
-						<th>标题</th>
-						<th>副标题</th>
-						<th>内容</th>
-						<th>附件</th>
-						<th>发布日期</th>
-						<th>作者</th>
-						<th>查看详情</th>
-						<th>删除</th>
+						<th class="text-center">编号</th>
+						<th class="text-center">标题</th>
+						<th class="text-center">副标题</th>
+						<th class="text-center">内容</th>
+						<th class="text-center">附件</th>
+						<th class="text-center">发布日期</th>
+						<th class="text-center">作者</th>
+						<th class="text-center">查看详情</th>
+						<th class="text-center">删除</th>
 					</tr>
 				</thead>
 				<tbody>
 					<s:iterator value="noticeList" var="notice" status="st">
 				    
 					<tr>
-						<td><s:property value="#notice.id"/></td>
+						<td class="text-center"><s:property value="#notice.id"/></td>
 						<td><s:property value="#notice.title"/></td>
 						<td><s:property value="#notice.amallTitle"/></td>
-						<td><s:property value="#notice.contents"/></td>
+						<td class="short_content"><s:property value="#notice.contents"/></td>
 						<td><s:property value="#notice.accessory"/></td>
-						<td><s:property value="#notice.date"/></td>
-						<td><s:property value="#notice.author"/></td>
-						<form action="#" method="post">
-							<td><input type="submit" class="btn btn-success" value="查看"></td>
-						</form>	
-						<form action="delete_notice?id=<s:property value="#notice.id"/>" method="post">
-							<td><input type="submit" class="btn btn-success" value="删除"></td>
-						</form>				
+						<td class="text-center"><s:property value="#notice.date"/></td>
+						<td class="text-center"><s:property value="#notice.author"/></td>
+						<td class="text-center">
+							<a href="show_notice?id=<s:property value="#notice.id"/>" 
+								type="submit" class="btn btn-success">查看</a>
+						</td>
+						<td>
+							<a href="delete_notice?id=<s:property value="#notice.id"/>" 
+								type="submit" class="btn btn-danger btn-sm" onclick="return confirm_delete();">删除</a>
+						</td>				
 					</tr>
 					</s:iterator>
 				</tbody>
@@ -70,5 +73,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 	</div>
 	</div>
+	
+	<!--jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+    short_content(3);
+    </script>
   </body>
 </html>
