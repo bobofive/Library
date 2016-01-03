@@ -3,18 +3,23 @@ package com.controller;
 import java.util.List;
 
 import com.domain.Longtermapplyinfo;
+import com.domain.Seatinfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.services.LongtermapplyinfoService;
+import com.services.SeatinfoService;
 import com.utils.BaseTools;
 
 public class LongtermapplyAction extends ActionSupport{
 	
 	private Longtermapplyinfo longtermapplyinfo;	
 	private LongtermapplyinfoService longtermapplyinfoService;
+	private Seatinfo seatinfo;
+	private SeatinfoService seatinfoService;
 	private List myLongtermapplyinfo;
 	private List longtermapplyList;
 	private Integer userId;
 	private Integer id;
+	private Integer seatId;
 	
 	public String execute() {
 		// TODO Auto-generated method stub
@@ -66,6 +71,7 @@ public class LongtermapplyAction extends ActionSupport{
 	public String deleteLongtermapply(){
 		boolean isDeleteLongtermapply=longtermapplyinfoService.deleteLongtermapplyinfo(id);
 		if(isDeleteLongtermapply){
+			setSeatUsed(seatId);
 			BaseTools.success("删除成功", null, null);
 		}else{
 			BaseTools.error("删除失败", null, null);
@@ -77,12 +83,29 @@ public class LongtermapplyAction extends ActionSupport{
 	public String checkLongtermapply(){
 		longtermapplyinfo=(Longtermapplyinfo)(longtermapplyinfoService.getLongtermapplyinfoById(id).get(0));
 		longtermapplyinfo.setIsAgree("yes");
+		Integer seatId=longtermapplyinfo.getSeatId();
 		boolean isCheck=longtermapplyinfoService.updateLongtermapplyinfo(longtermapplyinfo);
-		if(isCheck)
+		if(isCheck){
+			setSeatNotUsed(seatId);
 			BaseTools.success("已同意", null, null);
+		}
 		else
 			BaseTools.error("失败，未知原因", null, null);
 		return "jump";
+	}
+	
+	//设置座位为不可用
+	public void setSeatNotUsed(Integer seatId){
+		seatinfo=(Seatinfo)(seatinfoService.getSeatinfoByIdOnly(seatId).get(0));
+		seatinfo.setIsUsed("no");
+		boolean isUpdate=seatinfoService.updateSeatinfo(seatinfo);
+	}
+	
+	//设置座位为可用
+	public void setSeatUsed(Integer seatId){
+		seatinfo=(Seatinfo)(seatinfoService.getSeatinfoByIdOnly(seatId).get(0));
+		seatinfo.setIsUsed("yes");
+		boolean isUpdate=seatinfoService.updateSeatinfo(seatinfo);
 	}
 
 	
@@ -134,6 +157,30 @@ public class LongtermapplyAction extends ActionSupport{
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Seatinfo getSeatinfo() {
+		return seatinfo;
+	}
+
+	public void setSeatinfo(Seatinfo seatinfo) {
+		this.seatinfo = seatinfo;
+	}
+
+	public SeatinfoService getSeatinfoService() {
+		return seatinfoService;
+	}
+
+	public void setSeatinfoService(SeatinfoService seatinfoService) {
+		this.seatinfoService = seatinfoService;
+	}
+
+	public Integer getSeatId() {
+		return seatId;
+	}
+
+	public void setSeatId(Integer seatId) {
+		this.seatId = seatId;
 	}
 	
 

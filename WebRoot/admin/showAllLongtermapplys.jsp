@@ -67,7 +67,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     					<a href="check_longtermapply?id=<s:property value="#longtermapply.id"/>" class="btn btn-primary">同意</a>
     				</s:else>
     				
-    				<a href="delete_longtermapply?id=<s:property value="#longtermapply.id"/>" class="btn btn-danger" onclick="return confirm_delete();">删除</a>
+    				<a href="delete_longtermapply?id=<s:property value="#longtermapply.id"/>&seatId=<s:property value="#longtermapply.seatId"/>" 
+    					class="btn btn-danger" onclick="return confirm_delete();">删除</a>
     			</td>
     			</tr>
     		</s:iterator>

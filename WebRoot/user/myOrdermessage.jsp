@@ -45,7 +45,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			</s:iterator>
   			</tbody>
   		</table>
-  		<a href="delete_order?id=<s:property value="#myOrder.id"/>" class="btn btn-primary">取消预约</a>
+  		<a href="delete_order?id=<s:property value="#myOrder.id"/>&seatId=<s:property value="#myOrder.seatId"/>" 
+  			class="btn btn-primary">取消预约</a>
   	</div>
   	</div>
   	</div>

@@ -35,12 +35,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			<tbody>
   				<s:iterator value="myLongtermapplyinfo" var="longtermapplyinfo" status="st">
   					<tr>
+  						<th>申请人学号</th>
+  						<td><s:property value="#longtermapplyinfo.userId"/></td>
+  					</tr>
+  					<tr>
   						<th>申请座位</th>
   						<td><s:property value="#longtermapplyinfo.seatId"/></td>
   					</tr>
   					<tr>
   						<th>申请时长</th>
   						<td><s:property value="#longtermapplyinfo.time"/></td>
+  					</tr>
+  					<tr>
+  						<th>审核情况</th>
+  						<td>
+  							<s:if test="#longtermapplyinfo.isAgree=='yes'">
+  								已同意
+  							</s:if>
+  							<s:else>
+  								审核中
+  							</s:else>
+  						</td>
   					</tr>
   				</s:iterator>
   			</tbody>

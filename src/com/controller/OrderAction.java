@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import sun.jdbc.odbc.OdbcDef;
+
 import com.domain.Historyinfo;
 import com.domain.Orderinfo;
 import com.domain.Seatinfo;
@@ -126,9 +128,12 @@ public class OrderAction extends ActionSupport{
 	
 	//取消预约
 	public String deleteOrderinfo(){
+		
 		boolean isDeleteOrder=orderinfoService.deleteOrderinfo(id);
-		if(isDeleteOrder)
+		if(isDeleteOrder){
+			setSeatOrder(Integer.parseInt(seatId));
 			BaseTools.success("取消成功", null, "user/seatOrder.jsp");
+		}
 		else
 			BaseTools.error("取消失败", null, null);
 		return "jump";
@@ -166,6 +171,13 @@ public class OrderAction extends ActionSupport{
 	public void setSeatNotOrder(Integer seatId){
 		seatinfo=(Seatinfo)(seatinfoService.getSeatinfoByIdOnly(seatId).get(0));
 		seatinfo.setIsOrder("no");
+		boolean isUpdate=seatinfoService.updateSeatinfo(seatinfo);
+	}
+	
+	//设置座位为可预约
+	public void setSeatOrder(Integer seatId){
+		seatinfo=(Seatinfo)(seatinfoService.getSeatinfoByIdOnly(seatId).get(0));
+		seatinfo.setIsOrder("yes");
 		boolean isUpdate=seatinfoService.updateSeatinfo(seatinfo);
 	}
 

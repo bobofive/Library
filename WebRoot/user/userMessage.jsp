@@ -47,7 +47,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 					<tr>
 						<th>性别</th>
-						<td><s:property value="#user.userSex"/></td>
+						<td>
+							<s:if test="#user.userSex == 'male'">
+								男
+							</s:if>
+							<s:else>
+								女
+							</s:else>
+						</td>
 					<tr>
 						<th>联系方式</th>
 						<td><s:property value="#user.phoneNum"/></td>
