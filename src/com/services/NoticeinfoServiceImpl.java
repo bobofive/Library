@@ -41,7 +41,12 @@ public class NoticeinfoServiceImpl implements NoticeinfoService {
 		// TODO Auto-generated method stub
 		return baseDao.findAll(Noticeinfo.class);
 	}
-
+	
+	public List getIndexNotice() {
+		String hql="select notice from Noticeinfo notice order by notice.date desc limit 10";
+		return baseDao.find(hql);
+	}
+	
 	public Noticeinfo getNoticeinfoById(Integer id){
 		
 		return baseDao.get(Noticeinfo.class, id);
@@ -54,5 +59,4 @@ public class NoticeinfoServiceImpl implements NoticeinfoService {
 	public void setBaseDao(BaseDaoHibImpl<Noticeinfo> baseDao) {
 		this.baseDao = baseDao;
 	}
-
 }

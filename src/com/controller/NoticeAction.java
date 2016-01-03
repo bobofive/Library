@@ -49,6 +49,13 @@ public class NoticeAction extends ActionSupport{
 		return "";
 	}
 	
+	//显示学生首页的公告
+	public String showIndexNotice() {
+		noticeList = noticeinfoService.getIndexNotice();
+		System.out.println(noticeList);
+		return "show";
+	}
+	
 	//添加公告信息
 	public String insertNotice(){
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
