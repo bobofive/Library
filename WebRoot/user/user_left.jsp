@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <ul id="menu" class="bg-blue dker">
 	<li class="nav-header">Menu</li>
 	<li class="nav-divider"></li>
-	<li class=""><a href="user/iframeDefault.jsp" target="content"> <i
+	<li class=""><a href="index_notices" target="content"> <i
 			class="fa fa-dashboard"></i><span class="link-title">&nbsp;首页</span>
 	</a>
 	</li>

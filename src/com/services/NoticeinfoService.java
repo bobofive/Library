@@ -15,5 +15,6 @@ public interface NoticeinfoService {
 	List getAllNoticeinfo();
 	//根据公告编号获取公告信息
 	Noticeinfo getNoticeinfoById(Integer id);
-
+	//获取首页公告列表
+	List getIndexNotice();
 }

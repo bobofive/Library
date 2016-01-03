@@ -79,6 +79,11 @@
 			<result name="showAllNotices">/admin/showAllNotices.jsp</result>
 		</action>
 		
+		<!-- 显示首页的公告 -->
+		<action name="index_notices" class="noticeAction" method="showIndexNotice">
+			<result name="show">/user/indexContent.jsp</result>
+		</action>
+		
 		<!-- 查看某个公告 -->
 		<action name="show_notice" class="noticeAction" method="showNotice">
 			<result name="showNotice">/testweb/showNoticeMessage.jsp</result>

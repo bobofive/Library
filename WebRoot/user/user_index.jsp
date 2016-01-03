@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<jsp:include page="user_left.jsp"></jsp:include>
 		</div>
 		<div id="content">
-			<iframe name="content" width="100%" style="width:100%; min-height:650px;" border="0" frameborder="no" src="user/iframeDefault.jsp">
+			<iframe name="content" width="100%" style="width:100%; min-height:650px;" border="0" frameborder="no" src="index_notices">
 			</iframe>
 		
 		</div>
