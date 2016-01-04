@@ -35,9 +35,9 @@
 			<div class="col-md-6 col-md-offset-3">
 				<h3 class="text-center">设置抢座好友帐号</h3>
 				<div>
-					<form action="set_friend?userId=<%=userName %>" method="post">
+					<form action="set_friend?userId=<%=userName %>" method="post" onsubmit="return validata(this);">
 						<p>输入要设置的好友帐号：</p>
-						<input type="text" name="friendId" class="form-control top"><br/>
+						<input type="text" id="friendId" name="friendId" class="form-control top"><br/>
 						<p>输入好友帐号密码：</p>
 						<input type="password" name="friendPw" class="form-control top"><br/>
 						<button class="btn btn-lg btn-primary btn-block" type="submit">设置</button>
@@ -46,5 +46,22 @@
 			</div>
 		</div>
 	</div>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/common.js"></script>
+  <script type="text/javascript">
+  	function validata(form) {
+  		form = $(form);
+  		var friendId = form.find('#friendId').val();
+
+  		if( friendId == '' || !isNum(friendId) ) {
+  			alert("学号必须为数字");
+  			form.find('#friendId').focus();
+  			return false;
+  		}
+
+  		return true;
+  	}
+  
+  </script>
 </body>
 </html>
