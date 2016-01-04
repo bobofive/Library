@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="row">
   <div class="col-md-6 col-md-offset-3">
   	<h3 class="text-center">添加专业信息</h3>
-    <form action="insert_major_message" method="post" id="form" onsubmit="validata()">
+    <form action="insert_major_message" method="post" id="form" onsubmit="return validata(this);">
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="majorCode">专业代码: </label>
@@ -58,5 +58,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
   </div>
   </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/common.js"></script>
+  <script type="text/javascript">
+  	function validata(form) {
+  		form = $(form);
+  		var majorCode = form.find('#majorCode').val();
+  		var majorName = form.find('#majorName').val();
+  		var scademyCode = form.find('#scademyCode').val();
+  		
+  		if(! isNum(majorCode) || majorCode == '') {
+  			alert("专业代码必须为数字");
+  			form.find('#majorCode').focus();
+  			return false;
+  		}
+  		
+  		if(! isChinese(majorName) || majorName == '') {
+  			alert("专业名称必须为汉字");
+  			form.find('#majorName').focus();
+  			return false;
+  		}
+  		
+  		if(! isNum(scademyCode) || scademyCode == '') {
+  			alert("学院代码必须为数字");
+  			form.find('#scademyCode').focus();
+  			return false;
+  		}
+  		
+  		
+
+  		return true;
+  	}
+  
+  </script>
   </body>
 </html>

@@ -17,4 +17,21 @@ function short_content(length) {
 	})(jQuery);
 }
 
+function isNum(str) {
+	var reg = new RegExp("^[0-9]*$");
+	return reg.test(str);
+}
 
+function isPhoneNum(str) {
+	return /^1[3|4|5|8][0-9]\d{8}$/.test(str);
+}
+
+function isEmail(str) {
+	var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+	return reg.test(str);
+}
+
+function isChinese(str) {
+	var reg = new RegExp("^[\u4e00-\u9fa5]+$");
+	return reg.test(str);
+}

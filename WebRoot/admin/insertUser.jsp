@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="row">
   <div class="col-md-6 col-md-offset-3">
   	<h3 class="text-center">添加用户信息</h3>
-    <form action="insert_user_message" method="post" id="form" onsubmit="validata()">
+    <form action="insert_user_message" method="post" id="form" onsubmit="return validata(this);">
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="userId">学号: </label>
@@ -74,5 +74,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
   </div>
   </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/common.js"></script>
+  <script type="text/javascript">
+  	function validata(form) {
+  		form = $(form);
+  		var userId = form.find('#userId').val();
+  		var userName = form.find('#userName').val();
+  		var majorCode = form.find('#majorCode').val();
+  		
+  		if(! isNum(userId) || userId == '') {
+  			alert("学号必须为数字");
+  			form.find('#userId').focus();
+  			return false;
+  		}
+  		
+  		if(! isChinese(userName) || userName == '') {
+  			alert("姓名必须为汉字");
+  			form.find('#userName').focus();
+  			return false;
+  		}
+  		
+  		if(! isNum(majorCode) || majorCode == '') {
+  			alert("专业代码必须为数字");
+  			form.find('#majorCode').focus();
+  			return false;
+  		}
+  		return true;
+  	}
+  
+  </script>
   </body>
 </html>

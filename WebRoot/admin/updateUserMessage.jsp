@@ -36,8 +36,8 @@ String select_no = "";
     <h3 class="text-center">
 				修改用户信息
 			</h3>
-			<form action="update_user" method="post" id="userForm"
-			 class="form-horizontal">
+			<form action="update_user_by_admin" method="post" id="userForm"
+			 class="form-horizontal" onsubmit="return validata(this);">
 				
 					<div class="control-group">
 						<label class="control-label" for="userId">
@@ -132,5 +132,28 @@ String select_no = "";
 			</div>
 			</div>
 			</div>
+			<script src="js/jquery.min.js"></script>
+  			<script src="js/common.js"></script>
+  			<script type="text/javascript">
+  	function validata(form) {
+  		form = $(form);
+  		var userName = form.find('#userName').val();
+  		var majorCode = form.find('#majorCode').val();
+  		
+  		if(! isChinese(userName) || userName == '') {
+  			alert("姓名必须为汉字");
+  			form.find('#userName').focus();
+  			return false;
+  		}
+  		
+  		if(! isNum(majorCode) || majorCode == '') {
+  			alert("专业代码必须为数字");
+  			form.find('#majorCode').focus();
+  			return false;
+  		}
+  		return true;
+  	}
+  
+  </script>
   </body>
 </html>

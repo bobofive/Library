@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="container">
   <div class="row">
   	<h3 class="text-center">添加公告信息</h3>
-    <form action="insert_notice_message" method="post" id="form" onsubmit="validata()">
+    <form action="insert_notice_message" method="post" id="form" onsubmit="return validata(this);">
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="title">标题: </label>
@@ -70,6 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <script src="js/bootstrap.min.js"></script>
    <script src="js/summernote.min.js"></script>
    <script src="js/summernote-zh-CN.js"></script>
+   <script src="js/common.js"></script>
    <script type="text/javascript">
    $(document).ready(function() {
         $('#contents').summernote({
@@ -92,6 +93,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  ]
 		  });
     });
+    
+    function validata(form) {
+  		form = $(form);
+  		var author = form.find('#author').val();
+  		var title = form.find('#title').val();
+  		var contents = form.find('#contents').val();
+
+  		if(title == '') {
+  			alert("标题不能为空");
+  			form.find('#title').focus();
+  			return false;
+  		}
+  		if(! isChinese(author) || author == '') {
+  			alert("作者必须为汉字");
+  			form.find('#author').focus();
+  			return false;
+  		}
+  		if(contents == '<p><br></p>') {
+  			alert("内容不能为空");
+  			form.find('#contents').focus();
+  			return false;
+  		}
+
+  		return true;
+  	}
+    
    </script>
    
    

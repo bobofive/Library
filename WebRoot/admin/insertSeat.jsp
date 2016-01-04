@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="row">
   <div class="col-md-6 col-md-offset-3">
   	<h3 class="text-center">添加座位信息</h3>
-    <form action="insert_seat_message" method="post" id="form" onsubmit="validata()">
+    <form action="insert_seat_message" method="post" id="form" onsubmit="return validata(this);">
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="seatId">座位编号: </label>
@@ -52,5 +52,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
   </div>
   </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/common.js"></script>
+  <script type="text/javascript">
+  	function validata(form) {
+  		form = $(form);
+  		var seatId = form.find('#seatId').val();
+  		if(! isNum(seatId) || seatId == '') {
+  			alert("学号必须为数字");
+  			form.find('#seatId').focus();
+  			return false;
+  		}
+
+  		return true;
+  	}
+  
+  </script>
   </body>
 </html>

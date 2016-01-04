@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</h3>
 			<div>
 				<form class="form-horizontal" role="form" action="search_user_message" method="post">
-					<label class="col-sm-3 control-label">输入要查询的用户名：</label>
+					<label class="col-sm-3 control-label">输入要查询的用户学号：</label>
 					<div class="col-sm-7">
 						<input type="text" name="userId" class="form-control top">
 					</div>

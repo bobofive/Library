@@ -27,6 +27,7 @@
 		
 		<!-- 查询用户信息 -->
 		<action name="search_user_message" class="userAction" method="searchUserMessage">
+			<result name="jump">jump.jsp</result>
 			<result name="searchUserRe">/admin/showAllUsers.jsp</result>
 		</action>
 		
@@ -46,7 +47,7 @@
 		</action>
 		
 		<!-- 用户修改自己的信息 -->
-		<action name="update_user" class="userAction" method="updateUserinfo">
+		<action name="update_user_by_yourself" class="userAction" method="updateUserinfo">
 			<result name="jump">/jump.jsp</result>
 		</action>
 		
@@ -56,7 +57,7 @@
 		</action>
 		
 		<!-- 管理员修改用户信息 -->
-		<action name="update_user" class="userAction" method="updateUser">
+		<action name="update_user_by_admin" class="userAction" method="updateUser">
 			<result name="jump">/jump.jsp</result>
 		</action>
 		
@@ -110,11 +111,13 @@
 		
 		<!-- 管理员查询座位信息 -->
 		<action name="show_seat" class="seatAction" method="showSeat">
+			<result name="jump">jump.jsp</result>
 			<result name="showSeat">/admin/showAllSeats.jsp</result>
 		</action>
 		
 		<!-- 用户查询座位信息 -->
 		<action name="show_seat_message" class="seatAction" method="showSeatMessage">
+			<result name="jump">jump.jsp</result>
 			<result name="showSeat">/user/showSeatMessage.jsp</result>
 		</action>
 		

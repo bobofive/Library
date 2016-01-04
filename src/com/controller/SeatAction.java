@@ -30,12 +30,20 @@ public class SeatAction extends ActionSupport{
 	//管理员根据座位编号查询座位信息
 	public String showSeat(){
 		seatList=seatinfoService.getSeatinfoById(seatId);
+		if(seatList.size()==0){
+			BaseTools.error("座位不存在", null, null);
+			return "jump";
+		}
 		return "showSeat";
 	}
 	
 	//用户根据座位编号查询座位信息
 	public String showSeatMessage(){
 		seatMessage=seatinfoService.getOrderinfoById(seatId);
+		if(seatMessage.size()==0){
+			BaseTools.error("座位不存在", null, null);
+			return "jump";
+		}
 		return "showSeat";
 	}
 	

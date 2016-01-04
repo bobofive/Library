@@ -19,6 +19,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.services.HistoryinfoService;
 import com.services.OrderinfoService;
 import com.services.SeatinfoService;
+import com.sun.swing.internal.plaf.basic.resources.basic;
 import com.utils.BaseTools;
 
 public class OrderAction extends ActionSupport{
@@ -53,15 +54,29 @@ public class OrderAction extends ActionSupport{
 			BaseTools.error("您已经预约过了", null, null);
 			return "jump";
 		}
+		//判断座位是否存在
+		if(seatinfoService.getSeatinfoByIdOnly(orderinfo.getSeatId()).size()==0){
+			System.out.println("座位不存在");
+			BaseTools.error("座位不存在", null, null);
+			return "jump";
+		}
+		//判断座位是否可用
+		Seatinfo seatinfo=(Seatinfo)(seatinfoService.getSeatinfoByIdOnly(orderinfo.getSeatId()).get(0));
+		if(seatinfo.getIsUsed().equals("no")){
+			BaseTools.error("座位不可用", null, null);
+			return "jump";
+		}
+			
 		//判断座位是否可预约
-		if(orderinfoService.getOrderinfoBySeatId(orderinfo.getSeatId()).size()!=0){
+		if(seatinfo.getIsOrder().equals("no")){
 			BaseTools.error("该座位已被预约", null, null);
 			return "jump";
 		}
+		System.out.println("我执行了");
 		orderinfo.setUserId(Integer.parseInt(userId));
 		int isOrder=orderinfoService.creatOrderinfo(orderinfo);
 		if(isOrder==0){
-			this.creatHistory(Integer.parseInt(userId),seatId);
+			this.creatHistory(Integer.parseInt(userId),orderinfo.getSeatId().toString());
 			BaseTools.success("预约成功", null, "show_order?userId="+userId);
 		}
 		else
@@ -107,9 +122,11 @@ public class OrderAction extends ActionSupport{
 		//随机产生座位号
 		Random random = new Random();
 		Integer seatId=random.nextInt(10)+1;
+		
 		//判断座位是否可预约
 		while(true){
-			if(orderinfoService.getOrderinfoBySeatId(seatId).size()==0)
+			Seatinfo seatinfo=(Seatinfo)(seatinfoService.getSeatinfoByIdOnly(seatId).get(0));
+			if(seatinfo.getIsOrder().equals("yes")&&seatinfo.getIsUsed().equals("yes"))
 				break;
 			seatId=random.nextInt(10)+1;
 		}
@@ -161,6 +178,7 @@ public class OrderAction extends ActionSupport{
 		historyinfo.setDate(sdf.format(new Date()));
 		System.out.println(historyinfo);
 		int isInsert=historyinfoService.creatHistoryinfo(historyinfo);
+		System.out.println(isInsert);
 		/*if(isInsert==0)
 			return true;
 		else

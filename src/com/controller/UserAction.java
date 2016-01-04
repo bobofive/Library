@@ -34,6 +34,10 @@ public class UserAction extends ActionSupport{
 	//查询单个用户的信息
 	public String searchUserMessage(){
 		userList=userinfoService.getUserinfoById(Integer.parseInt(userId));
+		if(userinfoList.size()==0){
+			BaseTools.error("用户不存在", null, null);
+			return "jump";
+		}
 		return "searchUserRe";
 	}
 	//获取用户自己的信息
@@ -81,8 +85,8 @@ public class UserAction extends ActionSupport{
 		System.out.println(userinfo.getUserName());
 		boolean isUpdate=userinfoService.updateUserinfo(userinfo);
 		if(isUpdate){
+			System.out.println("updateUserinfo success");
 			BaseTools.success("修改成功", null, "show_user_message?userId="+userinfo.getUserId());
-			
 		}
 		else{
 			BaseTools.error("修改失败", null, null);
@@ -133,6 +137,10 @@ public class UserAction extends ActionSupport{
 	public String setFriend(){
 		if(userId.equals(friendId)){
 			BaseTools.error("不能设置自己为好友", null, null);
+			return "jump";
+		}
+		if(userinfoService.getUserinfoByIdOnly(Integer.parseInt(friendId)).size()==0){
+			BaseTools.error("该用户不存在", null, null);
 			return "jump";
 		}
 		userinfo=(Userinfo)(userinfoService.getUserinfoByIdOnly(Integer.parseInt(friendId)).get(0));
