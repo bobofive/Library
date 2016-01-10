@@ -27,12 +27,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <hr>
       <div class="tab-content">
         <div id="login_action" class="tab-pane active">
-          <form action="login_action" method="post">
+          <form action="login_action" method="post" onsubmit="return validata(this);">
             <p class="text-muted text-center">
               	输入用户名与密码
             </p>
-            <input type="text" name="usr" placeholder="用户名" class="form-control top">
-            <input type="password" name="pwd" placeholder="密码" class="form-control bottom">
+            <input id="usr" type="text" name="usr" placeholder="用户名" class="form-control top">
+            <input id="pwd" type="password" name="pwd" placeholder="密码" class="form-control bottom">
             <div class="text-center">
             <label><input type="radio" name="identity" value="user" checked="checked" />用户身份</label>
             <label><input type="radio" name="identity" value="admin" />管理身份</label>
@@ -82,6 +82,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           });
         });
       })(jQuery);
+      
+      
+      function validata(form) {
+  		form = $(form);
+  		var usr = form.find('#usr').val();
+  		var pwd = form.find('#pwd').val();
+
+  		if( usr == '' ) {
+  			alert("用户名不能为空");
+  			form.find('#usr').focus();
+  			return false;
+  			}
+  		
+  		if( pwd == '') {
+  			alert("密码不能为空");
+  			form.find('#pwd').focus();
+  			return false;
+  			}
+  			
+  		return true;
+  		}
     </script>
   </body>
 </html>

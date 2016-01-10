@@ -33,10 +33,11 @@
 		<div class="row">
 				<h3 class="text-center">查询座位信息</h3>
 				<div>
-					<form class="form-horizontal" role="form" action="show_seat_message" method="post">
+					<form class="form-horizontal" role="form" action="show_seat_message" 
+						method="post" onsubmit="return validata(this);">
 						<label class="col-sm-3 control-label">输入要查询的座位号：</label>
 						<div class="col-sm-7">
-							<input type="text" name="seatId" class="form-control top">
+							<input id="seatId" type="text" name="seatId" class="form-control top">
 						</div>
 						<div class="col-sm-2">
 							<button class="btn btn-primary btn-block" type="submit">查询</button>
@@ -45,5 +46,28 @@
 				</div>
 		</div>
 	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/common.js"></script>
+  <script type="text/javascript">
+  	function validata(form) {
+  		form = $(form);
+  		var seatId = form.find('#seatId').val();
+
+  		if( seatId == '') {
+  			alert("座位编号不能为空");
+  			form.find('#seatId').focus();
+  			return false;
+  		}	
+  		
+  		if( !isNum(seatId)) {
+  			alert("座位编号必须为数字");
+  			form.find('#seatId').focus();
+  			return false;
+  		}
+
+  		return true;
+  	}
+  
+  </script>
 </body>
 </html>

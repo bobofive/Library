@@ -39,7 +39,7 @@
 						<p>输入要设置的好友帐号：</p>
 						<input type="text" id="friendId" name="friendId" class="form-control top"><br/>
 						<p>输入好友帐号密码：</p>
-						<input type="password" name="friendPw" class="form-control top"><br/>
+						<input type="password" id="friendPw" name="friendPw" class="form-control top"><br/>
 						<button class="btn btn-lg btn-primary btn-block" type="submit">设置</button>
 					</form>
 				</div>
@@ -52,10 +52,16 @@
   	function validata(form) {
   		form = $(form);
   		var friendId = form.find('#friendId').val();
-
+		var friendPw = form.find('#friendPw').val();
   		if( friendId == '' || !isNum(friendId) ) {
   			alert("学号必须为数字");
   			form.find('#friendId').focus();
+  			return false;
+  		}
+  		
+  		if( friendPw == '') {
+  			alert("密码不能为空");
+  			form.find('#friendPw').focus();
   			return false;
   		}
 

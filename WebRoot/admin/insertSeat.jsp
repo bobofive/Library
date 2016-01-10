@@ -58,9 +58,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	function validata(form) {
   		form = $(form);
   		var seatId = form.find('#seatId').val();
+  		var location = form.find('#location').val();
+  		
   		if(! isNum(seatId) || seatId == '') {
   			alert("学号必须为数字");
   			form.find('#seatId').focus();
+  			return false;
+  		}
+  		
+  		if(location == '') {
+  			alert("位置不能为空");
+  			form.find('#location').focus();
   			return false;
   		}
 

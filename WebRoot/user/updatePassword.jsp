@@ -35,18 +35,50 @@
 			<div class="col-md-6 col-md-offset-3">
 				<h3 class="text-center">修改密码</h3>
 				<div>
-					<form action="update_userPw?userId=<%=userName %>" method="post">
+					<form action="update_userPw?userId=<%=userName %>" method="post" 
+						onsubmit="return validata(this);">
 						<p>输入原密码：</p>
-						<input type="password" name="userPw" class="form-control top"><br/>
+						<input type="password" name="userPw" id="userPw" class="form-control top"><br/>
 						<p>输入新密码：</p>
-						<input type="password" name="userPwNew" class="form-control top"><br/>
+						<input type="password" name="userPwNew" id="userPwNew" class="form-control top"><br/>
 						<p>重复新密码：</p>
-						<input type="password" name="userPwNewConfirm" class="form-control top"><br/>
+						<input type="password" name="userPwNewConfirm" id="userPwNewConfirm" class="form-control top"><br/>
 						<button class="btn btn-lg btn-primary btn-block" type="submit">修改</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/common.js"></script>
+  <script type="text/javascript">
+  	function validata(form) {
+  		form = $(form);
+  		var userPw = form.find('#userPw').val();
+  		var userPwNew = form.find('#userPwNew').val();
+  		var userPwNewConfirm = form.find('#userPwNewConfirm').val();
+
+  		if( userPw == '') {
+  			alert("原密码不能为空");
+  			form.find('#userPw').focus();
+  			return false;
+  		}	
+  		
+  		if( userPwNew == '') {
+  			alert("新密码不能为空");
+  			form.find('#userPwNew').focus();
+  			return false;
+  		}
+  		
+  		if( userPwNewConfirm == '') {
+  			alert("请重新输入新密码");
+  			form.find('#userPwNewConfirm').focus();
+  			return false;
+  		}
+
+  		return true;
+  	}
+  
+  </script>
 </body>
 </html>

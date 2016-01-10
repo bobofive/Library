@@ -63,7 +63,7 @@ public class NoticeAction extends ActionSupport{
 		noticeinfo.setDate(sdf.format(new Date()));
 		int isInsert=noticeinfoService.creatNoticeinfo(noticeinfo);
 		if(isInsert==0)
-			BaseTools.success("发布成功", null, null);
+			BaseTools.success("发布成功", null, "show_all_notices");
 		else
 			BaseTools.error("发布失败", null, null);
 		return "jump";

@@ -50,6 +50,10 @@ public class SeatAction extends ActionSupport{
 	//获取所有的空座位信息
 	public String showEmptySeat(){
 		emptySeatList=seatinfoService.getEmptySeatinfo();
+		if(emptySeatList.size()==0){
+			BaseTools.error("当前时间已无空座位", null, null);
+			return "jump";
+		}
 		return "showEmptySeat";
 	}
 

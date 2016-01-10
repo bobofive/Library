@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table class="table table-hover table-bordered table-striped">
 				<thead>
 					<tr>
-						<th class="text-center">编号</th>
+						<!-- <th class="text-center">编号</th> -->
 						<th class="text-center">标题</th>
 						<th class="text-center">副标题</th>
 						<th class="text-center">内容</th>
@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<s:iterator value="noticeList" var="notice" status="st">
 				    
 					<tr>
-						<td class="text-center"><s:property value="#notice.id"/></td>
+						<%-- <td class="text-center"><s:property value="#notice.id"/></td> --%>
 						<td><s:property value="#notice.title"/></td>
 						<td><s:property value="#notice.amallTitle"/></td>
 						<td class="short_content"><s:property value="#notice.contents"/></td>

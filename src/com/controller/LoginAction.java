@@ -35,7 +35,7 @@ public class LoginAction extends ActionSupport{
 //				return "err";
 //			}
 			if(userinfoService.getUserinfoById(Integer.parseInt(usr)).size() == 0){
-				BaseTools.error("用户名不存在", null, null);
+				BaseTools.error("用户不存在", null, null);
 				return "err";
 			}
 			if(userinfoService.getPwd(usr).equals(pwd)){
@@ -59,7 +59,7 @@ public class LoginAction extends ActionSupport{
 				return "adm";
 			}
 		}
-		BaseTools.error("登录失败，用户名或密码错误", null, null);
+		BaseTools.error("登录失败，密码错误", null, null);
 		return "err";
 	}
 	

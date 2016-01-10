@@ -154,11 +154,13 @@
 		<!-- 空座位查询 -->
 		<action name="show_empty_seat" class="seatAction" method="showEmptySeat">
 			<result name="showEmptySeat">/user/emptySeat.jsp</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 预约信息查询 -->
 		<action name="show_order" class="orderAction" method="showOrderByUserId">
 			<result name="showOrderMessage">/user/myOrdermessage.jsp</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 座位预约 -->
@@ -197,6 +199,7 @@
 		<!-- 查看个人长期座位信息 -->
 		<action name="show_longtermapply_message" class="longtermapplyAction" method="showLongtermapplyinfoByUserId">
 			<result name="showLongtermapply">/user/myLongtermapplyMessage.jsp</result>
+			<result name="jump">/jump.jsp</result>
 		</action>
 		
 		<!-- 查询长期座位申请信息 -->

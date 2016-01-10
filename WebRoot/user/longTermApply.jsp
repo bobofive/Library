@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="row">
   <div class="col-md-6 col-md-offset-3">
   	<h3 class="text-center">长期座位申请</h3>
-    <form action="insert_longtermapply" method="post" id="form" onsubmit="validata()">
+    <form action="insert_longtermapply" method="post" id="form" onsubmit="return validata(this);">
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="userId">申请人学号: </label>
@@ -52,5 +52,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
   </div>
   </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/common.js"></script>
+  <script type="text/javascript">
+  	function validata(form) {
+  		form = $(form);
+  		var userId = form.find('#userId').val();
+  		var seatId = form.find('#seatId').val();
+  		var time = form.find('#time').val();
+
+  		if( userId == ''||!isNum(userId)) {
+  			alert("申请人学号必须为数字");
+  			form.find('#userId').focus();
+  			return false;
+  		}	
+  		
+		if( seatId == ''||!isNum(seatId)) {
+  			alert("座位编号必须为数字");
+  			form.find('#seatId').focus();
+  			return false;
+  		}
+  		
+  		if( time == ''||!isNum(time)) {
+  			alert("申请时长必须为数字");
+  			form.find('#time').focus();
+  			return false;
+  		}
+
+  		return true;
+  	}
+  
+  </script>
   </body>
 </html>

@@ -31,7 +31,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="container">
   <div class="row">
   	<h3 class="text-center">座位预约</h3>
-    <form class="form-horizontal" role="form" action="order_seat?userId=<%=userName %>" method="post" id="form" onsubmit="validata()">
+    <form class="form-horizontal" role="form" action="order_seat?userId=<%=userName %>" 
+    	method="post" id="form" onsubmit="return validata(this);">
 		<div class="control-group">
 			<div class="controls">
 				<label class="col-sm-3 control-label" for="seatId">座位编号: </label>
@@ -49,5 +50,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </form>
   </div>
   </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/common.js"></script>
+  <script type="text/javascript">
+  	function validata(form) {
+  		form = $(form);
+  		var seatId = form.find('#seatId').val();
+
+  		if( seatId == '') {
+  			alert("座位编号不能为空");
+  			form.find('#seatId').focus();
+  			return false;
+  		}	
+  		
+  		if( !isNum(seatId)) {
+  			alert("座位编号必须为数字");
+  			form.find('#seatId').focus();
+  			return false;
+  		}
+
+  		return true;
+  	}
+  
+  </script>
   </body>
 </html>

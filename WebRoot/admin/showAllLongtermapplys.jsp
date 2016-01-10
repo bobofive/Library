@@ -32,10 +32,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="row" style="margin-bottom:15px;">
     <h3 class="text-center">长期座位申请信息列表</h3>
     <div>
-    	<form class="form-horizontal" role="form" action="search_longtermapplyinfo" method="post">
+    	<form class="form-horizontal" role="form" action="search_longtermapplyinfo" 
+    		onsubmit="return validata(this);" method="post">
     		<label class="col-sm-3 control-label">输入要查询的申请者学号：</label>
     		<div class="col-sm-7">
-    		<input type="text" name="userId" class="form-control top">
+    		<input id="userId" type="text" name="userId" class="form-control top">
     		</div>
     		<div class="col-sm-2">
     		<button class="btn btn-primary btn-block" type="submit">查询</button>
@@ -77,6 +78,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </table>
     </div>
     </div>
-    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.min.js"></script>
+  <script src="js/common.js"></script>
+  <script type="text/javascript">
+  	function validata(form) {
+  		form = $(form);
+  		var userId = form.find('#userId').val();
+  		
+  		if(! isNum(userId) || userId == '') {
+  			alert("学号必须为数字");
+  			form.find('#userId').focus();
+  			return false;
+  		}
+
+  		return true;
+  	}
+  
+  </script>
   </body>
 </html>

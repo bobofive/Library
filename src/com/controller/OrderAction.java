@@ -44,11 +44,20 @@ public class OrderAction extends ActionSupport{
 	public String showOrderByUserId(){
 		
 		myOrderinfo=orderinfoService.getOrderinfoByUserId(Integer.parseInt(userId));
+		if(myOrderinfo==null){
+			BaseTools.error("您还未进行预约", null, null);
+			return "jump";
+		}
 		return "showOrderMessage";
 	}
 	
 	//预约座位
 	public String SeatOrder(){
+		//判断用户是否存在
+		if(userId.equals("")){
+			BaseTools.error("未设置好友", null, null);
+			return "jump";
+		}
 		//判断用户是否已经预约过了
 		if(orderinfoService.getOrderinfoByUserId(Integer.parseInt(userId)).size()!=0){
 			BaseTools.error("您已经预约过了", null, null);
@@ -114,6 +123,11 @@ public class OrderAction extends ActionSupport{
 	
 	//一键预约座位
 	public String orderByOneButton(){
+		//判断用户是否存在
+		if(userId.equals("")){
+			BaseTools.error("未设置好友", null, null);
+			return "jump";
+		}
 		//判断用户是否已经预约过了
 		if(orderinfoService.getOrderinfoByUserId(Integer.parseInt(userId)).size()!=0){
 			BaseTools.error("您已经预约过了", null, null);
