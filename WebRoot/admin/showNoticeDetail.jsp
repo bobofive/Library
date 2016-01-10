@@ -28,6 +28,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div><!--文章标题-->
                 <div class="panel-body">
                 	<s:property value="noticeinfo.contents" escape="false" />
+                	
+                	
+                	<p>
+                	<s:if test="noticeinfo.accessory != null || ''.equals(noticeinfo.accessory)">
+                		附件：
+                		<a href="<%=basePath %>upload/<s:property value="noticeinfo.accessory"/>"><s:property value="noticeinfo.accessory"/></a>
+                	</s:if>
+                	</p>
 				</div>
                 <div class="panel-footer text-right"><br>
                     <p>发布人：<s:property value="noticeinfo.author"/></p>

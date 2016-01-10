@@ -10,6 +10,9 @@
 		<action name="sign_out" class="loginAction" method="signout">
 			<result name="signout" type="redirect">login.jsp</result>
 		</action>
+		<action name="upload_file" class="uploadAction" method="execute">
+			<result name="jump">/jump.jsp</result>
+		</action>
 	</package>
 	
 	<!-- 用户信息模块 -->

@@ -1,8 +1,17 @@
 package com.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.domain.Noticeinfo;
 import com.opensymphony.xwork2.ActionSupport;
@@ -15,6 +24,49 @@ public class NoticeAction extends ActionSupport{
 	private NoticeinfoService noticeinfoService;
 	private List<Noticeinfo> noticeList;
 	private Integer id;
+	
+	//上传文件存放路径   
+    private final static String UPLOADDIR = "/upload";
+    //上传文件集合   
+    private List<File> file;   
+    //上传文件名集合   
+    private List<String> fileFileName;   
+    //上传文件内容类型集合   
+    private List<String> fileContentType;
+	
+	
+	
+  //执行上传功能   
+  	private void uploadFile(int i) throws FileNotFoundException, IOException {   
+          try {   
+              InputStream in = new FileInputStream(file.get(i));
+              String dir = ServletActionContext.getServletContext().getRealPath(UPLOADDIR);
+              File fileLocation = new File(dir);
+              //此处也可以在应用根目录手动建立目标上传目录  
+              if(!fileLocation.exists()){
+                  boolean isCreated  = fileLocation.mkdir();
+                  if(!isCreated) {
+                      //目标上传目录创建失败,可做其他处理,例如抛出自定义异常等,一般应该不会出现这种情况。  
+                  	System.out.println("目录创建失败");
+                      return;
+                  }
+              }
+              String fileName=this.getFileFileName().get(i);
+              File uploadFile = new File(dir, fileName);
+              OutputStream out = new FileOutputStream(uploadFile);
+              byte[] buffer = new byte[1024 * 1024];
+              int length;
+              while ((length = in.read(buffer)) > 0) {
+                  out.write(buffer, 0, length); 
+              }
+              in.close();
+              out.close();
+          } catch (FileNotFoundException ex) {  
+              ex.printStackTrace();
+          } catch (IOException ex) {
+              ex.printStackTrace();
+          }
+      }
 	
 	public String execute() {
 		// TODO Auto-generated method stub
@@ -57,8 +109,12 @@ public class NoticeAction extends ActionSupport{
 	}
 	
 	//添加公告信息
-	public String insertNotice(){
-		System.out.println(noticeinfo.getContents());
+	public String insertNotice() throws FileNotFoundException, IOException{
+        if(file != null) { //有文件要上传
+        	this.uploadFile(0);
+        	noticeinfo.setAccessory(this.getFileFileName().get(0).toString());
+        }
+        
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		noticeinfo.setDate(sdf.format(new Date()));
 		int isInsert=noticeinfoService.creatNoticeinfo(noticeinfo);
@@ -99,6 +155,34 @@ public class NoticeAction extends ActionSupport{
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public List<File> getFile() {
+		return file;
+	}
+
+	public void setFile(List<File> file) {
+		this.file = file;
+	}
+
+	public List<String> getFileFileName() {
+		return fileFileName;
+	}
+
+	public void setFileFileName(List<String> fileFileName) {
+		this.fileFileName = fileFileName;
+	}
+
+	public List<String> getFileContentType() {
+		return fileContentType;
+	}
+
+	public void setFileContentType(List<String> fileContentType) {
+		this.fileContentType = fileContentType;
+	}
+
+	public static String getUploaddir() {
+		return UPLOADDIR;
 	}
 
 }

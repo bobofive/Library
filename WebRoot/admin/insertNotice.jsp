@@ -30,11 +30,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="container">
   <div class="row">
   	<h3 class="text-center">添加公告信息</h3>
-    <form action="insert_notice_message" method="post" id="form" onsubmit="return validata(this);">
+    <form action="insert_notice_message" method="post" id="form" onsubmit="return validata(this);" enctype="multipart/form-data">
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="title">标题: </label>
-				<s:textfield name="noticeinfo.title" maxlength="30" id="title" cssClass="form-control" />
+				<s:textfield name="noticeinfo.title" maxlength="19" id="title" cssClass="form-control" />
 			</div>
 		</div>
 		<div class="control-group">			
@@ -47,6 +47,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="controls">
 				<label class="control-label" for="author">作者: </label>
 				<s:textfield name="noticeinfo.author" maxlength="30" id="author" cssClass="form-control" />
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<label class="control-label" for="accessory">附件: </label>
+				<input name="file" id="accessory" class="form-control" type="file" />
 			</div>
 		</div>
 		<div class="control-group">
