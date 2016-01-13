@@ -35,13 +35,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="userId">学号: </label>
-				<s:textfield name="userinfo.userId" maxlength="30" id="userId" cssClass="form-control" />
+				<s:textfield name="userinfo.userId" maxlength="9" id="userId" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="userName">姓名: </label>
-				<s:textfield name="userinfo.userName" maxlength="30" id="userName" cssClass="form-control" />
+				<s:textfield name="userinfo.userName" maxlength="19" id="userName" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">
@@ -62,12 +62,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="majorCode">专业代码: </label>
-				<s:textfield name="userinfo.majorCode" maxlength="30" id="majorCode" cssClass="form-control" />
+				<s:textfield name="userinfo.majorCode" maxlength="2" id="majorCode" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div id="submiter" class="control-group">
-			<div class="controls">
-				<input type="submit" value="添加 " class="btn btn-primary" />
+			<div class="controls text-center">
+				<input type="submit" value="添加 " style="width:100px" class="btn btn-primary" />
 			</div>
 		</div>
     </form>

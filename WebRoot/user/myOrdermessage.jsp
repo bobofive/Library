@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<div class="row">
   	<div class="col-md-6 col-md-offset-3">
   		<h3 class="text-center">我的预约情况</h3>
-  		<table class="table table-hover table-bordered table-striped">
+  		<table class="table table-hover table-bordered table-striped text-center">
   			<tbody>
   			<s:iterator value="myOrderinfo" var="myOrder" status="st">
   			<tr>
@@ -46,8 +46,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			</s:iterator>
   			</tbody>
   		</table>
-  		<a href="delete_order?id=<s:property value="#myOrder.id"/>&seatId=<s:property value="#myOrder.seatId"/>" 
-  			class="btn btn-primary">取消预约</a>
+  		<div style="margin:0 auto;width:25%;">
+  			<a href="delete_order?id=<s:property value="#myOrder.id"/>&seatId=<s:property value="#myOrder.seatId"/>" 
+  				class="btn btn-primary">取消预约</a>
+  		</div>
   	</div>
   	</div>
   	</div>

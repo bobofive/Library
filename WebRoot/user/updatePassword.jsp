@@ -38,11 +38,11 @@
 					<form action="update_userPw?userId=<%=userName %>" method="post" 
 						onsubmit="return validata(this);">
 						<p>输入原密码：</p>
-						<input type="password" name="userPw" id="userPw" class="form-control top"><br/>
+						<input type="password" name="userPw" id="userPw" maxlength="19" class="form-control top"><br/>
 						<p>输入新密码：</p>
-						<input type="password" name="userPwNew" id="userPwNew" class="form-control top"><br/>
+						<input type="password" name="userPwNew" id="userPwNew" maxlength="19" class="form-control top"><br/>
 						<p>重复新密码：</p>
-						<input type="password" name="userPwNewConfirm" id="userPwNewConfirm" class="form-control top"><br/>
+						<input type="password" name="userPwNewConfirm" id="userPwNewConfirm" maxlength="19" class="form-control top"><br/>
 						<button class="btn btn-lg btn-primary btn-block" type="submit">修改</button>
 					</form>
 				</div>

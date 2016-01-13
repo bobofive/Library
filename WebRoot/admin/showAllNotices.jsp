@@ -39,8 +39,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<!-- <th class="text-center">编号</th> -->
 						<th class="text-center">标题</th>
 						<th class="text-center">副标题</th>
-						<th class="text-center">内容</th>
-						<th class="text-center">附件</th>
+						<!-- <th class="text-center">内容</th>
+						<th class="text-center">附件</th> -->
 						<th class="text-center">发布日期</th>
 						<th class="text-center">作者</th>
 						<th class="text-center">查看详情</th>
@@ -52,10 +52,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    
 					<tr>
 						<%-- <td class="text-center"><s:property value="#notice.id"/></td> --%>
-						<td><s:property value="#notice.title"/></td>
-						<td><s:property value="#notice.amallTitle"/></td>
-						<td class="short_content"><s:property value="#notice.contents"/></td>
-						<td><s:property value="#notice.accessory"/></td>
+						<td class="short_content"><s:property value="#notice.title"/></td>
+						<td class="short_content"><s:property value="#notice.amallTitle"/></td>
+						<%-- <td class="short_content"><s:property value="#notice.contents"/></td>
+						<td><s:property value="#notice.accessory"/></td> --%>
 						<td class="text-center"><s:property value="#notice.date"/></td>
 						<td class="text-center"><s:property value="#notice.author"/></td>
 						<td class="text-center">
@@ -75,10 +75,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	
 	<!--jQuery -->
+	<script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/common.js"></script>
     <script type="text/javascript">
-    short_content(3);
+    short_content(10);
     </script>
   </body>
 </html>

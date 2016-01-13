@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <h3 class="text-center">
 				个人信息
 			</h3>
-			<table class="table table-hover table-bordered table-striped">
+			<table class="table table-hover table-bordered table-striped text-center">
 				<tbody>
 					<s:iterator value="userinfoList" var="user" status="st">
 					<tr>
@@ -80,9 +80,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tbody>
 				
 			</table>
+			<div style="margin:0 auto;width:60%;">
 				<a href="show_user_message_before_delete?userId=<s:property value="#user.userId"/>" class="btn btn-primary">修改信息</a>
 				<a href="user/setFriend.jsp" class="btn btn-default">设置好友</a>
 				<a href="user/updatePassword.jsp" class="btn btn-default">修改密码</a>
+			</div>
 			</div>
 			</div>
 			</div>

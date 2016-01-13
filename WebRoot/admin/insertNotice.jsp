@@ -40,13 +40,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="amallTitle">副标题: </label>
-				<s:textfield name="noticeinfo.amallTitle" maxlength="30" id="amallTitle" cssClass="form-control" />
+				<s:textfield name="noticeinfo.amallTitle" maxlength="19" id="amallTitle" cssClass="form-control" />
 			</div>
 		</div>
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="author">作者: </label>
-				<s:textfield name="noticeinfo.author" maxlength="30" id="author" cssClass="form-control" />
+				<s:textfield name="noticeinfo.author" maxlength="19" id="author" cssClass="form-control" />
 			</div>
 		</div>
 		<div class="control-group">
@@ -63,8 +63,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div id="submiter" class="control-group">
-			<div class="controls">
-				<input type="submit" value="添加 " class="btn btn-primary" />
+			<div class="controls text-center">
+				<input type="submit" value="添加 " style="width:100px" class="btn btn-primary" />
 			</div>
 		</div>
     </form>

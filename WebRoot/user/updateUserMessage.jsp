@@ -110,7 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<input type="text" name="userinfo.phoneNum" value="<s:property value="#user.phoneNum"/>"
-								maxlength="18" id="phoneNum" class="form-control" />
+								maxlength="11" id="phoneNum" class="form-control" />
 							<%-- <s:textfield name="userinfo.phoneNum" maxlength="30" value="<s:property value="#user.phoneNum"/>"
 									id="phoneNum" cssClass="form-control" /> --%>
 						</div>
@@ -121,7 +121,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</label>
 						<div class="controls">
 							<input type="text" name="userinfo.email" value="<s:property value="#user.email"/>"
-								maxlength="18" id="email" class="form-control" />
+								maxlength="29" id="email" class="form-control" />
 							<%-- <s:textfield name="userinfo.email" maxlength="30" value="<s:property value="#user.email"/>"
 									id="email" cssClass="form-control" /> --%>
 						</div>

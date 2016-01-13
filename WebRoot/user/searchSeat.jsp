@@ -37,7 +37,7 @@
 						method="post" onsubmit="return validata(this);">
 						<label class="col-sm-3 control-label">输入要查询的座位号：</label>
 						<div class="col-sm-7">
-							<input id="seatId" type="text" name="seatId" class="form-control top">
+							<input id="seatId" type="text" name="seatId" maxlength="3" class="form-control top">
 						</div>
 						<div class="col-sm-2">
 							<button class="btn btn-primary btn-block" type="submit">查询</button>

@@ -64,7 +64,7 @@ public class UserAction extends ActionSupport{
 	public String insertUser(){
 		
 		if(userinfoService.getUserinfoById(userinfo.getUserId()).size() != 0){
-			BaseTools.error("添加失败", null, null);
+			BaseTools.error("添加失败，用户已存在", null, null);
 			return "jump";
 		}
 		userinfo.setUserPw("123456");

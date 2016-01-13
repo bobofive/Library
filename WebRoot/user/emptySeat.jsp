@@ -34,16 +34,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <h3 class="text-center">
 				空座位详情列表
 			</h3>
-			<table class="table table-hover table-bordered table-striped">
+			<table class="table table-hover table-bordered table-striped text-center">
 				<thead>
 					<tr>
-						<th>
+						<th class="text-center">
 							座位编号
 						</th>
-						<th>
+						<th class="text-center">
 							位置
 						</th>
-						<th>
+						<th class="text-center">
 							预约
 						</th>
 					</tr>

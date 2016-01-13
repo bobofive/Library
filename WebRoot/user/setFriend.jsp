@@ -37,9 +37,9 @@
 				<div>
 					<form action="set_friend?userId=<%=userName %>" method="post" onsubmit="return validata(this);">
 						<p>输入要设置的好友帐号：</p>
-						<input type="text" id="friendId" name="friendId" class="form-control top"><br/>
+						<input type="text" id="friendId" name="friendId" maxlength="9" class="form-control top"><br/>
 						<p>输入好友帐号密码：</p>
-						<input type="password" id="friendPw" name="friendPw" class="form-control top"><br/>
+						<input type="password" id="friendPw" name="friendPw" maxlength="19	" class="form-control top"><br/>
 						<button class="btn btn-lg btn-primary btn-block" type="submit">设置</button>
 					</form>
 				</div>

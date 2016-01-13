@@ -45,7 +45,7 @@ String select_no = "";
 						</label>
 						<div class="controls">
 							<input type="text" name="userinfo.userId" value="<s:property value="userinfo.userId"/>"
-								 readonly="readonly" maxlength="18" id="userId" class="form-control" />
+								 readonly="readonly" maxlength="9" id="userId" class="form-control" />
 						</div>
 					</div>
 					<div class="control-group">
@@ -60,7 +60,7 @@ String select_no = "";
 						</label>
 						<div class="controls">
 							<input type="text" name="userinfo.userName" value="<s:property value="userinfo.userName"/>"
-								maxlength="18" id="userName" class="form-control" />
+								maxlength="19" id="userName" class="form-control" />
 						</div>
 					</div> 
 					<div class="control-group">
@@ -96,7 +96,7 @@ String select_no = "";
 						</label>
 						<div class="controls">
 							<input type="text" name="userinfo.majorCode" value="<s:property value="userinfo.majorCode"/>" 
-								maxlength="18" id="majorCode" class="form-control" />
+								maxlength="2" id="majorCode" class="form-control" />
 						</div>
 					</div>
 					<div class="control-group">

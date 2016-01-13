@@ -64,7 +64,7 @@ public class LongtermapplyAction extends ActionSupport{
 	public String showLongtermapplyinfoByUserId(){
 		
 		myLongtermapplyinfo=longtermapplyinfoService.getLongtermapplyinfoByUserId(userId);
-		if(myLongtermapplyinfo==null){
+		if(myLongtermapplyinfo.size()==0){
 			BaseTools.error("您还未进行长期座位申请", null, null);
 			return "jump";
 		}

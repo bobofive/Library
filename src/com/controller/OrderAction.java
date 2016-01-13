@@ -44,7 +44,8 @@ public class OrderAction extends ActionSupport{
 	public String showOrderByUserId(){
 		
 		myOrderinfo=orderinfoService.getOrderinfoByUserId(Integer.parseInt(userId));
-		if(myOrderinfo==null){
+		System.out.println(myOrderinfo);
+		if(myOrderinfo.size()==0){
 			BaseTools.error("您还未进行预约", null, null);
 			return "jump";
 		}
@@ -69,6 +70,17 @@ public class OrderAction extends ActionSupport{
 			BaseTools.error("座位不存在", null, null);
 			return "jump";
 		}
+		
+		//随机延时一段时间
+		Random random = new Random();
+		Integer sleepTime=random.nextInt(2000);
+		try {
+			Thread.sleep(sleepTime);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 		//判断座位是否可用
 		Seatinfo seatinfo=(Seatinfo)(seatinfoService.getSeatinfoByIdOnly(orderinfo.getSeatId()).get(0));
 		if(seatinfo.getIsUsed().equals("no")){
@@ -102,6 +114,17 @@ public class OrderAction extends ActionSupport{
 			BaseTools.error("您已经预约过了", null, null);
 			return "jump";
 		}
+		
+		//随机延时一段时间
+		Random random = new Random();
+		Integer sleepTime=random.nextInt(2000);
+		try {
+			Thread.sleep(sleepTime);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 		//判断座位是否可预约
 		if(orderinfoService.getOrderinfoBySeatId(Integer.parseInt(seatId)).size()!=0){
 			BaseTools.error("该座位已被预约", null, null);
@@ -135,14 +158,24 @@ public class OrderAction extends ActionSupport{
 		}
 		//随机产生座位号
 		Random random = new Random();
-		Integer seatId=random.nextInt(10)+1;
+		Integer seatId=random.nextInt(60)+1;
+		Integer sleepTime;
 		
 		//判断座位是否可预约
 		while(true){
 			Seatinfo seatinfo=(Seatinfo)(seatinfoService.getSeatinfoByIdOnly(seatId).get(0));
+			sleepTime=random.nextInt(1000);
+			//随机延时一段时间
+			try {
+				Thread.sleep(sleepTime);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			
 			if(seatinfo.getIsOrder().equals("yes")&&seatinfo.getIsUsed().equals("yes"))
 				break;
-			seatId=random.nextInt(10)+1;
+			seatId=random.nextInt(60)+1;
 		}
 		Orderinfo orderinfo=new Orderinfo();
 		orderinfo.setUserId(Integer.parseInt(userId));

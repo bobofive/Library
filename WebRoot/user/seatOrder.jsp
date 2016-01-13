@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="controls">
 				<label class="col-sm-3 control-label" for="seatId">座位编号: </label>
 				<div class="col-sm-7">
-					<s:textfield name="orderinfo.seatId" maxlength="30" id="seatId" cssClass="form-control" />
+					<s:textfield name="orderinfo.seatId" maxlength="3" id="seatId" cssClass="form-control" />
 				</div>
 				<div id="submiter" class="control-group">
 					<div class="controls col-sm-2">

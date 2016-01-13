@@ -74,7 +74,7 @@ public class SeatAction extends ActionSupport{
 	public String insertSeat(){
 		
 		if((seatinfoService.getSeatinfoById(seatinfo.getSeatId())).size()!=0){
-			BaseTools.error("座位编号重复，添加失败！", null, null);
+			BaseTools.error("座位已存在，添加失败！", null, null);
 			return "jump";
 		}
 		seatinfo.setIsOrder("yes");

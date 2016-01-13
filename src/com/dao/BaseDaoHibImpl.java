@@ -149,6 +149,7 @@ public class BaseDaoHibImpl<T> implements BaseDao<T> {
 	//将表中的某个属性设置为相同的值
 	public void setFieldValue(String tablename, String field, Object value) {
 		String value_str = "";
+		//判断是不是String类型的
 		if(value instanceof String) {
 			value_str = "\""+value+"\"";
 		}else {

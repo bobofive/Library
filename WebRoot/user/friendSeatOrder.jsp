@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="controls">
 				<label class="control-label col-sm-3" for="seatId">输入要预约的座位编号: </label>
 				<div class="col-sm-6">
-					<s:textfield name="orderinfo.seatId" maxlength="30" id="seatId" cssClass="form-control" />
+					<s:textfield name="orderinfo.seatId" maxlength="3" id="seatId" cssClass="form-control" />
 				</div>
 				<div id="submiter" class="control-group col-sm-1">
 					<input type="submit" value="预约 " class="btn btn-primary" />

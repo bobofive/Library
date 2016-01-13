@@ -1,6 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@page import="com.domain.Userinfo"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
 <%
+Integer userName=((Userinfo)session.getAttribute("userinfo")).getUserId();
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
@@ -28,23 +30,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="userId">申请人学号: </label>
-				<s:textfield name="longtermapplyinfo.userId" maxlength="30" id="userId" cssClass="form-control" />
+				<input type="text" name="longtermapplyinfo.userId" value="<%=userName %>"
+					readonly="readonly" maxlength="9" id="userId" class="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="seatId">申请座位编号: </label>
-				<s:textfield name="longtermapplyinfo.seatId" maxlength="30" id="seatId" cssClass="form-control" />
+				<s:textfield name="longtermapplyinfo.seatId" maxlength="2" id="seatId" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="time">申请时长: </label>
-				<s:textfield name="longtermapplyinfo.time" maxlength="30" id="time" cssClass="form-control" />
+				<s:textfield name="longtermapplyinfo.time" maxlength="4" id="time" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div id="submiter" class="control-group">
-			<div class="controls">
+			<div class="controls text-center">
 				<input type="submit" value="提交申请 " class="btn btn-primary" />
 			</div>
 		</div>

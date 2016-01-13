@@ -34,18 +34,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="seatId">座位编号: </label>
-				<s:textfield name="seatinfo.seatId" maxlength="30" id="seatId" cssClass="form-control" />
+				<s:textfield name="seatinfo.seatId" maxlength="3" id="seatId" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div class="control-group">			
 			<div class="controls">
 				<label class="control-label" for="location">位置: </label>
-				<s:textfield name="seatinfo.location" maxlength="30" id="location" cssClass="form-control" />
+				<s:textfield name="seatinfo.location" maxlength="19" id="location" cssClass="form-control" />
 			</div>
 		</div><br/>
 		<div id="submiter" class="control-group">
-			<div class="controls">
-				<input type="submit" value="添加 " class="btn btn-primary" />
+			<div class="controls text-center">
+				<input type="submit" value="添加 " style="width:100px" class="btn btn-primary" />
 			</div>
 		</div>
     </form>
