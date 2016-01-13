@@ -32,7 +32,7 @@ html,body {
 		</div>
 		<hr>
 		<div class="tab-content">
-			<div id="login_action" class="tab-pane active">
+			<div id="login" class="tab-pane active">
 				<form action="login_action" method="post"
 					onsubmit="return validata(this);">
 					<p class="text-muted text-center">输入用户名与密码</p>
