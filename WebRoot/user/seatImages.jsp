@@ -18,12 +18,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <style>
 /* 轮播广告 */
 .carousel {
-	height: 350px;
+	height: 650px;
 	margin-bottom: 60px;
 }
 
 .carousel .item {
-	height: 350px;
+	height: 650px;
 	background-color: #000;
 }
 
@@ -34,8 +34,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 </head>
 
-<body style="min-height:600px">
-	<div class="container" style="margin-top:100px;">
+<body style="min-height:650px">
+	<div>
 		<div id="ad-carousel" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#ad-carousel" data-slide-to="0" class="active"></li>
